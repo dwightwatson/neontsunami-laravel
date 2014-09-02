@@ -1,0 +1,18 @@
+root = true
+charset = utf-8
+
+[*.php]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+spaces_around_operators = true
+
+[*.blade.php]
+indent_style = space
+indent_size = 2
+
+[*.less, *.js, *.yml, *.json]
+indent_style = space
+indent_size = 2

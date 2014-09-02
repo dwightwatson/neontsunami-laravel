@@ -1,0 +1,28 @@
+Post:
+  user_id:
+    type: User
+  series_id:
+    type: Series
+  title: $string
+  slug: $integer-$string
+  content: $text
+
+Project:
+  name: $string
+  slug: $integer-$string
+  description: $text
+
+Series:
+  name: $string
+  slug: $integer-$string
+  description: $text
+
+Tag:
+  name: $string
+  slug: $integer-$string
+
+User:
+  first_name: $string
+  last_name: $string
+  email: foo-$integer@example.com
+  password: password

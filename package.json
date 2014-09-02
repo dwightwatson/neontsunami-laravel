@@ -1,0 +1,16 @@
+{
+  "name": "neontsunami",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "bower": "^1.3.7",
+    "gulp": "^3.8.0",
+    "gulp-coffee": "^2.0.1",
+    "gulp-imagemin": "^0.6.1",
+    "gulp-include": "^0.2.3",
+    "gulp-less": "^1.2.3",
+    "gulp-minify-css": "^0.3.4",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-uglify": "^0.3.0"
+  }
+}
