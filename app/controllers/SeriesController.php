@@ -55,7 +55,8 @@ class SeriesController extends BaseController {
         $posts = $series->posts()->published()->paginate();
 
         return View::make('series.show', compact('series', 'posts'))
-            ->withTitle($series->name);
+            ->withTitle($series->name)
+            ->withDescription(str_limit($series->description, 160));
     }
 
 }

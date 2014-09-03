@@ -55,8 +55,9 @@ class PostsController extends BaseController {
 
         $post->increment('views');
 
-        return View::make('posts.show', compact('post', 'content'))
-            ->withTitle($post->title);
+        return View::make('posts.show', compact('post'))
+            ->withTitle($post->title)
+            ->withDescription(str_limit($post->content, 160));
     }
 
 }

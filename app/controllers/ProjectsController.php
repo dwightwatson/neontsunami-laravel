@@ -49,7 +49,8 @@ class ProjectsController extends BaseController {
     public function show(Project $project)
     {
         return View::make('projects.show', compact('project'))
-            ->withTitle($project->name);
+            ->withTitle($project->name)
+            ->withDescription(str_limit($project->description, 160));
     }
 
 }

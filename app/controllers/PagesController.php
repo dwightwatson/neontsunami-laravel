@@ -38,7 +38,8 @@ class PagesController extends BaseController {
 			->take(5)
 			->get();
 
-		return View::make('pages.index', compact('latestPost', 'popularPosts'));
+		return View::make('pages.index', compact('latestPost', 'popularPosts'))
+            ->withTitle('A blog on Laravel & Rails');
 	}
 
     /**
