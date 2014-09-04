@@ -1,4 +1,4 @@
 <div class="project">
-  <a href="{{ route('projects.show', $project->slug) }}" class="project-name">{{{ $project->name }}}</a>
-  <p>{{ markdown(Str::limit($project->description, 100)) }}</p>
+  <h4 class="project-name">{{ link_to_route('projects.show', $project->name, $project->slug) }}</h4>
+  {{ markdown(Str::limit($project->description, 100)) }}
 </div>
