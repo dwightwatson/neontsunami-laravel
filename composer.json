@@ -10,6 +10,7 @@
 		"davejamesmiller/laravel-breadcrumbs": "2.2.*",
 		"michelf/php-markdown": "1.4.*",
 		"watson/active": "1.2.*",
+		"watson/sitemap": "1.1.*",
 		"watson/taggly": "1.0.*",
 		"watson/validating": "dev-develop"
 	},

@@ -62,7 +62,7 @@ class PagesController extends BaseController {
 	 */
 	public function rss()
 	{
-		$posts = $this->post->published()->latest()->take(100)->get();
+		$posts = $this->getPosts(100);
 
 		if ($posts->count()) $updated = $posts->first()->updated_at;
 
@@ -70,5 +70,39 @@ class PagesController extends BaseController {
 			'Content-Type' => 'application/rss+xml; charset=UTF-8'
 		]);
 	}
+
+    /**
+     * GET /sitemap
+     * Return the sitemap.
+     *
+     * @return Response
+     */
+    public function sitemap()
+    {
+        $posts = $this->getPosts();
+
+        foreach ($posts as $post)
+        {
+            Sitemap::addTag(
+                route('posts.show', $post->slug),
+                $post->created_at,
+                'daily',
+                '0.9'
+            );
+        }
+
+        return Sitemap::renderSitemap();
+    }
+
+    /**
+     * Get the latest published posts.
+     *
+     * @param  int  $limit
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    protected function getPosts($limit = null)
+    {
+        return $this->post->published()->latest()->take($limit)->get();
+    }
 
 }

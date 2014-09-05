@@ -125,6 +125,7 @@ return array(
         'DaveJamesMiller\Breadcrumbs\ServiceProvider',
         'Former\FormerServiceProvider',
         'Watson\Active\ActiveServiceProvider',
+        'Watson\Sitemap\SitemapServiceProvider',
         'Watson\Taggly\TagglyServiceProvider'
 
 	),
@@ -199,6 +200,7 @@ return array(
         'Active'          => 'Watson\Active\Facades\Active',
         'Breadcrumbs'     => 'DaveJamesMiller\Breadcrumbs\Facade',
         'Former'          => 'Former\Facades\Former',
+        'Sitemap'         => 'Watson\Sitemap\Facades\Sitemap',
         'Taggly'          => 'Watson\Taggly\TagFacade'
 
 	),
