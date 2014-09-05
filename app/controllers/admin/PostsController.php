@@ -61,9 +61,11 @@ class PostsController extends AdminController {
      */
     public function store()
     {
-        $input = array_add(Input::all(), 'user_id', Auth::id());
+        $input = Input::get();
 
         $post = $this->post->fill($input);
+
+        $post->user()->associate(Auth::user());
 
         if ( ! $post->save())
         {
