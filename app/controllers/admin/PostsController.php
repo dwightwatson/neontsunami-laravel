@@ -1,7 +1,7 @@
 <?php namespace Admin;
 
 use Post;
-use Input, Redirect, View;
+use Auth, Input, Redirect, View;
 
 class PostsController extends AdminController {
 
