@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 class Series extends BaseModel {
 
     /**

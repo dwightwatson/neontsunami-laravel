@@ -13,7 +13,20 @@ class PostsControllerTest extends TestCase {
 
         $this->assertResponseOk();
         $this->assertViewIs('posts.index');
-        $this->assertViewHas('posts', [$publishedPost]);
+        $this->assertViewHas('posts');
+    }
+
+    public function testShow()
+    {
+        $post = Factory::create('Post', ['slug' => 'foo']);
+        $this->action('GET', 'PostsController@show', 'foo');
+
+        $this->assertResponseOk();
+        $this->assertViewIs('posts.show');
+        $this->assertViewHas('post');
+
+        $post = Post::find($post->id);
+        $this->assertEquals(1, $post->views);
     }
 
 }

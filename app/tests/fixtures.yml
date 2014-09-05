@@ -6,6 +6,7 @@ Post:
   title: $string
   slug: $integer-$string
   content: $text
+  published_at: $date
 
 Project:
   name: $string
@@ -24,5 +25,5 @@ Tag:
 User:
   first_name: $string
   last_name: $string
-  email: foo-$integer@example.com
-  password: password
+  email: $string-$integer@example.com
+  password: secret

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 class Tag extends BaseModel {
 
     /**
