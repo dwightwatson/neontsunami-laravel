@@ -19,6 +19,7 @@ class PostsControllerTest extends TestCase {
     public function testShow()
     {
         $post = Factory::create('Post', ['slug' => 'foo']);
+
         $this->action('GET', 'PostsController@show', 'foo');
 
         $this->assertResponseOk();

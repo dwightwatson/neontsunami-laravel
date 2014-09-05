@@ -4,6 +4,13 @@ use Laracasts\TestDummy\Factory;
 
 class AdminPostsControllerTest extends TestCase {
 
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->be(Factory::create('User'));
+    }
+
     public function testIndex()
     {
         $this->action('GET', 'Admin\PostsController@index');
@@ -23,9 +30,12 @@ class AdminPostsControllerTest extends TestCase {
 
     public function testStore()
     {
-        $post = Factory::build('Post');
+        $this->action('POST', 'Admin\PostsController@store', [
+            'title'   => 'Foo',
+            'content' => 'Foo bar baz'
+        ]);
 
-        $this->action('POST', 'Admin\PostsController@store', []);
+        $this->assertRedirectedToRoute('admin.posts.show', 'foo');
     }
 
 }

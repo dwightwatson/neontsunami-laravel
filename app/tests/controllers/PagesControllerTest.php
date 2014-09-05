@@ -12,7 +12,8 @@ class PagesControllerTest extends TestCase {
 
         $this->assertResponseOk();
         $this->assertViewIs('pages.index');
-        $this->assertViewHas('posts', Post::latest()->first());
+        $this->assertViewHas('latestPost');
+        $this->assertViewHas('popularPosts');
     }
 
     public function testAbout()
