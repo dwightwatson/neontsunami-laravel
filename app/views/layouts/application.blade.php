@@ -30,8 +30,8 @@
     @yield('content')
 
     <footer>
+      <p class="copyright">Copyright Dwight Watson {{{ date('Y') }}}</p>
       <ul class="list-inline">
-        <li>Copyright Dwight Watson {{{ date('Y') }}}</li>
         <li>{{ link_to('https://www.facebook.com/dwightconradwatson', 'Facebook') }}</li>
         <li>{{ link_to('http://au.linkedin.com/in/dwightconradwatson', 'LinkedIn') }}</li>
         <li>{{ link_to('https://github.com/dwightwatson', 'GitHub') }}</li>
