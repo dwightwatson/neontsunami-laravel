@@ -30,9 +30,10 @@ class PagesController extends BaseController {
 	 */
 	public function index()
 	{
-		$latestPost = $this->post->published()->latest()->take(1)->first();
+		$latestPost = $this->post->with('tags')->published()->latest()->take(1)->first();
 
 		$popularPosts = $this->post->published()
+            ->with('tags')
             ->where('id', '!=', $latestPost->id)
 			->orderBy('views', 'desc')
 			->take(5)
