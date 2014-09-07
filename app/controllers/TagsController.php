@@ -31,7 +31,7 @@ class TagsController extends BaseController {
     public function index()
     {
         // Get any tag which has 3 or more posts.
-        $tags = $this->tag->get();
+        $tags = $this->tag->used()->get();
 
         foreach ($tags as $tag)
         {
