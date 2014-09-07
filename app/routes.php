@@ -36,6 +36,11 @@ Route::get('sitemap', ['as' => 'pages.sitemap', 'uses' => 'PagesController@sitem
 Route::get('post/{postSlug}', 'RedirectsController@getPost');
 Route::get('tag/{tagSlug}',   'RedirectsController@getTag');
 
+Route::get('posts/laravel\'s-new-forelse-construct', function()
+{
+    return Redirect::to('posts/laravels-new-forelse-construct', 301);
+});
+
 Route::resource('posts', 'PostsController', ['only' => ['index', 'show']]);
 Route::resource('series', 'SeriesController', ['only' => ['index', 'show']]);
 Route::resource('tags', 'TagsController', ['only' => ['index', 'show']]);
