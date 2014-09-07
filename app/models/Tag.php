@@ -28,20 +28,6 @@ class Tag extends BaseModel {
      */
     protected $fillable = ['name', 'slug'];
 
-    /**
-     * Get tags that have been used more than 3 times and
-     * include that count with the tag.
-     *
-     * @return this
-     */
-    public function scopePopular()
-    {
-        return $this->selectRaw('tags.*, COUNT(id) AS count')
-            ->join('post_tag', 'post_tag.tag_id', '=', 'tags.id')
-            ->groupBy('slug')
-            ->having('count', '>=', 3);
-    }
-
     /*
     |--------------------------------------------------------------------------
     | Accessors and mutators
