@@ -41,6 +41,11 @@ Route::get('posts/laravel\'s-new-forelse-construct', function()
     return Redirect::to('posts/laravels-new-forelse-construct', 301);
 });
 
+Route::get('posts/"handy-laravel-select-helpers-for-ranges,-years-and-months"', function()
+{
+    return Redirect::to('posts/handy-laravel-select-helpers-for-ranges-years-and-months', 301);
+});
+
 Route::resource('posts', 'PostsController', ['only' => ['index', 'show']]);
 Route::resource('series', 'SeriesController', ['only' => ['index', 'show']]);
 Route::resource('tags', 'TagsController', ['only' => ['index', 'show']]);
