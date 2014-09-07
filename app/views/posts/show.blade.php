@@ -3,7 +3,12 @@
 @section('content')
   <div class="page-header">
     <h3>{{{ $post->title }}} </h3>
-    <p class="post-published">Posted {{{ $post->published_at->diffForHumans() }}}</p>
+    <p class="post-published">
+      Posted {{{ $post->published_at->diffForHumans() }}}
+      @if($post->series)
+        in {{ link_to_route('series.show', $post->series->name, $post->series->slug) }}
+      @endif
+    </p>
   </div>
 
   <div class="post">

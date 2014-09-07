@@ -30,7 +30,7 @@ class PostsController extends BaseController {
      */
     public function index()
     {
-        $posts = $this->post->with('tags')
+        $posts = $this->post->with('tags', 'series')
             ->published()
             ->latest()
             ->paginate(10);
