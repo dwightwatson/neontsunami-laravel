@@ -82,6 +82,8 @@ class PagesController extends BaseController {
     {
         $posts = $this->getPosts();
 
+        Sitemap::addTag(route('pages.about'));
+
         foreach ($posts as $post)
         {
             Sitemap::addTag(
