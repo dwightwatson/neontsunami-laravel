@@ -55,7 +55,7 @@ class TagsController extends BaseController {
      */
     public function show(Tag $tag)
     {
-        $posts = $tag->posts()->published()->paginate();
+        $posts = $tag->posts()->published()->latest()->paginate();
 
         return View::make('tags.show', compact('tag', 'posts'))
             ->withTitle("Posts for {$tag->name}");
