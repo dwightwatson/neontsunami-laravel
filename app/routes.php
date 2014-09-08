@@ -45,6 +45,11 @@ Route::get('posts/"handy-laravel-select-helpers-for-ranges,-years-and-months"', 
     return Redirect::to('posts/handy-laravel-select-helpers-for-ranges-years-and-months', 301);
 });
 
+Route::get('posts/-too-many-connections-using-phpunit-for-testing-laravel-4-on-circleci', function()
+{
+    return Redirect::to('posts/too-many-connections-using-phpunit-for-testing-laravel-4-on-circleci', 301);
+});
+
 Route::resource('posts', 'PostsController', ['only' => ['index', 'show']]);
 Route::resource('series', 'SeriesController', ['only' => ['index', 'show']]);
 Route::resource('tags', 'TagsController', ['only' => ['index', 'show']]);
