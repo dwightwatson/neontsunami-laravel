@@ -10,16 +10,23 @@ class PagesController extends BaseController {
 	protected $post;
 
     /**
+     * Project instance.
+     *
+     * @var Project
+     */
+
+    /**
      * Construct the controller.
      *
      * @param  Post  $post
      * @return void
      */
-	public function __construct(Post $post)
+	public function __construct(Post $post, Project $project)
 	{
         parent::__construct();
 
 		$this->post = $post;
+        $this->project = $project;
 	}
 
 	/**
@@ -80,19 +87,11 @@ class PagesController extends BaseController {
      */
     public function sitemap()
     {
-        $posts = $this->getPosts();
-
         Sitemap::addTag(route('pages.about'));
 
-        foreach ($posts as $post)
-        {
-            Sitemap::addTag(
-                route('posts.show', $post->slug),
-                $post->created_at,
-                'daily',
-                '0.9'
-            );
-        }
+        $this->getPosts();
+
+        $this->getProjects();
 
         return Sitemap::renderSitemap();
     }
@@ -101,11 +100,42 @@ class PagesController extends BaseController {
      * Get the latest published posts.
      *
      * @param  int  $limit
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return void
      */
     protected function getPosts($limit = null)
     {
-        return $this->post->published()->latest()->take($limit)->get();
+        $posts = $this->post->published()->latest()->take($limit)->get();
+
+        foreach ($posts as $post)
+        {
+            Sitemap::addTag(
+                route('posts.show', $post->slug),
+                $post->updated_at,
+                'daily',
+                '0.9'
+            );
+        }
+    }
+
+    /**
+     * Get the projects.
+     *
+     * @param  int  $Limit
+     * @return void
+     */
+    protected function getProjects($limit = null)
+    {
+        $projects = $this->project->alphabetical()->take($limit)->get();
+
+        foreach ($projects as $project)
+        {
+            Sitemap::addTag(
+                route('projects.show', $project->slug),
+                $project->updated_at,
+                'weekly',
+                '0.8'
+            );
+        }
     }
 
 }
