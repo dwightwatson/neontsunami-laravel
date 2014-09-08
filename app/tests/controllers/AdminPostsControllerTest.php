@@ -38,4 +38,34 @@ class AdminPostsControllerTest extends TestCase {
         $this->assertRedirectedToRoute('admin.posts.show', 'foo');
     }
 
+    public function testStoreFails()
+    {
+
+    }
+
+    public function testShow()
+    {
+
+    }
+
+    public function testEdit()
+    {
+
+    }
+
+    public function testUpdate()
+    {
+
+    }
+
+    public function testUpdateFails()
+    {
+
+    }
+
+    public function testDestroy()
+    {
+
+    }
+
 }

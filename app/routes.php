@@ -29,7 +29,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()
 Route::get('/',       ['as' => 'pages.index', 'uses' => 'PagesController@index']);
 Route::get('about',   ['as' => 'pages.about', 'uses'=> 'PagesController@about']);
 Route::get('rss',     ['as' => 'pages.rss', 'uses' => 'PagesController@rss']);
-Route::get('sitemap', ['as' => 'pages.sitemap', 'uses' => 'PagesController@sitemap']);
+
+Route::get('sitemap', ['as' => 'sitemaps.index', 'uses' => 'SitemapsController@index']);
 
 Route::get('post/{postSlug}', 'RedirectsController@getPost');
 Route::get('tag/{tagSlug}',   'RedirectsController@getTag');

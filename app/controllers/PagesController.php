@@ -10,23 +10,16 @@ class PagesController extends BaseController {
 	protected $post;
 
     /**
-     * Project instance.
-     *
-     * @var Project
-     */
-
-    /**
      * Construct the controller.
      *
      * @param  Post  $post
      * @return void
      */
-	public function __construct(Post $post, Project $project)
+	public function __construct(Post $post)
 	{
         parent::__construct();
 
 		$this->post = $post;
-        $this->project = $project;
 	}
 
 	/**
@@ -80,62 +73,14 @@ class PagesController extends BaseController {
 	}
 
     /**
-     * GET /sitemap
-     * Return the sitemap.
-     *
-     * @return Response
-     */
-    public function sitemap()
-    {
-        Sitemap::addTag(route('pages.about'));
-
-        $this->getPosts();
-
-        $this->getProjects();
-
-        return Sitemap::renderSitemap();
-    }
-
-    /**
      * Get the latest published posts.
      *
      * @param  int  $limit
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     protected function getPosts($limit = null)
     {
-        $posts = $this->post->published()->latest()->take($limit)->get();
-
-        foreach ($posts as $post)
-        {
-            Sitemap::addTag(
-                route('posts.show', $post->slug),
-                $post->updated_at,
-                'daily',
-                '0.9'
-            );
-        }
-    }
-
-    /**
-     * Get the projects.
-     *
-     * @param  int  $Limit
-     * @return void
-     */
-    protected function getProjects($limit = null)
-    {
-        $projects = $this->project->alphabetical()->take($limit)->get();
-
-        foreach ($projects as $project)
-        {
-            Sitemap::addTag(
-                route('projects.show', $project->slug),
-                $project->updated_at,
-                'weekly',
-                '0.8'
-            );
-        }
+        return $this->post->published()->latest()->take($limit)->get();
     }
 
 }

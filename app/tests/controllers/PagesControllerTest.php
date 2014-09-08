@@ -33,11 +33,4 @@ class PagesControllerTest extends TestCase {
         $this->assertViewHas('posts');
     }
 
-    public function testSitemap()
-    {
-        $this->action('GET', 'PagesController@sitemap');
-
-        $this->assertResponseOk();
-    }
-
 }
