@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 class Post extends BaseModel {
@@ -45,7 +46,7 @@ class Post extends BaseModel {
     */
     public function scopePublished($query)
     {
-        return $query->whereNotNull('published_at');
+        return $query->where('published_at', '<=', Carbon::now());
     }
 
     public function scopeRelated($query, Post $post)
