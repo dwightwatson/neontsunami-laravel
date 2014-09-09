@@ -58,4 +58,4 @@ gulp.task('watch', function() {
   gulp.watch(paths.javascripts, ['javascripts']);
 });
 
-gulp.task('default', ['clear', 'stylesheets', 'javascripts', 'images', 'fonts']);
+gulp.task('default', ['stylesheets', 'javascripts', 'images', 'fonts']);
