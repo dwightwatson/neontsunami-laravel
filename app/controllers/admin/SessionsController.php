@@ -1,7 +1,7 @@
 <?php namespace Admin;
 
 use Auth;
-use Input, Redirect, Validator, View;
+use Redirect, Request, Validator, View;
 
 class SessionsController extends AdminController {
 
@@ -38,7 +38,7 @@ class SessionsController extends AdminController {
      */
     public function store()
     {
-        $credentials = Input::only('email', 'password');
+        $credentials = Request::only('email', 'password');
 
         $validation = Validator::make($credentials, [
             'email'    => 'required|email|exists:users',
@@ -49,7 +49,7 @@ class SessionsController extends AdminController {
         {
             return Redirect::route('admin.sessions.create')
                 ->withErrors($validation)
-                ->withInput(Input::except('password'));
+                ->withInput(Request::except('password'));
         }
 
         // Attempt to login and remember the user.
@@ -60,7 +60,7 @@ class SessionsController extends AdminController {
 
         return Redirect::route('admin.sessions.create')
             ->withError("Your login credentials were invalid.")
-            ->withInput(Input::except('password'));
+            ->withInput(Request::except('password'));
     }
 
     /**

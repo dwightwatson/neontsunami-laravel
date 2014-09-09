@@ -1,7 +1,7 @@
 <?php namespace Admin;
 
 use Project;
-use Input, Redirect, View;
+use Redirect, Request, View;
 
 class ProjectsController extends AdminController {
 
@@ -59,7 +59,7 @@ class ProjectsController extends AdminController {
      */
     public function store()
     {
-        $input = Input::all();
+        $input = Request::input();
 
         $project = $this->project->fill($input);
 
@@ -109,7 +109,7 @@ class ProjectsController extends AdminController {
      */
     public function update(Project $project)
     {
-        $input = Input::all();
+        $input = Request::input();
 
         if ( ! $project->update($input))
         {

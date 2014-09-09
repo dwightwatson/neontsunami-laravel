@@ -1,7 +1,7 @@
 <?php namespace Admin;
 
 use Series;
-use Input, Redirect, View;
+use Redirect, Request, View;
 
 class SeriesController extends AdminController {
 
@@ -61,7 +61,7 @@ class SeriesController extends AdminController {
      */
     public function store()
     {
-        $input = Input::all();
+        $input = Request::input();
 
         $series = $this->series->fill($input);
 
@@ -111,7 +111,7 @@ class SeriesController extends AdminController {
      */
     public function update(Series $series)
     {
-        $input = Input::all();
+        $input = Request::input();
 
         if ( ! $series->update($input))
         {
