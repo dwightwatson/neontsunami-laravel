@@ -2,7 +2,7 @@ machine:
   php:
     version: 5.5.11
   node:
-    version: 0.11.3
+    version: 0.10.28
 
 test:
   override:
