@@ -1,5 +1,7 @@
 ## Neon Tsunami
 
+[![Circle CI](https://circleci.com/gh/dwightwatson/neontsunami.png?style=shield)](https://circleci.com/gh/dwightwatson/neontsunami)
+
 ### Introduction
 
 This is the source code for my website/blog [Neon Tsunami](http://www.neontsunami.com). I open sourced it as an example to other developers who might want to see how a real-world Laravel application might be put together. I've worked on a number of large production apps and this is just a taste of my (largely opinionated) style in a smaller app.

@@ -1,6 +1,6 @@
 <?php
 
-class AdminPagesControllerText extends TestCase {
+class AdminPagesControllerTest extends TestCase {
 
     public function testIndex()
     {
