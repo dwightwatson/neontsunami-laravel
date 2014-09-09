@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('breadcrumbs', Breadcrumbs::render('admin.users.edit'))
+@section('breadcrumbs', Breadcrumbs::render('admin.users.create'))
 
 @section('content')
   <div class="page-header">

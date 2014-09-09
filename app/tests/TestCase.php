@@ -22,6 +22,8 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
     {
         parent::setUp();
 
+        $this->resetEvents();
+
         Artisan::call('migrate');
     }
 
@@ -30,6 +32,38 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
         parent::tearDown();
 
         Artisan::call('migrate:reset');
+    }
+
+    /**
+     * Flush and reboot Eloquent model events.
+     *
+     * @return void
+     */
+    public function resetEvents()
+    {
+        foreach ($this->getModels() as $model)
+        {
+            call_user_func([$model, 'flushEventListeners']);
+
+            call_user_func([$model, 'boot']);
+        }
+    }
+
+    /**
+     * Get the model names from their filename.
+     *
+     * @return array
+     */
+    protected function getModels()
+    {
+        $files = File::files(base_path() . '/app/models');
+
+        foreach ($files as $file)
+        {
+            $models[] = pathinfo($file, PATHINFO_FILENAME);
+        }
+
+        return $models;
     }
 
 }

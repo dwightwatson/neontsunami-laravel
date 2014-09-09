@@ -1,7 +1,7 @@
 <?php namespace Admin;
 
 use User;
-use Input, Redirect, View;
+use Redirect, Request, View;
 
 class UsersController extends AdminController {
 
@@ -60,7 +60,7 @@ class UsersController extends AdminController {
      */
     public function store()
     {
-        $input = Input::all();
+        $input = Request::input();
 
         $user = $this->user->fill($input);
 
@@ -110,7 +110,7 @@ class UsersController extends AdminController {
      */
     public function update(User $user)
     {
-        $input = Input::all();
+        $input = Request::input();
 
         if ( ! $user->update($input))
         {
@@ -132,6 +132,8 @@ class UsersController extends AdminController {
      */
     public function destroy(User $user)
     {
+        $user->delete();
+
         return Redirect::route('admin.users.index')
             ->withSuccess('The user was deleted.');
     }

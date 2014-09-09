@@ -1,7 +1,7 @@
 <?php namespace Admin;
 
 use Post;
-use Auth, Input, Redirect, View;
+use Auth, Request, Redirect, View;
 
 class PostsController extends AdminController {
 
@@ -61,7 +61,7 @@ class PostsController extends AdminController {
      */
     public function store()
     {
-        $input = Input::get();
+        $input = Request::input();
 
         $post = $this->post->fill($input);
 
@@ -113,7 +113,7 @@ class PostsController extends AdminController {
      */
     public function update(Post $post)
     {
-        $input = Input::all();
+        $input = Request::input();
 
         if ( ! $post->update($input))
         {
