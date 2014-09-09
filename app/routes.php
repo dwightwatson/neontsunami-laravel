@@ -2,6 +2,29 @@
 
 /*
 |--------------------------------------------------------------------------
+| Redirects
+|--------------------------------------------------------------------------
+*/
+Route::get('posts/laravel\'s-new-forelse-construct', function()
+{
+    return Redirect::to('posts/laravels-new-forelse-construct', 301);
+});
+
+Route::get('posts/"handy-laravel-select-helpers-for-ranges,-years-and-months"', function()
+{
+    return Redirect::to('posts/handy-laravel-select-helpers-for-ranges-years-and-months', 301);
+});
+
+Route::get('posts/-too-many-connections-using-phpunit-for-testing-laravel-4-on-circleci', function()
+{
+    return Redirect::to('posts/too-many-connections-using-phpunit-for-testing-laravel-4-on-circleci', 301);
+});
+
+Route::get('post/{postSlug}', 'RedirectsController@getPost');
+Route::get('tag/{tagSlug}',   'RedirectsController@getTag');
+
+/*
+|--------------------------------------------------------------------------
 | Admin routes
 |--------------------------------------------------------------------------
 */
@@ -31,24 +54,6 @@ Route::get('about',   ['as' => 'pages.about', 'uses'=> 'PagesController@about'])
 Route::get('rss',     ['as' => 'pages.rss', 'uses' => 'PagesController@rss']);
 
 Route::get('sitemap', ['as' => 'sitemaps.index', 'uses' => 'SitemapsController@index']);
-
-Route::get('post/{postSlug}', 'RedirectsController@getPost');
-Route::get('tag/{tagSlug}',   'RedirectsController@getTag');
-
-Route::get('posts/laravel\'s-new-forelse-construct', function()
-{
-    return Redirect::to('posts/laravels-new-forelse-construct', 301);
-});
-
-Route::get('posts/"handy-laravel-select-helpers-for-ranges,-years-and-months"', function()
-{
-    return Redirect::to('posts/handy-laravel-select-helpers-for-ranges-years-and-months', 301);
-});
-
-Route::get('posts/-too-many-connections-using-phpunit-for-testing-laravel-4-on-circleci', function()
-{
-    return Redirect::to('posts/too-many-connections-using-phpunit-for-testing-laravel-4-on-circleci', 301);
-});
 
 Route::resource('posts', 'PostsController', ['only' => ['index', 'show']]);
 Route::resource('series', 'SeriesController', ['only' => ['index', 'show']]);
