@@ -25,6 +25,16 @@ Route::get('posts/-too-many-connections-using-phpunit-for-testing-laravel-4-on-c
     return Redirect::to('posts/too-many-connections-using-phpunit-for-testing-laravel-4-on-circleci', 301);
 });
 
+Route::get('tags/mac%20os%20x', function()
+{
+    return Redirect::to('tags/osx');
+});
+
+Route::get('tags/ruby%20on%20rails', function()
+{
+    return Redirect::to('tags/ruby-on-rails');
+});
+
 Route::get('post/{postSlug}', 'RedirectsController@getPost');
 Route::get('tag/{tagSlug}',   'RedirectsController@getTag');
 Route::get('archive',         'RedirectsController@getArchive');
