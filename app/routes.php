@@ -27,6 +27,7 @@ Route::get('posts/-too-many-connections-using-phpunit-for-testing-laravel-4-on-c
 
 Route::get('post/{postSlug}', 'RedirectsController@getPost');
 Route::get('tag/{tagSlug}',   'RedirectsController@getTag');
+Route::get('archive',         'RedirectsController@getArchive');
 
 /*
 |--------------------------------------------------------------------------

@@ -26,4 +26,22 @@ class RedirectsController extends BaseController {
         return Redirect::route('tags.show', $slug, 301);
     }
 
+    /**
+     * GET /archive
+     * Redirect legacy archive routes to the new posts route.
+     *
+     * @return Response
+     */
+    public function getArchive()
+    {
+        $parameters = [];
+
+        if (Input::has('page'))
+        {
+            $parameters['page'] = Input::get('page');
+        }
+
+        return Redirect::route('posts.index', $parameters, 301);
+    }
+
 }
