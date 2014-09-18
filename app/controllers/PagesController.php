@@ -2,12 +2,12 @@
 
 class PagesController extends BaseController {
 
-	/**
-	 * Post instance.
-	 *
-	 * @var Post
-	 */
-	protected $post;
+    /**
+     * Post instance.
+     *
+     * @var Post
+     */
+    protected $post;
 
     /**
      * Construct the controller.
@@ -15,33 +15,33 @@ class PagesController extends BaseController {
      * @param  Post  $post
      * @return void
      */
-	public function __construct(Post $post)
-	{
+    public function __construct(Post $post)
+    {
         parent::__construct();
 
-		$this->post = $post;
-	}
+        $this->post = $post;
+    }
 
-	/**
-	 * GET /
-	 * The home page.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		$latestPost = $this->post->with('tags')->published()->latest()->take(1)->first();
+    /**
+     * GET /
+     * The home page.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $latestPost = $this->post->with('tags')->published()->latest()->take(1)->first();
 
-		$popularPosts = $this->post->published()
+        $popularPosts = $this->post->published()
             ->with('tags')
             ->where('id', '!=', $latestPost->id)
-			->orderBy('views', 'desc')
-			->take(5)
-			->get();
+            ->orderBy('views', 'desc')
+            ->take(5)
+            ->get();
 
-		return View::make('pages.index', compact('latestPost', 'popularPosts'))
+        return View::make('pages.index', compact('latestPost', 'popularPosts'))
             ->withTitle('A blog on Laravel & Rails');
-	}
+    }
 
     /**
      * GET /about
@@ -55,22 +55,22 @@ class PagesController extends BaseController {
             ->withTitle('About');
     }
 
-	/**
-	 * GET /rss
-	 * Return the RSS feed of posts.
-	 *
-	 * @return Response
-	 */
-	public function rss()
-	{
-		$posts = $this->getPosts(100);
+    /**
+     * GET /rss
+     * Return the RSS feed of posts.
+     *
+     * @return Response
+     */
+    public function rss()
+    {
+        $posts = $this->getPosts(100);
 
-		if ($posts->count()) $updated = $posts->first()->updated_at;
+        if ($posts->count()) $updated = $posts->first()->updated_at;
 
-		return Response::view('pages.rss', compact('posts', 'updated'), 200, [
-			'Content-Type' => 'application/rss+xml; charset=UTF-8'
-		]);
-	}
+        return Response::view('pages.rss', compact('posts', 'updated'), 200, [
+            'Content-Type' => 'application/rss+xml; charset=UTF-8'
+        ]);
+    }
 
     /**
      * Get the latest published posts.
