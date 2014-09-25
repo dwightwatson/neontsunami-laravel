@@ -4,6 +4,10 @@ machine:
   node:
     version: 0.10.28
 
+dependencies:
+  pre:
+    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+
 test:
   override:
     - phpunit --coverage-html $CIRCLE_ARTIFACTS
