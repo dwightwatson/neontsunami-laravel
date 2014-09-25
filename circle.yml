@@ -6,4 +6,4 @@ machine:
 
 test:
   override:
-    - phpunit --testdox
+    - phpunit --coverage-html $CIRCLE_ARTIFACTS
