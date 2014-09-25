@@ -18,7 +18,7 @@
 		"laracasts/testdummy": "1.1.*",
 		"laravel/envoy": "~1.0",
 		"mockery/mockery": "0.9.*",
-		"phpunit/phpunit": "4.1.*",
+		"phpunit/phpunit": "4.2.*",
 		"watson/testing": "1.1.*"
 	},
 	"autoload": {
