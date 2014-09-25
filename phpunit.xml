@@ -15,4 +15,9 @@
             <directory>./app/tests/</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist>
+            <directory>./app</directory>
+        </whitelist>
+    </filter>
 </phpunit>
