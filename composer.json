@@ -12,7 +12,7 @@
 		"watson/active": "1.2.*",
 		"watson/sitemap": "1.1.*",
 		"watson/taggly": "1.0.*",
-		"watson/validating": "dev-develop"
+		"watson/validating": "0.10.*"
 	},
 	"require-dev": {
 		"laracasts/testdummy": "1.1.*",

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "058df15ae09ffe1fe2c2713a70fd5243",
+    "hash": "c85670cc9389e01d8ba2d12c9c61b5f6",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -185,16 +185,16 @@
         },
         {
             "name": "davejamesmiller/laravel-breadcrumbs",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davejamesmiller/laravel-breadcrumbs.git",
-                "reference": "fb4058c9730cfb51fea53c93d26d75a58f23c87a"
+                "reference": "56149e595f27f8dd7fb8e7c6130dc39d49af361b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davejamesmiller/laravel-breadcrumbs/zipball/fb4058c9730cfb51fea53c93d26d75a58f23c87a",
-                "reference": "fb4058c9730cfb51fea53c93d26d75a58f23c87a",
+                "url": "https://api.github.com/repos/davejamesmiller/laravel-breadcrumbs/zipball/56149e595f27f8dd7fb8e7c6130dc39d49af361b",
+                "reference": "56149e595f27f8dd7fb8e7c6130dc39d49af361b",
                 "shasum": ""
             },
             "require": {
@@ -229,7 +229,7 @@
             "keywords": [
                 "laravel"
             ],
-            "time": "2014-08-03 08:48:52"
+            "time": "2014-09-10 19:17:46"
         },
         {
             "name": "filp/whoops",
@@ -378,16 +378,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.8",
+            "version": "v4.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e60ea917ab862254a6db37fa9cb8933138c1e73c"
+                "reference": "14665bc3c38c3ec24a12c904d013a663dc4a1d8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e60ea917ab862254a6db37fa9cb8933138c1e73c",
-                "reference": "e60ea917ab862254a6db37fa9cb8933138c1e73c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/14665bc3c38c3ec24a12c904d013a663dc4a1d8f",
+                "reference": "14665bc3c38c3ec24a12c904d013a663dc4a1d8f",
                 "shasum": ""
             },
             "require": {
@@ -489,7 +489,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-08-05 19:52:17"
+            "time": "2014-09-15 02:45:24"
         },
         {
             "name": "michelf/php-markdown",
@@ -612,16 +612,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "2b60366be6dcb9f9cd3e244ab25eb98eaea99551"
+                "reference": "cde7a00d1410a17fb6d61b993cb017a78be1137c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/2b60366be6dcb9f9cd3e244ab25eb98eaea99551",
-                "reference": "2b60366be6dcb9f9cd3e244ab25eb98eaea99551",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/cde7a00d1410a17fb6d61b993cb017a78be1137c",
+                "reference": "cde7a00d1410a17fb6d61b993cb017a78be1137c",
                 "shasum": ""
             },
             "require": {
@@ -654,7 +654,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2014-08-26 03:18:44"
+            "time": "2014-09-10 03:26:33"
         },
         {
             "name": "nikic/php-parser",
@@ -759,16 +759,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "0.3.7",
+            "version": "0.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "8b8c62f278e363b75ddcacaf5803710232fbd3e4"
+                "reference": "5085202f1f37769aae59f9711c423f28159c9b29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8b8c62f278e363b75ddcacaf5803710232fbd3e4",
-                "reference": "8b8c62f278e363b75ddcacaf5803710232fbd3e4",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/5085202f1f37769aae59f9711c423f28159c9b29",
+                "reference": "5085202f1f37769aae59f9711c423f28159c9b29",
                 "shasum": ""
             },
             "require": {
@@ -777,6 +777,7 @@
             "require-dev": {
                 "phing/phing": "2.7.*",
                 "phpunit/phpunit": "4.0.*",
+                "sami/sami": "1.*",
                 "squizlabs/php_codesniffer": "1.*"
             },
             "suggest": {
@@ -852,7 +853,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-07-05 16:36:21"
+            "time": "2014-09-13 02:42:45"
         },
         {
             "name": "predis/predis",
@@ -994,16 +995,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.2.1",
+            "version": "v5.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "2b9af56cc676c338d52fca4c657e5bdff73bb7af"
+                "reference": "e02f71a35436af4bd58a1bd90116089e632e29e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/2b9af56cc676c338d52fca4c657e5bdff73bb7af",
-                "reference": "2b9af56cc676c338d52fca4c657e5bdff73bb7af",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e02f71a35436af4bd58a1bd90116089e632e29e1",
+                "reference": "e02f71a35436af4bd58a1bd90116089e632e29e1",
                 "shasum": ""
             },
             "require": {
@@ -1029,13 +1030,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "name": "Chris Corbyn"
                 },
                 {
-                    "name": "Chris Corbyn"
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Swiftmailer, free feature-rich PHP mailer",
@@ -1044,7 +1043,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-06-13 11:44:54"
+            "time": "2014-09-20 07:17:36"
         },
         {
             "name": "symfony/browser-kit",
@@ -1963,16 +1962,16 @@
         },
         {
             "name": "watson/validating",
-            "version": "dev-develop",
+            "version": "0.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dwightwatson/validating.git",
-                "reference": "66671dfc8b9900a97546082e3d39efba65deb3c6"
+                "reference": "4f28569cf318f8aff2ea38b5e5695103ff4cb226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dwightwatson/validating/zipball/66671dfc8b9900a97546082e3d39efba65deb3c6",
-                "reference": "66671dfc8b9900a97546082e3d39efba65deb3c6",
+                "url": "https://api.github.com/repos/dwightwatson/validating/zipball/4f28569cf318f8aff2ea38b5e5695103ff4cb226",
+                "reference": "4f28569cf318f8aff2ea38b5e5695103ff4cb226",
                 "shasum": ""
             },
             "require": {
@@ -2008,7 +2007,7 @@
                 "laravel",
                 "validation"
             ],
-            "time": "2014-09-04 07:16:04"
+            "time": "2014-09-23 06:33:46"
         }
     ],
     "packages-dev": [
@@ -2035,9 +2034,7 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": [
-
-                ]
+                "branch-alias": []
             },
             "autoload": {
                 "psr-0": {
@@ -2969,16 +2966,16 @@
         },
         {
             "name": "watson/testing",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dwightwatson/testing.git",
-                "reference": "5bf6e291bda8103d62ccc7f6d9f9cde4caacc391"
+                "reference": "c899c03c303b35eb807b05cd9d3602715e2dec24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dwightwatson/testing/zipball/5bf6e291bda8103d62ccc7f6d9f9cde4caacc391",
-                "reference": "5bf6e291bda8103d62ccc7f6d9f9cde4caacc391",
+                "url": "https://api.github.com/repos/dwightwatson/testing/zipball/c899c03c303b35eb807b05cd9d3602715e2dec24",
+                "reference": "c899c03c303b35eb807b05cd9d3602715e2dec24",
                 "shasum": ""
             },
             "require": {
@@ -3012,21 +3009,13 @@
                 "phpunit",
                 "testing"
             ],
-            "time": "2014-07-14 08:17:23"
+            "time": "2014-09-10 06:16:49"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "watson/validating": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "platform": [],
+    "platform-dev": []
 }
