@@ -51,6 +51,16 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+App::missing(function(Exception $exception)
+{
+    return Response::view('pages.missing', [], 404);
+});
+
+App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception)
+{
+    return Response::view('pages.missing', [], 404);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
