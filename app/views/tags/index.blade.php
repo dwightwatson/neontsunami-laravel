@@ -10,6 +10,7 @@
     </div>
   @else
     {{ Taggly::cloud($taggly) }}
+    <br style="clear: both">
   @endunless
 
 @stop
