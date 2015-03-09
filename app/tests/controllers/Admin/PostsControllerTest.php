@@ -1,8 +1,12 @@
 <?php
+namespace Admin;
 
+use Post;
+
+use TestCase;
 use Laracasts\TestDummy\Factory;
 
-class AdminPostsControllerTest extends TestCase {
+class PostsControllerTest extends TestCase {
 
     public function setUp()
     {

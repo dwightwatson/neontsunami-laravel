@@ -1,8 +1,12 @@
 <?php
+namespace Admin;
 
+use Auth;
+
+use TestCase;
 use Laracasts\TestDummy\Factory;
 
-class AdminSessionsControllerTest extends TestCase {
+class SessionsControllerTest extends TestCase {
 
     public function testCreate()
     {

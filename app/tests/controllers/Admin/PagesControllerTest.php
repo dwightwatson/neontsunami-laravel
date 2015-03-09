@@ -1,6 +1,9 @@
 <?php
+namespace Admin;
 
-class AdminPagesControllerTest extends TestCase {
+use TestCase;
+
+class PagesControllerTest extends TestCase {
 
     public function testIndex()
     {

@@ -1,14 +1,18 @@
 <?php
+namespace Admin;
 
+use Project;
+
+use TestCase;
 use Laracasts\TestDummy\Factory;
 
-class AdminProjectsControllerTest extends TestCase {
+class ProjectsControllerTest extends TestCase {
 
     public function setUp()
     {
         parent::setUp();
 
-        $this->be(new User);
+        $this->be(Factory::create('User'));
     }
 
     public function testIndex()

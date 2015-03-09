@@ -1,14 +1,18 @@
 <?php
+namespace Admin;
 
+use Series;
+
+use TestCase;
 use Laracasts\TestDummy\Factory;
 
-class AdminSeriesControllerTest extends TestCase {
+class SeriesControllerTest extends TestCase {
 
     public function setUp()
     {
         parent::setUp();
 
-        $this->be(new User);
+        $this->be(Factory::create('User'));
     }
 
     public function testIndex()

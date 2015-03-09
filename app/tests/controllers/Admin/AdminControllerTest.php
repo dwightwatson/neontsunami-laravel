@@ -1,6 +1,12 @@
 <?php
+namespace Admin;
 
-class AdminAdminControllerTest extends TestCase {
+use User;
+
+use Route;
+use TestCase;
+
+class AdminControllerTest extends TestCase {
 
     public function setUp()
     {
