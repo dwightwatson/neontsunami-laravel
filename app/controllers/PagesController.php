@@ -43,7 +43,7 @@ class PagesController extends BaseController {
      */
     public function rss()
     {
-        $posts = Post::published()->latest()->take($limit)->get();
+        $posts = Post::published()->latest()->take(100)->get();
 
         if ($posts->count()) $updated = $posts->first()->updated_at;
 
