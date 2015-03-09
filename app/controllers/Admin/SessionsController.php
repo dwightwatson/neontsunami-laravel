@@ -1,7 +1,11 @@
 <?php namespace Admin;
 
 use Auth;
-use Redirect, Request, Validator, View;
+
+use Redirect;
+use Request;
+use Validator;
+use View;
 
 class SessionsController extends AdminController {
 

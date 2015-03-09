@@ -3,26 +3,6 @@
 class PostsController extends BaseController {
 
     /**
-     * Post instance.
-     *
-     * @var Post
-     */
-    protected $post;
-
-    /**
-     * Construct the controller.
-     *
-     * @param  Post  $post
-     * @return void
-     */
-    public function __construct(Post $post)
-    {
-        parent::__construct();
-
-        $this->post = $post;
-    }
-
-    /**
      * GET /posts
      * Get a listing of all posts.
      *
@@ -30,7 +10,7 @@ class PostsController extends BaseController {
      */
     public function index()
     {
-        $posts = $this->post->with('tags', 'series')
+        $posts = Post::with('tags', 'series')
             ->published()
             ->latest()
             ->paginate(10);

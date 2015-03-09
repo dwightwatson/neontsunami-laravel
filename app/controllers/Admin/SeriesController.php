@@ -1,29 +1,12 @@
 <?php namespace Admin;
 
 use Series;
-use Redirect, Request, View;
+
+use Redirect;
+use Request;
+use View;
 
 class SeriesController extends AdminController {
-
-    /**
-     * Series instance.
-     *
-     * @var Series
-     */
-    protected $series;
-
-    /**
-     * Construct the controller.
-     *
-     * @param  Series  $series
-     * @return void
-     */
-    public function __construct(Series $series)
-    {
-        parent::__construct();
-
-        $this->series = $series;
-    }
 
     /**
      * GET /admin/series
@@ -33,7 +16,7 @@ class SeriesController extends AdminController {
      */
     public function index()
     {
-        $series = $this->series->with('posts')
+        $series = Series::with('posts')
             ->latest()
             ->paginate(25);
 
@@ -63,7 +46,7 @@ class SeriesController extends AdminController {
     {
         $input = Request::input();
 
-        $series = $this->series->fill($input);
+        $series = new Series($input);
 
         if ( ! $series->save())
         {

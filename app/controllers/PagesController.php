@@ -3,26 +3,6 @@
 class PagesController extends BaseController {
 
     /**
-     * Post instance.
-     *
-     * @var Post
-     */
-    protected $post;
-
-    /**
-     * Construct the controller.
-     *
-     * @param  Post  $post
-     * @return void
-     */
-    public function __construct(Post $post)
-    {
-        parent::__construct();
-
-        $this->post = $post;
-    }
-
-    /**
      * GET /
      * The home page.
      *
@@ -30,9 +10,9 @@ class PagesController extends BaseController {
      */
     public function index()
     {
-        $latestPost = $this->post->with('tags')->published()->latest()->take(1)->first();
+        $latestPost = Post::with('tags')->published()->latest()->take(1)->first();
 
-        $popularPosts = $this->post->published()
+        $popularPosts = Post::published()
             ->with('tags')
             ->where('id', '!=', $latestPost->id)
             ->orderBy('views', 'desc')
@@ -63,24 +43,13 @@ class PagesController extends BaseController {
      */
     public function rss()
     {
-        $posts = $this->getPosts(100);
+        $posts = Post::published()->latest()->take($limit)->get();
 
         if ($posts->count()) $updated = $posts->first()->updated_at;
 
         return Response::view('pages.rss', compact('posts', 'updated'), 200, [
             'Content-Type' => 'application/rss+xml; charset=UTF-8'
         ]);
-    }
-
-    /**
-     * Get the latest published posts.
-     *
-     * @param  int  $limit
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
-    protected function getPosts($limit = null)
-    {
-        return $this->post->published()->latest()->take($limit)->get();
     }
 
 }

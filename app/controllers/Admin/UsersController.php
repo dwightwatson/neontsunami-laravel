@@ -1,29 +1,12 @@
 <?php namespace Admin;
 
 use User;
-use Redirect, Request, View;
+
+use Redirect;
+use Request;
+use View;
 
 class UsersController extends AdminController {
-
-    /**
-     * User instance.
-     *
-     * @var User
-     */
-    protected $user;
-
-    /**
-     * Construct the controller.
-     *
-     * @param  User  $user
-     * @return void
-     */
-    public function __construct(User $user)
-    {
-        parent::__construct();
-
-        $this->user = $user;
-    }
 
     /**
      * GET /admin/users
@@ -33,7 +16,7 @@ class UsersController extends AdminController {
      */
     public function index()
     {
-        $users = $this->user->latest()
+        $users = User::latest()
             ->paginate(25);
 
         return View::make('admin.users.index', compact('users'))
@@ -62,7 +45,7 @@ class UsersController extends AdminController {
     {
         $input = Request::input();
 
-        $user = $this->user->fill($input);
+        $user = new User($input);
 
         if ( ! $user->save())
         {

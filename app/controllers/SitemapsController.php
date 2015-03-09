@@ -3,44 +3,6 @@
 class SitemapsController extends BaseController {
 
     /**
-     * Post instance.
-     *
-     * @var Post
-     */
-    protected $post;
-
-    /**
-     * Project instance.
-     *
-     * @var Project
-     */
-    protected $project;
-
-    /**
-     * Series instance.
-     *
-     * @var Series
-     */
-    protected $series;
-
-    /**
-     * Construct the controller.
-     *
-     * @param  Post     $post
-     * @param  Project  $project
-     * @param  Series   $series
-     * @return void
-     */
-    public function __construct(Post $post, Project $project, Series $series)
-    {
-        parent::__construct();
-
-        $this->post = $post;
-        $this->project = $project;
-        $this->series = $series;
-    }
-
-    /**
      * GET /sitemap
      * Return the sitemap.
      *
@@ -65,7 +27,7 @@ class SitemapsController extends BaseController {
      */
     protected function getPosts($limit = null)
     {
-        $posts = $this->post->published()->latest()->take($limit)->get();
+        $posts = Post::published()->latest()->take($limit)->get();
 
         foreach ($posts as $post)
         {
@@ -86,7 +48,7 @@ class SitemapsController extends BaseController {
      */
     protected function getProjects($limit = null)
     {
-        $projects = $this->project->alphabetical()->take($limit)->get();
+        $projects = Project::alphabetical()->take($limit)->get();
 
         foreach ($projects as $project)
         {
@@ -107,7 +69,7 @@ class SitemapsController extends BaseController {
      */
     protected function getSeries($limit = null)
     {
-        $series = $this->series->whereHas('posts', function($query)
+        $series = Series::whereHas('posts', function($query)
             {
                 $query->published();
             })

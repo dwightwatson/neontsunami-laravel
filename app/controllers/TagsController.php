@@ -3,26 +3,6 @@
 class TagsController extends BaseController {
 
     /**
-     * Tag instance.
-     *
-     * @var Tag
-     */
-    protected $tag;
-
-    /**
-     * Construct the controller.
-     *
-     * @param  Tag  $tag
-     * @return void
-     */
-    public function __construct(Tag $tag)
-    {
-        parent::__construct();
-
-        $this->tag = $tag;
-    }
-
-    /**
      * GET /tags
      * Display a listing of all tags.
      *
@@ -30,7 +10,7 @@ class TagsController extends BaseController {
      */
     public function index()
     {
-        $tags = $this->tag->used()->get();
+        $tags = Tag::used()->get();
 
         foreach ($tags as $tag)
         {

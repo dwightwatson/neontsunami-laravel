@@ -1,29 +1,12 @@
 <?php namespace Admin;
 
 use Project;
-use Redirect, Request, View;
+
+use Redirect;
+use Request;
+use View;
 
 class ProjectsController extends AdminController {
-
-    /**
-     * Project instance.
-     *
-     * @var Project
-     */
-    protected $project;
-
-    /**
-     * Construct the controller.
-     *
-     * @param  Project  $project
-     * @return void
-     */
-    public function __construct(Project $project)
-    {
-        parent::__construct();
-
-        $this->project = $project;
-    }
 
     /**
      * GET /admin/projects
@@ -33,7 +16,7 @@ class ProjectsController extends AdminController {
      */
     public function index()
     {
-        $projects = $this->project->latest()->get();
+        $projects = Project::latest()->get();
 
         return View::make('admin.projects.index', compact('projects'))
             ->withTitle('All projects');
@@ -61,7 +44,7 @@ class ProjectsController extends AdminController {
     {
         $input = Request::input();
 
-        $project = $this->project->fill($input);
+        $project = new Project($input);
 
         if ( ! $project->save())
         {

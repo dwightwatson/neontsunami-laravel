@@ -3,26 +3,6 @@
 class SeriesController extends BaseController {
 
     /**
-     * Series instance.
-     *
-     * @var Series
-     */
-    protected $series;
-
-    /**
-     * Construct the controlller.
-     *
-     * @param  Series  $series
-     * @return void
-     */
-    public function __construct(Series $series)
-    {
-        parent::__construct();
-
-        $this->series = $series;
-    }
-
-    /**
      * GET /series
      * Get a listing of all series.
      *
@@ -30,7 +10,7 @@ class SeriesController extends BaseController {
      */
     public function index()
     {
-        $series = $this->series->whereHas('posts', function($query)
+        $series = Series::whereHas('posts', function($query)
             {
                 $query->published();
             })

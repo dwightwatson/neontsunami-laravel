@@ -1,29 +1,13 @@
 <?php namespace Admin;
 
 use Post;
-use Auth, Request, Redirect, View;
+
+use Auth;
+use Request;
+use Redirect;
+use View;
 
 class PostsController extends AdminController {
-
-    /**
-     * Post instance.
-     *
-     * @var Post
-     */
-    protected $post;
-
-    /**
-     * Construct the controller.
-     *
-     * @param  Post  $post
-     * @return void
-     */
-    public function __construct(Post $post)
-    {
-        parent::__construct();
-
-        $this->post = $post;
-    }
 
     /**
      * GET /admin/posts
@@ -33,7 +17,7 @@ class PostsController extends AdminController {
      */
     public function index()
     {
-        $posts = $this->post->with('user')
+        $posts = Post::with('user')
             ->latest()
             ->paginate(25);
 
@@ -63,7 +47,7 @@ class PostsController extends AdminController {
     {
         $input = Request::input();
 
-        $post = $this->post->fill($input);
+        $post = new Post($input);
 
         $post->user()->associate(Auth::user());
 
