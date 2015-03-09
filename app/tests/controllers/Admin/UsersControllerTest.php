@@ -12,7 +12,7 @@ class UsersControllerTest extends TestCase {
     {
         parent::setUp();
 
-        $this->be(Factory::create('User'));
+        $this->be(new User);
     }
 
     public function testIndex()
