@@ -9,8 +9,9 @@
       <strong>Oops!</strong> There are no tags yet, please come back soon for more content.
     </div>
   @else
-    {{ Taggly::cloud($taggly) }}
-    <br style="clear: both">
+    <div class="clearfix">
+      {{ Taggly::cloud($taggly) }}
+    </div>
   @endunless
 
 @stop
