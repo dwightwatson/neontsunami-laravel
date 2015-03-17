@@ -1,5 +1,7 @@
 <?php
 
+use Laracasts\TestDummy\Factory;
+
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
 	use Watson\Testing\TestingTrait;
@@ -21,6 +23,8 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
     public function setUp()
     {
         parent::setUp();
+
+        Factory::$factoriesPath = 'app/tests/factories';
 
         $this->resetEvents();
 

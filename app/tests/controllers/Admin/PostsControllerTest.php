@@ -79,7 +79,7 @@ class PostsControllerTest extends TestCase {
         $post = Factory::create('Post', ['slug' => 'foo']);
 
         $this->action('PUT', 'Admin\PostsController@update', $post->slug, [
-            'slug' => 'bar'
+            'title' => 'Bar'
         ]);
 
         $this->assertRedirectedToRoute('admin.posts.show', 'bar');
@@ -90,7 +90,7 @@ class PostsControllerTest extends TestCase {
         $post = Factory::create('Post', ['slug' => 'foo']);
 
         $this->action('PUT', 'Admin\PostsController@update', $post->slug, [
-            'slug'   => 'bar',
+            'title'   => 'Bar',
             'content' => null
         ]);
 

@@ -18,9 +18,9 @@ class PostsControllerTest extends TestCase {
 
     public function testShow()
     {
-        $post = Factory::create('Post', ['slug' => 'foo']);
+        $post = Factory::create('Post');
 
-        $this->action('GET', 'PostsController@show', 'foo');
+        $this->action('GET', 'PostsController@show', $post->slug);
 
         $this->assertResponseOk();
         $this->assertViewIs('posts.show');

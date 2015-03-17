@@ -79,7 +79,7 @@ class ProjectsControllerTest extends TestCase {
         $project = Factory::create('Project', ['slug' => 'foo']);
 
         $this->action('PUT', 'Admin\ProjectsController@update', $project->slug, [
-            'slug' => 'bar'
+            'name' => 'Bar'
         ]);
 
         $this->assertRedirectedToRoute('admin.projects.show', 'bar');
@@ -90,7 +90,7 @@ class ProjectsControllerTest extends TestCase {
         $project = Factory::create('Project', ['slug' => 'foo']);
 
         $this->action('PUT', 'Admin\ProjectsController@update', $project->slug, [
-            'slug' => 'bar',
+            'name' => 'Bar',
             'description' => null
         ]);
 

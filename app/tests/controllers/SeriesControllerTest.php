@@ -6,10 +6,10 @@ class SeriesControllerTest extends TestCase {
 
     public function testIndex()
     {
-        $posts = Factory::times(3)->create('Post');
-        head($posts)->update(['published_at' => null]);
+        $publishedPost = Factory::create('Post');
+        $unpublishedPost = Factory::create('Post', ['published_at' => null]);
 
-        $series = head($posts)->series;
+        $series = $publishedPost->series;
 
         $response = $this->action('GET', 'SeriesController@index');
 
@@ -18,15 +18,15 @@ class SeriesControllerTest extends TestCase {
         $this->assertViewHas('series');
 
         $this->assertContains($series->name, $response->getContent());
-        $this->assertContains('2 posts', $response->getContent());
+        $this->assertContains('1 post', $response->getContent());
     }
 
     public function testShow()
     {
-        $posts = Factory::times(3)->create('Post');
-        head($posts)->update(['published_at' => null]);
+        $publishedPost = Factory::create('Post');
+        $unpublishedPost = Factory::create('Post', ['published_at' => null]);
 
-        $series = head($posts)->series;
+        $series = $publishedPost->series;
 
         $response = $this->action('GET', 'SeriesController@show', $series->slug);
 
@@ -34,7 +34,7 @@ class SeriesControllerTest extends TestCase {
         $this->assertViewIs('series.show');
         $this->assertViewHas('series');
 
-        $this->assertContains('2 posts', $response->getContent());
+        $this->assertContains('1 post', $response->getContent());
     }
 
 }

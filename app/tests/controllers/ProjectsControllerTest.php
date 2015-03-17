@@ -17,9 +17,9 @@ class ProjectsControllerTest extends TestCase {
 
     public function testShow()
     {
-        $project = Factory::create('Project', ['slug' => 'foo']);
+        $project = Factory::create('Project');
 
-        $this->action('GET', 'ProjectsController@show', 'foo');
+        $this->action('GET', 'ProjectsController@show', $project->slug);
 
         $this->assertResponseOk();
         $this->assertViewIs('projects.show');

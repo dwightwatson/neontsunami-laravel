@@ -79,7 +79,7 @@ class SeriesControllerTest extends TestCase {
         $series = Factory::create('Series', ['slug' => 'foo']);
 
         $this->action('PUT', 'Admin\SeriesController@update', $series->slug, [
-            'slug' => 'bar'
+            'name' => 'Bar'
         ]);
 
         $this->assertRedirectedToRoute('admin.series.show', 'bar');
@@ -90,7 +90,7 @@ class SeriesControllerTest extends TestCase {
         $series = Factory::create('Series', ['slug' => 'foo']);
 
         $this->action('PUT', 'Admin\SeriesController@update', $series->slug, [
-            'slug' => 'bar',
+            'name' => 'Bar',
             'description' => null
         ]);
 
