@@ -14,6 +14,9 @@ dependencies:
     - echo "memory_limit = 1024M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
     - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
 
+  post:
+    - gulp
+
 test:
   override:
     - phpunit --coverage-html $CIRCLE_ARTIFACTS
