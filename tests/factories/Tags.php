@@ -1,6 +1,6 @@
 <?php
 
 $factory('NeonTsunami\Tag', [
-    'name'        => $faker->name,
+    'name'        => $faker->word,
     'slug'        => $faker->unique()->slug(1),
 ]);
