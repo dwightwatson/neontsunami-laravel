@@ -3,6 +3,11 @@ machine:
     version: 5.5.11
   node:
     version: 0.10.28
+  environment:
+    DB_HOST: 127.0.0.1
+    DB_DATABASE: circle_test
+    DB_USERNAME: ubuntu
+    DB_PASSWORD:
 
 dependencies:
   pre:
