@@ -12,16 +12,16 @@ class PagesController extends Controller {
 	 */
 	public function index()
 	{
-		$latestPost = Post::with('tags')->published()->latest()->take(1)->first();
+		$latestPosts = Post::with('tags')->published()->latest()->take(5)->get();
 
 		$popularPosts = Post::published()
 			->with('tags')
-			->where('id', '!=', $latestPost->id)
+			->whereNotIn('id', $latestPosts->modelKeys())
 			->orderBy('views', 'desc')
 			->take(5)
 			->get();
 
-		return view('pages.index', compact('latestPost', 'popularPosts'))
+		return view('pages.index', compact('latestPosts', 'popularPosts'))
 			->withTitle('A blog on Laravel & Rails');
 	}
 

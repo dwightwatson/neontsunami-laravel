@@ -41,7 +41,7 @@ class Authenticate {
 			else
 			{
 				return redirect()->guest('admin/login')
-                    ->withInfo("You'll need to login to access the admin section.");
+					->withInfo("You'll need to login to access the admin section.");
 			}
 		}
 

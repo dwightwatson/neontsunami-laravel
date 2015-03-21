@@ -15,7 +15,7 @@ class PagesControllerTest extends DbTestCase {
 
         $this->assertResponseOk();
         $this->assertViewIs('pages.index');
-        $this->assertViewHas('latestPost');
+        $this->assertViewHas('latestPosts');
         $this->assertViewHas('popularPosts');
     }
 

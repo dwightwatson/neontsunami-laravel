@@ -2,7 +2,7 @@
 
 @section('content')
   <h3>Recent posts</h3>
-  @include('posts._post', ['post' => $latestPost])
+  @each('posts._post', $latestPosts, 'post')
 
   <a href="{!! route('posts.index') !!}">Read more recent posts <span class="glyphicon glyphicon-chevron-right"></span></a>
 
