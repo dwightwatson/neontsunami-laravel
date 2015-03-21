@@ -16,6 +16,7 @@ class Kernel extends HttpKernel {
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
 		'NeonTsunami\Http\Middleware\VerifyCsrfToken',
+        'NeonTsunami\Http\Middleware\RedirectTrailingSlash',
 	];
 
 	/**
