@@ -11,7 +11,7 @@ class UpdatePostRequest extends Request {
 	 */
 	public function authorize()
 	{
-        return (bool) $this->user();
+		return (bool) $this->user();
 	}
 
 	/**
@@ -21,28 +21,28 @@ class UpdatePostRequest extends Request {
 	 */
 	public function rules()
 	{
-        $post = $this->route()->parameter('posts');
+		$post = $this->route()->parameter('posts');
 
 		return [
-            'series_id'    => 'exists:series,id',
-            'title'        => 'required',
-            'slug'         => ['required', 'unique:posts,slug,'.$post->getKey()],
-            'content'      => 'required'
+			'series_id'    => 'exists:series,id',
+			'title'        => 'required',
+			'slug'         => ['required', 'unique:posts,slug,'.$post->getKey()],
+			'content'      => 'required'
 		];
 	}
 
-    /**
-     * Get the URL to redirect to on a validation error.
-     *
-     * @return string
-     */
-    protected function getRedirectUrl()
-    {
-        $url = $this->redirector->getUrlGenerator();
+	/**
+	 * Get the URL to redirect to on a validation error.
+	 *
+	 * @return string
+	 */
+	protected function getRedirectUrl()
+	{
+		$url = $this->redirector->getUrlGenerator();
 
-        $post = $this->route()->parameter('posts');
+		$post = $this->route()->parameter('posts');
 
-        return $url->route('admin.posts.edit', $post);
-    }
+		return $url->route('admin.posts.edit', $post);
+	}
 
 }

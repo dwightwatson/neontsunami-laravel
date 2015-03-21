@@ -11,7 +11,7 @@ class UpdateUserRequest extends Request {
 	 */
 	public function authorize()
 	{
-        return (bool) $this->user();
+		return (bool) $this->user();
 	}
 
 	/**
@@ -21,28 +21,28 @@ class UpdateUserRequest extends Request {
 	 */
 	public function rules()
 	{
-        $user = $this->route()->parameter('users');
+		$user = $this->route()->parameter('users');
 
 		return [
 			'first_name' => 'required',
-            'last_name'  => 'required',
-            'email'      => ['required', 'email', 'unique:users,email,'.$user->getKey()],
-            'password'   => 'required'
+			'last_name'  => 'required',
+			'email'      => ['required', 'email', 'unique:users,email,'.$user->getKey()],
+			'password'   => 'required'
 		];
 	}
 
-    /**
-     * Get the URL to redirect to on a validation error.
-     *
-     * @return string
-     */
-    protected function getRedirectUrl()
-    {
-        $url = $this->redirector->getUrlGenerator();
+	/**
+	 * Get the URL to redirect to on a validation error.
+	 *
+	 * @return string
+	 */
+	protected function getRedirectUrl()
+	{
+		$url = $this->redirector->getUrlGenerator();
 
-        $user = $this->route()->parameter('users');
+		$user = $this->route()->parameter('users');
 
-        return $url->route('admin.users.edit', $user);
-    }
+		return $url->route('admin.users.edit', $user);
+	}
 
 }

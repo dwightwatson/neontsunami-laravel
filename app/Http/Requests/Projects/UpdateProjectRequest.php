@@ -11,7 +11,7 @@ class UpdateProjectRequest extends Request {
 	 */
 	public function authorize()
 	{
-        return (bool) $this->user();
+		return (bool) $this->user();
 	}
 
 	/**
@@ -21,28 +21,28 @@ class UpdateProjectRequest extends Request {
 	 */
 	public function rules()
 	{
-        $project = $this->route()->parameter('projects');
+		$project = $this->route()->parameter('projects');
 
 		return [
 			'name'        => 'required',
-            'slug'        => ['required', 'unique:projects,slug,'.$project->getKey()],
-            'description' => 'required',
-            'url'         => 'url'
+			'slug'        => ['required', 'unique:projects,slug,'.$project->getKey()],
+			'description' => 'required',
+			'url'         => 'url'
 		];
 	}
 
-    /**
-     * Get the URL to redirect to on a validation error.
-     *
-     * @return string
-     */
-    protected function getRedirectUrl()
-    {
-        $url = $this->redirector->getUrlGenerator();
+	/**
+	 * Get the URL to redirect to on a validation error.
+	 *
+	 * @return string
+	 */
+	protected function getRedirectUrl()
+	{
+		$url = $this->redirector->getUrlGenerator();
 
-        $project = $this->route()->parameter('projects');
+		$project = $this->route()->parameter('projects');
 
-        return $url->route('admin.projects.edit', $project);
-    }
+		return $url->route('admin.projects.edit', $project);
+	}
 
 }

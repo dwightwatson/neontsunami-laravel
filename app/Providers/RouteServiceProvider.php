@@ -31,22 +31,22 @@ class RouteServiceProvider extends ServiceProvider {
 
 		$router->bind('posts', function($value, $route)
 		{
-		    return Post::whereSlug($value)->firstOrFail();
+			return Post::whereSlug($value)->firstOrFail();
 		});
 
 		$router->bind('series', function($value, $route)
 		{
-		    return Series::whereSlug($value)->firstOrFail();
+			return Series::whereSlug($value)->firstOrFail();
 		});
 
 		$router->bind('tags', function($value, $route)
 		{
-		    return Tag::whereSlug($value)->firstOrFail();
+			return Tag::whereSlug($value)->firstOrFail();
 		});
 
 		$router->bind('projects', function($value, $route)
 		{
-		    return Project::whereSlug($value)->firstOrFail();
+			return Project::whereSlug($value)->firstOrFail();
 		});
 
 		$router->model('users', 'NeonTsunami\User');

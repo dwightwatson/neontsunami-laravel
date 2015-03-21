@@ -11,7 +11,7 @@ class UpdateSeriesRequest extends Request {
 	 */
 	public function authorize()
 	{
-        return (bool) $this->user();
+		return (bool) $this->user();
 	}
 
 	/**
@@ -21,27 +21,27 @@ class UpdateSeriesRequest extends Request {
 	 */
 	public function rules()
 	{
-        $series = $this->route()->parameter('series');
+		$series = $this->route()->parameter('series');
 
 		return [
 			'name'        => 'required',
-            'slug'        => ['required', 'unique:series,slug,'.$series->getKey()],
-            'description' => 'required'
+			'slug'        => ['required', 'unique:series,slug,'.$series->getKey()],
+			'description' => 'required'
 		];
 	}
 
-    /**
-     * Get the URL to redirect to on a validation error.
-     *
-     * @return string
-     */
-    protected function getRedirectUrl()
-    {
-        $url = $this->redirector->getUrlGenerator();
+	/**
+	 * Get the URL to redirect to on a validation error.
+	 *
+	 * @return string
+	 */
+	protected function getRedirectUrl()
+	{
+		$url = $this->redirector->getUrlGenerator();
 
-        $series = $this->route()->parameter('series');
+		$series = $this->route()->parameter('series');
 
-        return $url->route('admin.series.edit', $series);
-    }
+		return $url->route('admin.series.edit', $series);
+	}
 
 }

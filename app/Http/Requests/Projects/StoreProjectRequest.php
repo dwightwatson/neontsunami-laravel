@@ -4,12 +4,12 @@ use NeonTsunami\Http\Requests\Request;
 
 class StoreProjectRequest extends Request {
 
-    /**
-     * The route to redirect to if validation fails.
-     *
-     * @var string
-     */
-    protected $redirectRoute = 'admin.projects.create';
+	/**
+	 * The route to redirect to if validation fails.
+	 *
+	 * @var string
+	 */
+	protected $redirectRoute = 'admin.projects.create';
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -18,7 +18,7 @@ class StoreProjectRequest extends Request {
 	 */
 	public function authorize()
 	{
-        return (bool) $this->user();
+		return (bool) $this->user();
 	}
 
 	/**
@@ -30,9 +30,9 @@ class StoreProjectRequest extends Request {
 	{
 		return [
 			'name'        => 'required',
-            'slug'        => ['required', 'unique:projects,slug'],
-            'description' => 'required',
-            'url'         => 'url'
+			'slug'        => ['required', 'unique:projects,slug'],
+			'description' => 'required',
+			'url'         => 'url'
 		];
 	}
 

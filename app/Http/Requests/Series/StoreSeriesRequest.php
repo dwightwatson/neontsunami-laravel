@@ -4,12 +4,12 @@ use NeonTsunami\Http\Requests\Request;
 
 class StoreSeriesRequest extends Request {
 
-    /**
-     * The route to redirect to if validation fails.
-     *
-     * @var string
-     */
-    protected $redirectRoute = 'admin.series.create';
+	/**
+	 * The route to redirect to if validation fails.
+	 *
+	 * @var string
+	 */
+	protected $redirectRoute = 'admin.series.create';
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -18,7 +18,7 @@ class StoreSeriesRequest extends Request {
 	 */
 	public function authorize()
 	{
-        return (bool) $this->user();
+		return (bool) $this->user();
 	}
 
 	/**
@@ -30,8 +30,8 @@ class StoreSeriesRequest extends Request {
 	{
 		return [
 			'name'        => 'required',
-            'slug'        => ['required', 'unique:series,slug'],
-            'description' => 'required'
+			'slug'        => ['required', 'unique:series,slug'],
+			'description' => 'required'
 		];
 	}
 

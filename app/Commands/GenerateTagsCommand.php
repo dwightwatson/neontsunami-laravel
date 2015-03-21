@@ -8,24 +8,24 @@ use Illuminate\Database\Eloquent\Collection;
 
 class GenerateTagsCommand extends Command implements SelfHandling {
 
-    /**
-     * Tag slugs.
-     *
-     * @var string
-     */
-    protected $slugs;
+	/**
+	 * Tag slugs.
+	 *
+	 * @var string
+	 */
+	protected $slugs;
 
-    /**
-     * Tag models.
-     *
-     * @var array
-     */
-    protected $tags = [];
+	/**
+	 * Tag models.
+	 *
+	 * @var array
+	 */
+	protected $tags = [];
 
 	/**
 	 * Create a new command instance.
 	 *
-     * @param  string  $slugs
+	 * @param  string  $slugs
 	 * @return void
 	 */
 	public function __construct($tags)
@@ -41,16 +41,16 @@ class GenerateTagsCommand extends Command implements SelfHandling {
 	public function handle()
 	{
 		foreach ($this->slugs as $slug)
-        {
-            if ( ! $tag = Tag::where('slug', $slug)->first())
-            {
-                $tag = Tag::create(['name' => $slug]);
-            }
+		{
+			if ( ! $tag = Tag::where('slug', $slug)->first())
+			{
+				$tag = Tag::create(['name' => $slug]);
+			}
 
-            $this->tags[] = $tag;
-        }
+			$this->tags[] = $tag;
+		}
 
-        return new Collection($this->tags);
+		return new Collection($this->tags);
 	}
 
 }

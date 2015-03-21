@@ -5,8 +5,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 abstract class Model extends BaseModel {
 
-    use SoftDeletes;
+	use SoftDeletes;
 
-    protected $dates = ['deleted_at'];
+	protected $dates = ['deleted_at'];
 
 }
