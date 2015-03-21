@@ -5,39 +5,12 @@
 | Redirects
 |--------------------------------------------------------------------------
 */
-Route::get('posts/laravel\'s-new-forelse-construct', function()
-{
-    return Redirect::to('posts/laravels-new-forelse-construct', 301);
-});
-
-Route::get('posts/"handy-laravel-select-helpers-for-ranges,-years-and-months"', function()
-{
-    return Redirect::to('posts/handy-laravel-select-helpers-for-ranges-years-and-months', 301);
-});
-
-Route::get('posts/handy-laravel-select-helpers-for-ranges,-years-and-months', function()
-{
-    return Redirect::to('posts/handy-laravel-select-helpers-for-ranges-years-and-months', 301);
-});
-
-Route::get('posts/-too-many-connections-using-phpunit-for-testing-laravel-4-on-circleci', function()
-{
-    return Redirect::to('posts/too-many-connections-using-phpunit-for-testing-laravel-4-on-circleci', 301);
-});
-
-Route::get('tags/mac%20os%20x', function()
-{
-    return Redirect::to('tags/osx');
-});
-
-Route::get('tags/ruby%20on%20rails', function()
-{
-    return Redirect::to('tags/ruby-on-rails');
-});
-
 Route::get('post/{postSlug}', 'RedirectsController@getPost');
 Route::get('tag/{tagSlug}',   'RedirectsController@getTag');
 Route::get('archive',         'RedirectsController@getArchive');
+
+Route::get('tags/mac%20os%20x', 'RedirectsController@getTagsMacOsX');
+Route::get('tags/ruby%20on%20rails','RedirectsController@getTagsRubyOnRails');
 
 /*
 |--------------------------------------------------------------------------

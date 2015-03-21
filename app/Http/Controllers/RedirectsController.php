@@ -4,6 +4,12 @@ use Illuminate\Http\Request;
 
 class RedirectsController extends Controller {
 
+    /*
+    |--------------------------------------------------------------------------
+    | General redirects
+    |--------------------------------------------------------------------------
+    */
+
     /**
      * GET /post/post-slug
      * Redirect legacy post routes to the new pluralised route.
@@ -47,4 +53,18 @@ class RedirectsController extends Controller {
         return redirect()->route('posts.index', $parameters, 301);
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | Specific redirects
+    |--------------------------------------------------------------------------
+    */
+    public function getTagsMacOsX()
+    {
+        return redirect()->to('tags/osx');
+    }
+
+    public function getTagsRubyOnRails()
+    {
+        return redirect()->to('tags/ruby-on-rails');
+    }
 }
