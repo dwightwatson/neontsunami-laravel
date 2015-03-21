@@ -1,11 +1,12 @@
-@servers(['web' => 'forge@'])
+@servers(['web' => 'forge@192.241.221.56'])
 
 @task('deploy')
   cd /home/forge/default
   php artisan down
-  git pull origin {{ $branch or 'master' }}
+  git pull origin {{ $branch or 'master' }} --force
   composer install --no-dev --prefer-dist
-  php artsian config:cache
+  gulp
+  php artisan config:cache
   php artisan route:cache
   php artisan up
 @endtask
@@ -25,11 +26,6 @@
 @task('down')
   cd /home/forge/default
   php artisan down
-@endtask
-
-@task('run')
-  cd /home/forge/default
-  {{ $command }}
 @endtask
 
 @task('migrate')
