@@ -15,7 +15,7 @@ class ProjectsController extends Controller {
 	 */
 	public function index(Request $request)
 	{
-		$projects = Project::latest()->paginate(25);
+		$projects = Project::alphabetical()->paginate(25);
 
 		$page = $request->get('page');
 		$title = $page ? "All projects (Page {$page})" : 'All projects';
