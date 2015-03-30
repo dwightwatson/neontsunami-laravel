@@ -10,6 +10,6 @@ if ( ! function_exists('markdown'))
 	 */
 	function markdown($markdown)
 	{
-		return \Michelf\MarkdownExtra::defaultTransform($markdown);
+		return (new League\CommonMark\CommonMarkConverter)->convertToHtml($markdown);
 	}
 }

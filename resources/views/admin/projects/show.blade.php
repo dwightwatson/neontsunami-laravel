@@ -9,6 +9,6 @@
   </div>
 
   <div class="project-description">
-    {{ $project->description }}
+    {!! markdown($project->description) !!}
   </div>
 @stop
