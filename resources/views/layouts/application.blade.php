@@ -1,7 +1,7 @@
 @include('layouts._header')
   <header class="col-sm-3">
     <h1>{!! link_to_route('pages.index', 'Neon Tsunami') !!}</h1>
-    <h2>A blog on Laravel &amp; Rails</h2>
+    <h2>A blog on Swift, Laravel &amp; Rails</h2>
 
     <ul class="menu">
       <li class="{!! Active::route('posts.index') !!}">
