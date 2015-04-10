@@ -16,7 +16,6 @@ class PagesControllerTest extends \TestCase {
         $this->action('GET', 'Admin\PagesController@index');
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.pages.index');
     }
 
     public function testReports()
@@ -24,7 +23,6 @@ class PagesControllerTest extends \TestCase {
         $this->action('GET', 'Admin\PagesController@reports');
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.pages.reports');
     }
 
 }

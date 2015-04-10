@@ -18,8 +18,7 @@
 	},
 	"require-dev": {
 		"laracasts/testdummy": "~2.0",
-		"phpunit/phpunit": "~4.0",
-		"watson/testing": "~2.0"
+		"phpunit/phpunit": "~4.0"
 	},
 	"autoload": {
 		"classmap": [

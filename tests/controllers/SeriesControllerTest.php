@@ -17,7 +17,6 @@ class SeriesControllerTest extends DbTestCase {
         $response = $this->action('GET', 'SeriesController@index');
 
         $this->assertResponseOk();
-        $this->assertViewIs('series.index');
         $this->assertViewHas('series');
 
         $this->assertContains($series->name, $response->getContent());
@@ -34,7 +33,6 @@ class SeriesControllerTest extends DbTestCase {
         $response = $this->action('GET', 'SeriesController@show', $series);
 
         $this->assertResponseOk();
-        $this->assertViewIs('series.show');
         $this->assertViewHas('series');
 
         $this->assertContains('1 post', $response->getContent());

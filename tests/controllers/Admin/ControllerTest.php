@@ -19,7 +19,6 @@ class ControllerTest extends \TestCase {
         $this->call('GET', 'admin');
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.pages.index');
     }
 
 }

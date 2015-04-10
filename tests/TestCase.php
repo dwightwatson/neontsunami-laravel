@@ -2,8 +2,6 @@
 
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
-    use Watson\Testing\TestingTrait;
-
 	/**
 	 * Creates the application.
 	 *

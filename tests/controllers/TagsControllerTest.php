@@ -17,7 +17,6 @@ class TagsControllerTest extends DbTestCase {
         $response = $this->action('GET', 'TagsController@index');
 
         $this->assertResponseOk();
-        $this->assertViewIs('tags.index');
         $this->assertViewHas('tags');
 
         $this->assertContains($tag->name, $response->getContent());
@@ -32,7 +31,6 @@ class TagsControllerTest extends DbTestCase {
         $response = $this->action('GET', 'TagsController@show', $tag);
 
         $this->assertResponseOk();
-        $this->assertViewIs('tags.show');
         $this->assertViewHas('posts');
     }
 

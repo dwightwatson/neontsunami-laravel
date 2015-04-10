@@ -19,7 +19,6 @@ class UsersControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\UsersController@index');
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.users.index');
         $this->assertViewHas('users');
     }
 
@@ -28,7 +27,6 @@ class UsersControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\UsersController@create');
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.users.create');
     }
 
     public function testStore()
@@ -58,7 +56,6 @@ class UsersControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\UsersController@show', $user);
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.users.show');
         $this->assertViewHas('user');
     }
 
@@ -69,7 +66,6 @@ class UsersControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\UsersController@edit', $user);
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.users.edit');
         $this->assertViewHas('user');
     }
 

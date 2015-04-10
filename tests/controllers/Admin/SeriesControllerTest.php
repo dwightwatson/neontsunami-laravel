@@ -20,7 +20,6 @@ class SeriesControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\SeriesController@index');
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.series.index');
         $this->assertViewHas('series');
     }
 
@@ -29,7 +28,6 @@ class SeriesControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\SeriesController@create');
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.series.create');
     }
 
     public function testStore()
@@ -59,7 +57,6 @@ class SeriesControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\SeriesController@show', $series);
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.series.show');
         $this->assertViewHas('series');
     }
 
@@ -70,7 +67,6 @@ class SeriesControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\SeriesController@edit', $series);
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.series.edit');
         $this->assertViewHas('series');
     }
 

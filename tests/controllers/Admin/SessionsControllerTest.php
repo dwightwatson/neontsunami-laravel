@@ -13,7 +13,6 @@ class SessionsControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\SessionsController@create');
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.sessions.create');
     }
 
     public function testStoreWithCorrectCredentials()

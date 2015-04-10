@@ -16,7 +16,6 @@ class PostsControllerTest extends DbTestCase {
         $this->action('GET', 'PostsController@index');
 
         $this->assertResponseOk();
-        $this->assertViewIs('posts.index');
         $this->assertViewHas('posts');
     }
 
@@ -27,7 +26,6 @@ class PostsControllerTest extends DbTestCase {
         $this->action('GET', 'PostsController@show', $post);
 
         $this->assertResponseOk();
-        $this->assertViewIs('posts.show');
         $this->assertViewHas('post');
 
         $post = Post::find($post->id);

@@ -20,7 +20,6 @@ class ProjectsControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\ProjectsController@index');
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.projects.index');
         $this->assertViewHas('projects');
     }
 
@@ -29,7 +28,6 @@ class ProjectsControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\ProjectsController@create');
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.projects.create');
     }
 
     public function testStore()
@@ -59,7 +57,6 @@ class ProjectsControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\ProjectsController@show', $project);
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.projects.show');
         $this->assertViewHas('project');
     }
 
@@ -70,7 +67,6 @@ class ProjectsControllerTest extends DbTestCase {
         $this->action('GET', 'Admin\ProjectsController@edit', $project);
 
         $this->assertResponseOk();
-        $this->assertViewIs('admin.projects.edit');
         $this->assertViewHas('project');
     }
 

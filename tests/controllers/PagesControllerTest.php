@@ -14,7 +14,6 @@ class PagesControllerTest extends DbTestCase {
         $this->action('GET', 'PagesController@index');
 
         $this->assertResponseOk();
-        $this->assertViewIs('pages.index');
         $this->assertViewHas('latestPosts');
         $this->assertViewHas('popularPosts');
     }
@@ -24,7 +23,6 @@ class PagesControllerTest extends DbTestCase {
         $this->action('GET', 'PagesController@about');
 
         $this->assertResponseOk();
-        $this->assertViewIs('pages.about');
     }
 
     public function testRss()
@@ -32,7 +30,6 @@ class PagesControllerTest extends DbTestCase {
         $this->action('GET', 'PagesController@rss');
 
         $this->assertResponseOk();
-        $this->assertViewIs('pages.rss');
         $this->assertViewHas('posts');
     }
 

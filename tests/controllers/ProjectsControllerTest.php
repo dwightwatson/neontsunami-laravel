@@ -14,7 +14,6 @@ class ProjectsControllerTest extends DbTestCase {
         $this->action('GET', 'ProjectsController@index');
 
         $this->assertResponseOk();
-        $this->assertViewIs('projects.index');
         $this->assertViewHas('projects');
     }
 
@@ -25,7 +24,6 @@ class ProjectsControllerTest extends DbTestCase {
         $this->action('GET', 'ProjectsController@show', $project);
 
         $this->assertResponseOk();
-        $this->assertViewIs('projects.show');
         $this->assertViewHas('project');
     }
 
