@@ -9,18 +9,18 @@ class ExampleTest extends TestCase {
 
 	use DatabaseTransactions;
 
-	public function itLoadsHomePage()
+	public function testItLoadsHomePage()
 	{
 		$this->visit('/');
 	}
 
-	public function itRedirectsToLoginPage()
+	public function testItRedirectsToLoginPage()
 	{
 		$this->visit('admin')
 			->seePageIs('admin/login');
 	}
 
-	public function itLogsInUserWithCorrectCredentials()
+	public function testItLogsInUserWithCorrectCredentials()
 	{
 		$credentials = [
 		    'email'    => 'test@example.com',
@@ -34,7 +34,7 @@ class ExampleTest extends TestCase {
 			->seePageIs('admin');
 	}
 
-	public function itDoesNotLoginUserWithIncorrectCredentials()
+	public function testItDoesNotLoginUserWithIncorrectCredentials()
 	{
 		$user = Factory::create(User::class, [
 		    'email'    => 'test@example.com',
