@@ -19,7 +19,8 @@
 	"require-dev": {
 		"laracasts/testdummy": "~2.0",
 		"phpunit/phpunit": "~4.0",
-		"mockery/mockery": "0.9.*"
+		"mockery/mockery": "0.9.*",
+		"laracasts/integrated": "0.11.*"
 	},
 	"autoload": {
 		"classmap": [
