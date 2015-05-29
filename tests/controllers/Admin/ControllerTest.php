@@ -18,7 +18,7 @@ class ControllerTest extends \TestCase {
 
         $this->call('GET', 'admin');
 
-        var_dump($this->response->getOriginalContent());
+        var_dump($this->response->getContent());
 
         $this->assertResponseOk();
     }
