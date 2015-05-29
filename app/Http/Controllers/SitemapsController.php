@@ -38,7 +38,7 @@ class SitemapsController extends Controller {
 		{
 			Sitemap::addTag(
 				route('posts.show', $post),
-				$post->updated_at,
+				$post,
 				'daily',
 				'0.9'
 			);
@@ -48,7 +48,7 @@ class SitemapsController extends Controller {
 	/**
 	 * Get the projects.
 	 *
-	 * @param  int  $Limit
+	 * @param  int  $limit
 	 * @return void
 	 */
 	protected function getProjects($limit = null)
@@ -59,7 +59,7 @@ class SitemapsController extends Controller {
 		{
 			Sitemap::addTag(
 				route('projects.show', $project),
-				$project->updated_at,
+				$project,
 				'weekly',
 				'0.8'
 			);
@@ -85,7 +85,7 @@ class SitemapsController extends Controller {
 		{
 			Sitemap::addTag(
 				route('series.show', $singleSeries),
-				$singleSeries->updated_at,
+				$singleSeries,
 				'weekly',
 				'0.8'
 			);
