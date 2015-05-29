@@ -2059,22 +2059,21 @@
         },
         {
             "name": "watson/sitemap",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dwightwatson/sitemap.git",
-                "reference": "93871d4f008b5fd5f03233dbb81dbf263a788091"
+                "reference": "c367ac72ac87b6f2d0250f9ccec48436a6f6ba5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dwightwatson/sitemap/zipball/93871d4f008b5fd5f03233dbb81dbf263a788091",
-                "reference": "93871d4f008b5fd5f03233dbb81dbf263a788091",
+                "url": "https://api.github.com/repos/dwightwatson/sitemap/zipball/c367ac72ac87b6f2d0250f9ccec48436a6f6ba5b",
+                "reference": "c367ac72ac87b6f2d0250f9ccec48436a6f6ba5b",
                 "shasum": ""
             },
             "require": {
                 "illuminate/http": "~5.0",
                 "illuminate/support": "~5.0",
-                "nesbot/carbon": "1.*",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -2102,7 +2101,7 @@
                 "laravel",
                 "sitemaps"
             ],
-            "time": "2015-02-25 10:28:46"
+            "time": "2015-05-29 00:02:42"
         },
         {
             "name": "watson/taggly",
