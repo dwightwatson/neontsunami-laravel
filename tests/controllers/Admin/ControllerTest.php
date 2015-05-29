@@ -18,8 +18,6 @@ class ControllerTest extends \TestCase {
 
         $this->call('GET', 'admin');
 
-        dd($this->response->getContent());
-
         $this->assertResponseOk();
     }
 
