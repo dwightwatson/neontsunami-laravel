@@ -2,16 +2,16 @@
 
 use NeonTsunami\Post;
 
-use Carbon\Carbon;
-use Laracasts\TestDummy\Factory;
-use Laracasts\TestDummy\DbTestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class PostsControllerTest extends DbTestCase {
+class PostsControllerTest extends TestCase
+{
+    use DatabaseTransactions;
 
     public function testIndex()
     {
-        $publishedPost = Factory::create(Post::class, ['published_at' => Carbon::now()]);
-        $unpublishedPost = Factory::create(Post::class, ['published_at' => null]);
+        $publishedPost = factory(Post::class)->create(['published_at' => new DateTime]);
+        $unpublishedPost = factory(Post::class)->create(['published_at' => null]);
 
         $this->action('GET', 'PostsController@index');
 
@@ -21,7 +21,7 @@ class PostsControllerTest extends DbTestCase {
 
     public function testShow()
     {
-        $post = Factory::create(Post::class);
+        $post = factory(POST::class)->create();
 
         $this->action('GET', 'PostsController@show', $post);
 
@@ -31,5 +31,4 @@ class PostsControllerTest extends DbTestCase {
         $post = Post::find($post->id);
         $this->assertEquals(1, $post->views);
     }
-
 }

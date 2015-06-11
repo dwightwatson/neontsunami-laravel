@@ -1,18 +1,22 @@
-<?php namespace Admin;
+<?php
+
+namespace Admin;
 
 use NeonTsunami\Series;
 use NeonTsunami\User;
 
-use Laracasts\TestDummy\Factory;
-use Laracasts\TestDummy\DbTestCase;
+use TestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class SeriesControllerTest extends DbTestCase {
+class SeriesControllerTest extends TestCase
+{
+    use DatabaseTransactions;
 
     public function setUp()
     {
         parent::setUp();
 
-        $this->be(Factory::create(User::class));
+        $this->be(new User);
     }
 
     public function testIndex()
@@ -32,7 +36,9 @@ class SeriesControllerTest extends DbTestCase {
 
     public function testStore()
     {
-        $series = Factory::build(Series::class, ['slug' => 'foo']);
+        $this->be(factory(User::class)->create());
+
+        $series = factory(Series::class)->make(['slug' => 'foo']);
 
         $input = array_only($series->getAttributes(), $series->getFillable());
 
@@ -52,7 +58,7 @@ class SeriesControllerTest extends DbTestCase {
 
     public function testShow()
     {
-        $series = Factory::create(Series::class);
+        $series = factory(Series::class)->create();
 
         $this->action('GET', 'Admin\SeriesController@show', $series);
 
@@ -62,7 +68,7 @@ class SeriesControllerTest extends DbTestCase {
 
     public function testEdit()
     {
-        $series = Factory::create(Series::class);
+        $series = factory(Series::class)->create();
 
         $this->action('GET', 'Admin\SeriesController@edit', $series);
 
@@ -72,7 +78,7 @@ class SeriesControllerTest extends DbTestCase {
 
     public function testUpdate()
     {
-        $series = Factory::create(Series::class, ['slug' => 'foo']);
+        $series = factory(Series::class)->create(['slug' => 'foo']);
 
         $input = array_only($series->getAttributes(), $series->getFillable());
 
@@ -85,7 +91,7 @@ class SeriesControllerTest extends DbTestCase {
 
     public function testUpdateFails()
     {
-        $series = Factory::create(Series::class, ['slug' => 'foo']);
+        $series = factory(Series::class)->create(['slug' => 'foo']);
 
         $this->action('PUT', 'Admin\SeriesController@update', $series, [
             'name' => 'Bar',
@@ -99,12 +105,11 @@ class SeriesControllerTest extends DbTestCase {
 
     public function testDestroy()
     {
-        $series = Factory::create(Series::class);
+        $series = factory(Series::class)->create();
 
         $this->action('DELETE', 'Admin\SeriesController@destroy', $series);
 
         $this->assertRedirectedToRoute('admin.series.index');
         $this->assertEquals(0, Series::count());
     }
-
 }

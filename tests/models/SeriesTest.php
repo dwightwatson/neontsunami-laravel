@@ -1,6 +1,11 @@
-<?php namespace NeonTsunami;
+<?php
 
-class SeriesTest extends \PHPUnit_Framework_TestCase {
+namespace NeonTsunami;
+
+use PHPUnit_Framework_TestCase;
+
+class SeriesTest extends PHPUnit_Framework_TestCase
+{
 
     public $series;
 
@@ -17,5 +22,4 @@ class SeriesTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertEquals('foo-bar-baz', $this->series->slug);
     }
-
 }

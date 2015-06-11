@@ -1,9 +1,13 @@
-<?php namespace Admin;
+<?php
+
+namespace Admin;
 
 use NeonTsunami\User;
 
-class ControllerTest extends \TestCase {
+use TestCase;
 
+class ControllerTest extends TestCase
+{
     public function testRedirectsGuests()
     {
         $this->call('GET', 'admin');
@@ -20,5 +24,4 @@ class ControllerTest extends \TestCase {
 
         $this->assertResponseOk();
     }
-
 }

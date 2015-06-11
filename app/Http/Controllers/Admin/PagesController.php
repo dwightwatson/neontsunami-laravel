@@ -1,29 +1,43 @@
-<?php namespace NeonTsunami\Http\Controllers\Admin;
+<?php
 
-class PagesController extends Controller {
+namespace NeonTsunami\Http\Controllers\Admin;
 
-	/**
-	 * GET /admin/users
-	 * Display a listing of users.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		return view('admin.pages.index')
-			->withTitle('Admin');
-	}
+use NeonTsunami\Post;
+use NeonTsunami\User;
+use NeonTsunami\Series;
+use NeonTsunami\Project;
 
-	/**
-	 * GET /admin/reports
-	 * Display statistic reports.
-	 *
-	 * @return Response
-	 */
-	public function reports()
-	{
-		return view('admin.pages.reports')
-			->withTitle('Reports');
-	}
+class PagesController extends Controller
+{
+    /**
+     * GET /admin/users
+     * Display a listing of users.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $postsCount = Post::count();
 
+        $seriesCount = Series::count();
+
+        $projectsCount = Project::count();
+
+        $usersCount = User::count();
+
+        return view('admin.pages.index', compact('postsCount', 'seriesCount', 'projectsCount', 'usersCount'))
+            ->withTitle('Admin');
+    }
+
+    /**
+     * GET /admin/reports
+     * Display statistic reports.
+     *
+     * @return Response
+     */
+    public function reports()
+    {
+        return view('admin.pages.reports')
+            ->withTitle('Reports');
+    }
 }

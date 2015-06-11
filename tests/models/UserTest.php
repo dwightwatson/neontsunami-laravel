@@ -1,8 +1,12 @@
-<?php namespace NeonTsunami;
+<?php
 
+namespace NeonTsunami;
+
+use PHPUnit_Framework_TestCase;
 use Illuminate\Support\Facades\Hash;
 
-class UserTest extends \PHPUnit_Framework_TestCase {
+class UserTest extends PHPUnit_Framework_TestCase
+{
 
     public $user;
 
@@ -32,5 +36,4 @@ class UserTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertEquals('foo', $this->user->password);
     }
-
 }

@@ -1,12 +1,16 @@
-<?php namespace Admin;
+<?php
+
+namespace Admin;
 
 use NeonTsunami\User;
 
 use Auth;
-use Laracasts\TestDummy\Factory;
-use Laracasts\TestDummy\DbTestCase;
+use TestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class SessionsControllerTest extends DbTestCase {
+class SessionsControllerTest extends TestCase
+{
+    use DatabaseTransactions;
 
     public function testCreate()
     {
@@ -17,7 +21,7 @@ class SessionsControllerTest extends DbTestCase {
 
     public function testStoreWithCorrectCredentials()
     {
-        $user = Factory::create(User::class, [
+        $user = factory(User::class)->create([
             'email'    => 'test@example.com',
             'password' => 'password'
         ]);
@@ -34,7 +38,7 @@ class SessionsControllerTest extends DbTestCase {
 
     public function testStoreWithIncorrectCredentials()
     {
-        $user = Factory::create(User::class, [
+        $user = factory(User::class)->create([
             'email' => 'text@example.com',
         ]);
 
@@ -63,5 +67,4 @@ class SessionsControllerTest extends DbTestCase {
         $this->assertRedirectedToRoute('admin.sessions.create');
         $this->assertFalse(Auth::check());
     }
-
 }

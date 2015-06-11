@@ -1,12 +1,13 @@
-<?php namespace NeonTsunami;
+<?php
+
+namespace NeonTsunami;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-abstract class Model extends BaseModel {
+abstract class Model extends BaseModel
+{
+    use SoftDeletes;
 
-	use SoftDeletes;
-
-	protected $dates = ['deleted_at'];
-
+    protected $dates = ['deleted_at'];
 }

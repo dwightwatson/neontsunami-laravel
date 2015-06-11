@@ -1,7 +1,7 @@
 <?php
 
-class RedirectsControllerTest extends TestCase {
-  
+class RedirectsControllerTest extends TestCase
+{
     public function testGetPost()
     {
         $this->action('GET', 'RedirectsController@getPost', ['foo']);
@@ -15,5 +15,4 @@ class RedirectsControllerTest extends TestCase {
 
         $this->assertRedirectedToRoute('tags.show', 'foo');
     }
-
 }

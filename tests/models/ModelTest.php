@@ -1,6 +1,11 @@
-<?php namespace NeonTsunami;
+<?php
 
-class ModelTest extends \PHPUnit_Framework_TestCase {
+namespace NeonTsunami;
+
+use PHPUnit_Framework_TestCase;
+
+class ModelTest extends PHPUnit_Framework_TestCase
+{
 
     public $model;
 
@@ -15,8 +20,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase {
     {
         $traits = class_uses($this->model);
 
-        foreach (class_parents($this->model) as $parent)
-        {
+        foreach (class_parents($this->model) as $parent) {
             $traits += class_uses($parent);
         }
 
@@ -30,7 +34,8 @@ class ModelTest extends \PHPUnit_Framework_TestCase {
     {
         $this->assertContains('deleted_at', $this->model->getDates());
     }
-
 }
 
-class ModelStub extends Model {}
+class ModelStub extends Model
+{
+}

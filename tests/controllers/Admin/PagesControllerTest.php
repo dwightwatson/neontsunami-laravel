@@ -1,9 +1,13 @@
-<?php namespace Admin;
+<?php
+
+namespace Admin;
 
 use NeonTsunami\User;
 
-class PagesControllerTest extends \TestCase {
+use TestCase;
 
+class PagesControllerTest extends TestCase
+{
     public function setUp()
     {
         parent::setUp();
@@ -24,5 +28,4 @@ class PagesControllerTest extends \TestCase {
 
         $this->assertResponseOk();
     }
-
 }

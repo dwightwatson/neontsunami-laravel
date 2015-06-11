@@ -2,14 +2,15 @@
 
 use NeonTsunami\Post;
 
-use Laracasts\TestDummy\Factory;
-use Laracasts\TestDummy\DbTestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class PagesControllerTest extends DbTestCase {
+class PagesControllerTest extends TestCase
+{
+    use DatabaseTransactions;
 
     public function testIndex()
     {
-        Factory::times(2)->create(Post::class);
+        factory(Post::class, 2)->create();
 
         $this->action('GET', 'PagesController@index');
 
@@ -32,5 +33,4 @@ class PagesControllerTest extends DbTestCase {
         $this->assertResponseOk();
         $this->assertViewHas('posts');
     }
-
 }

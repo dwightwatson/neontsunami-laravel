@@ -3,15 +3,16 @@
 use NeonTsunami\Post;
 use NeonTsunami\Tag;
 
-use Laracasts\TestDummy\Factory;
-use Laracasts\TestDummy\DbTestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class TagsControllerTest extends DbTestCase {
+class TagsControllerTest extends TestCase
+{
+    use DatabaseTransactions;
 
     public function testIndex()
     {
-        $tag = Factory::create(Tag::class);
-        $posts = Factory::times(3)->create(Post::class);
+        $tag = factory(Tag::class)->create();
+        $posts = factory(Post::class, 3)->create();
         $tag->posts()->sync([$posts[0]->id, $posts[1]->id, $posts[2]->id]);
 
         $response = $this->action('GET', 'TagsController@index');
@@ -24,8 +25,8 @@ class TagsControllerTest extends DbTestCase {
 
     public function testShow()
     {
-        $tag = Factory::create(Tag::class);
-        $posts = Factory::times(3)->create(Post::class);
+        $tag = factory(Tag::class)->create();
+        $posts = factory(Post::class, 3)->create();
         $tag->posts()->sync([$posts[0]->id, $posts[1]->id, $posts[2]->id]);
 
         $response = $this->action('GET', 'TagsController@show', $tag);
@@ -33,5 +34,4 @@ class TagsControllerTest extends DbTestCase {
         $this->assertResponseOk();
         $this->assertViewHas('posts');
     }
-
 }

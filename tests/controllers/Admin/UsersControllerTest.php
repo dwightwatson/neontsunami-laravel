@@ -1,11 +1,15 @@
-<?php namespace Admin;
+<?php
+
+namespace Admin;
 
 use NeonTsunami\User;
 
-use Laracasts\TestDummy\Factory;
-use Laracasts\TestDummy\DbTestCase;
+use TestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class UsersControllerTest extends DbTestCase {
+class UsersControllerTest extends TestCase
+{
+    use DatabaseTransactions;
 
     public function setUp()
     {
@@ -31,13 +35,13 @@ class UsersControllerTest extends DbTestCase {
 
     public function testStore()
     {
-        $user = Factory::build(User::class);
+        $user = factory(User::class)->make();
 
         $input = array_only($user->getAttributes(), $user->getFillable());
 
         $this->action('POST', 'Admin\UsersController@store', $input);
 
-        $this->assertRedirectedToRoute('admin.users.show', User::first());
+        $this->assertRedirectedToRoute('admin.users.show', User::latest()->first());
     }
 
     public function testStoreFails()
@@ -51,7 +55,7 @@ class UsersControllerTest extends DbTestCase {
 
     public function testShow()
     {
-        $user = Factory::create(User::class);
+        $user = factory(User::class)->create();
 
         $this->action('GET', 'Admin\UsersController@show', $user);
 
@@ -61,7 +65,7 @@ class UsersControllerTest extends DbTestCase {
 
     public function testEdit()
     {
-        $user = Factory::create(User::class);
+        $user = factory(User::class)->create();
 
         $this->action('GET', 'Admin\UsersController@edit', $user);
 
@@ -71,7 +75,7 @@ class UsersControllerTest extends DbTestCase {
 
     public function testUpdate()
     {
-        $user = Factory::create(User::class, ['first_name' => 'foo']);
+        $user = factory(User::class)->create(['first_name' => 'foo']);
 
         $input = array_only($user->getAttributes(), $user->getFillable());
 
@@ -85,7 +89,7 @@ class UsersControllerTest extends DbTestCase {
 
     public function testUpdateFails()
     {
-        $user = Factory::create(User::class, ['first_name' => 'foo']);
+        $user = factory(User::class)->create(['first_name' => 'foo']);
 
         $this->action('PUT', 'Admin\UsersController@update', $user);
 
@@ -96,12 +100,11 @@ class UsersControllerTest extends DbTestCase {
 
     public function testDestroy()
     {
-        $user = Factory::create(User::class);
+        $user = factory(User::class)->create();
 
         $this->action('DELETE', 'Admin\UsersController@destroy', $user);
 
         $this->assertRedirectedToRoute('admin.users.index');
         $this->assertEquals(0, User::count());
     }
-
 }

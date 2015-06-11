@@ -1,18 +1,23 @@
-<?php namespace Admin;
+<?php
+
+namespace Admin;
 
 use NeonTsunami\Post;
 use NeonTsunami\User;
 
-use Laracasts\TestDummy\Factory;
-use Laracasts\TestDummy\DbTestCase;
+use TestCase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class PostsControllerTest extends DbTestCase {
+class PostsControllerTest extends TestCase
+{
+    use DatabaseTransactions;
 
     public function setUp()
     {
         parent::setUp();
 
-        $this->be(Factory::create(User::class));
+        $this->be(new User);
     }
 
     public function testIndex()
@@ -32,7 +37,9 @@ class PostsControllerTest extends DbTestCase {
 
     public function testStore()
     {
-        $post = Factory::build(Post::class, ['series_id' => null]);
+        $this->be(factory(User::class)->create());
+
+        $post = factory(Post::class)->make(['series_id' => null]);
 
         $input = array_only($post->getAttributes(), $post->getFillable());
 
@@ -57,7 +64,7 @@ class PostsControllerTest extends DbTestCase {
 
     public function testShow()
     {
-        $post = Factory::create(Post::class);
+        $post = factory(Post::class)->create();
 
         $this->action('GET', 'Admin\PostsController@show', $post);
 
@@ -67,7 +74,7 @@ class PostsControllerTest extends DbTestCase {
 
     public function testEdit()
     {
-        $post = Factory::create(Post::class);
+        $post = factory(Post::class)->create();
 
         $this->action('GET', 'Admin\PostsController@edit', $post);
 
@@ -77,7 +84,7 @@ class PostsControllerTest extends DbTestCase {
 
     public function testUpdate()
     {
-        $post = Factory::create(Post::class, ['slug' => 'foo']);
+        $post = factory(Post::class)->create(['slug' => 'foo']);
 
         $input = array_only($post->getAttributes(), $post->getFillable());
 
@@ -95,7 +102,7 @@ class PostsControllerTest extends DbTestCase {
 
     public function testUpdateFails()
     {
-        $post = Factory::create(Post::class, ['slug' => 'foo']);
+        $post = factory(Post::class)->create(['slug' => 'foo']);
 
         $this->action('PUT', 'Admin\PostsController@update', $post, [
             'title'   => 'Bar',
@@ -109,12 +116,11 @@ class PostsControllerTest extends DbTestCase {
 
     public function testDestroy()
     {
-        $post = Factory::create(Post::class);
+        $post = factory(Post::class)->create();
 
         $this->action('DELETE', 'Admin\PostsController@destroy', $post);
 
         $this->assertRedirectedToRoute('admin.posts.index');
         $this->assertEquals(0, Post::count());
     }
-
 }

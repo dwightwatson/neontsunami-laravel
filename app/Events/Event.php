@@ -1,7 +1,8 @@
-<?php namespace NeonTsunami\Events;
+<?php
 
-abstract class Event {
+namespace NeonTsunami\Events;
 
-	//
-
+abstract class Event
+{
+    //
 }

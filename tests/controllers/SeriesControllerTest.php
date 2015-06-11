@@ -1,18 +1,25 @@
 <?php
 
 use NeonTsunami\Post;
+use NeonTsunami\Series;
 
-use Laracasts\TestDummy\Factory;
-use Laracasts\TestDummy\DbTestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class SeriesControllerTest extends DbTestCase {
+class SeriesControllerTest extends TestCase
+{
+    use DatabaseTransactions;
 
     public function testIndex()
     {
-        $publishedPost = Factory::create(Post::class);
-        $unpublishedPost = Factory::create(Post::class, ['published_at' => null]);
+        $series = factory(Series::class)->create();
 
-        $series = $publishedPost->series;
+        $publishedPost = factory(Post::class)->create();
+        $publishedPost->series()->associate($series);
+        $publishedPost->save();
+
+        $unpublishedPost = factory(Post::class)->create(['published_at' => null]);
+        $unpublishedPost->series()->associate($series);
+        $unpublishedPost->save();
 
         $response = $this->action('GET', 'SeriesController@index');
 
@@ -25,8 +32,15 @@ class SeriesControllerTest extends DbTestCase {
 
     public function testShow()
     {
-        $publishedPost = Factory::create(Post::class);
-        $unpublishedPost = Factory::create(Post::class, ['published_at' => null]);
+        $series = factory(Series::class)->create();
+
+        $publishedPost = factory(Post::class)->create();
+        $publishedPost->series()->associate($series);
+        $publishedPost->save();
+
+        $unpublishedPost = factory(Post::class)->create(['published_at' => null]);
+        $unpublishedPost->series()->associate($series);
+        $unpublishedPost->save();
 
         $series = $publishedPost->series;
 
@@ -37,5 +51,4 @@ class SeriesControllerTest extends DbTestCase {
 
         $this->assertContains('1 post', $response->getContent());
     }
-
 }

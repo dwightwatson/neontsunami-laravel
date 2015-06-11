@@ -2,14 +2,15 @@
 
 use NeonTsunami\Project;
 
-use Laracasts\TestDummy\Factory;
-use Laracasts\TestDummy\DbTestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ProjectsControllerTest extends DbTestCase {
+class ProjectsControllerTest extends TestCase
+{
+    use DatabaseTransactions;
 
     public function testIndex()
     {
-        $projects = Factory::times(2)->create(Project::class);
+        factory(Project::class, 2)->create();
 
         $this->action('GET', 'ProjectsController@index');
 
@@ -19,12 +20,11 @@ class ProjectsControllerTest extends DbTestCase {
 
     public function testShow()
     {
-        $project = Factory::create(Project::class);
+        $project = factory(Project::class)->create();
 
         $this->action('GET', 'ProjectsController@show', $project);
 
         $this->assertResponseOk();
         $this->assertViewHas('project');
     }
-
 }

@@ -1,18 +1,22 @@
-<?php namespace Admin;
+<?php
+
+namespace Admin;
 
 use NeonTsunami\Project;
 use NeonTsunami\User;
 
-use Laracasts\TestDummy\Factory;
-use Laracasts\TestDummy\DbTestCase;
+use TestCase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ProjectsControllerTest extends DbTestCase {
+class ProjectsControllerTest extends TestCase
+{
+    use DatabaseTransactions;
 
     public function setUp()
     {
         parent::setUp();
 
-        $this->be(Factory::create(User::class));
+        $this->be(new User);
     }
 
     public function testIndex()
@@ -32,7 +36,9 @@ class ProjectsControllerTest extends DbTestCase {
 
     public function testStore()
     {
-        $project = Factory::build(Project::class, ['slug' => 'foo']);
+        $this->be(factory(User::class)->create());
+
+        $project = factory(Project::class)->make(['slug' => 'foo']);
 
         $input = array_only($project->getAttributes(), $project->getFillable());
 
@@ -52,7 +58,7 @@ class ProjectsControllerTest extends DbTestCase {
 
     public function testShow()
     {
-        $project = Factory::create(Project::class);
+        $project = factory(Project::class)->create();
 
         $this->action('GET', 'Admin\ProjectsController@show', $project);
 
@@ -62,7 +68,7 @@ class ProjectsControllerTest extends DbTestCase {
 
     public function testEdit()
     {
-        $project = Factory::create(Project::class);
+        $project = factory(Project::class)->create();
 
         $this->action('GET', 'Admin\ProjectsController@edit', $project);
 
@@ -72,7 +78,7 @@ class ProjectsControllerTest extends DbTestCase {
 
     public function testUpdate()
     {
-        $project = Factory::create(Project::class, ['slug' => 'foo']);
+        $project = factory(Project::class)->create(['slug' => 'foo']);
 
         $input = array_only($project->getAttributes(), $project->getFillable());
 
@@ -85,7 +91,7 @@ class ProjectsControllerTest extends DbTestCase {
 
     public function testUpdateFails()
     {
-        $project = Factory::create(Project::class, ['slug' => 'foo']);
+        $project = factory(Project::class)->create(['slug' => 'foo']);
 
         $this->action('PUT', 'Admin\ProjectsController@update', $project, [
             'name' => 'Bar',
@@ -99,12 +105,11 @@ class ProjectsControllerTest extends DbTestCase {
 
     public function testDestroy()
     {
-        $project = Factory::create(Project::class);
+        $project = factory(Project::class)->create();
 
         $this->action('DELETE', 'Admin\ProjectsController@destroy', $project);
 
         $this->assertRedirectedToRoute('admin.projects.index');
         $this->assertEquals(0, Project::count());
     }
-
 }
