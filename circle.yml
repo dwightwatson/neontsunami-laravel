@@ -14,6 +14,7 @@ dependencies:
   pre:
     - echo "memory_limit = 1024M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
     - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
+    - echo "xdebug.max_nesting_level = 256" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
     - npm install -g gulp
 
   post:
