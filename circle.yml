@@ -4,6 +4,7 @@ machine:
   node:
     version: 0.12.0
   environment:
+    APP_KEY: U2Zky7VXIEyaoY4OHhyBJe9kFfXMvvAH
     DB_HOST: 127.0.0.1
     DB_DATABASE: circle_test
     DB_USERNAME: ubuntu
