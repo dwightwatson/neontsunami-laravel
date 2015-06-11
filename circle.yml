@@ -16,7 +16,7 @@ dependencies:
     - npm install -g gulp
 
   post:
-    - php artisan migrate
+    - php artisan migrate --force
     - gulp
 
 test:
