@@ -10,7 +10,7 @@
   <meta property="og:article:modified_time" content="{{ $post->updated_at->toIso8601String() }}">
   <meta property="og:article:author" content="{{ $post->user->full_name }}">
   @foreach($post->tags as $tag)
-    <meta property="og:article:tag" property="{{ $tag }}">
+    <meta property="og:article:tag" property="{{ $tag->name }}">
   @endforeach
 
   <meta name="twitter:card" content="summary">
