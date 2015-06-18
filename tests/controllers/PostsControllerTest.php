@@ -1,6 +1,7 @@
 <?php
 
 use NeonTsunami\Post;
+use NeonTsunami\User;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -21,7 +22,11 @@ class PostsControllerTest extends TestCase
 
     public function testShow()
     {
-        $post = factory(POST::class)->create();
+        $user = factory(User::class)->create();
+
+        $post = $user->posts()->save(
+            factory(Post::class)->make()
+        );
 
         $this->action('GET', 'PostsController@show', $post);
 
