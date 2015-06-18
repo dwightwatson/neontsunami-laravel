@@ -1,5 +1,24 @@
 @extends('layouts.application')
 
+@section('head')
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ $post->title }}">
+  <meta property="og:description" content="{{ trim(str_limit(strip_tags(markdown($post->content)), 200)) }}">
+  <meta property="og:url" content="{{ route('posts.show', $post) }}">
+
+  <meta property="og:article:published_time" content="{{ $post->published_at->toIso8601String() }}">
+  <meta property="og:article:modified_time" content="{{ $post->updated_at->toIso8601String() }}">
+  <meta property="og:article:author" content="{{ $post->user->full_name }}">
+  @foreach($post->tags as $tag)
+    <meta property="og:article:tag" property="{{ $tag }}">
+  @endforeach
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@dwightconrad">
+  <meta name="twitter:title" content="{{ $post->title }}">
+  <meta name="twitter:description" content="{{ trim(str_limit(strip_tags(markdown($post->content)), 200)) }}">
+@stop
+
 @section('content')
   <div class="page-header">
     <h3>{{ $post->title }} </h3>

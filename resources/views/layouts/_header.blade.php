@@ -9,6 +9,8 @@
     <meta name="description" content="{!! $description or 'A blog on web development, focused on frameworks like Swift, Laravel, Ruby on Rails and Angular by Dwight Watson.' !!}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <meta property="og:site_name" content="Neon Tsunami">
+    @yield('head')
 
     <meta name="csrf-param" content="_token"/>
     <meta name="csrf-token" content="{!! csrf_token() !!}">
