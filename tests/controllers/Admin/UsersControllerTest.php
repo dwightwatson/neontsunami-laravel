@@ -84,7 +84,7 @@ class UsersControllerTest extends TestCase
         $this->action('PUT', 'Admin\UsersController@update', $user, $input);
 
         $this->assertRedirectedToRoute('admin.users.show', $user);
-        $this->assertEquals('bar', User::find($user->id)->first_name);
+        $this->assertEquals('bar', $user->fresh()->first_name);
     }
 
     public function testUpdateFails()

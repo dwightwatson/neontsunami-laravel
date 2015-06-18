@@ -33,7 +33,6 @@ class PostsControllerTest extends TestCase
         $this->assertResponseOk();
         $this->assertViewHas('post');
 
-        $post = Post::find($post->id);
-        $this->assertEquals(1, $post->views);
+        $this->assertEquals(1, $post->fresh()->views);
     }
 }
