@@ -1,4 +1,4 @@
-@extends('layouts.application')
+@extends('app')
 
 @section('head')
   <meta property="og:type" content="article">

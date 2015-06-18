@@ -1,4 +1,4 @@
-@extends('layouts.application')
+@extends('app')
 
 @section('content')
   <h3>Projects</h3>

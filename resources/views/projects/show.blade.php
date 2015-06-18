@@ -1,4 +1,4 @@
-@extends('layouts.application')
+@extends('app')
 
 @section('content')
   <h3>{{ $project->name }}</h3>

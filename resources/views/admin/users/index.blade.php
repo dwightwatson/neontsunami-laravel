@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('admin.app')
 
 @section('breadcrumbs', Breadcrumbs::render('admin.users.index'))
 

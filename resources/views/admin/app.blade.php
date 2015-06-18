@@ -1,4 +1,4 @@
-@include('layouts._header')
+@include('_header')
   <div class="container">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -56,4 +56,4 @@
 
     @yield('content')
   </div>
-@include('layouts._footer')
+@include('_footer')
