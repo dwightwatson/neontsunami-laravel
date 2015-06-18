@@ -8,7 +8,6 @@
 
   <meta property="article:published_time" content="{{ $post->published_at->toIso8601String() }}">
   <meta property="article:modified_time" content="{{ $post->updated_at->toIso8601String() }}">
-  <meta property="article:author" content="{{ $post->user->full_name }}">
   @foreach($post->tags as $tag)
     <meta property="article:tag" property="{{ $tag->name }}">
   @endforeach
