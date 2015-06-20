@@ -6,7 +6,6 @@ use PHPUnit_Framework_TestCase;
 
 class SeriesTest extends PHPUnit_Framework_TestCase
 {
-
     public $series;
 
     public function setUp()

@@ -5,7 +5,6 @@ namespace NeonTsunami\Http\Controllers;
 use NeonTsunami\Post;
 use NeonTsunami\Project;
 use NeonTsunami\Series;
-
 use Sitemap;
 
 class SitemapsController extends Controller

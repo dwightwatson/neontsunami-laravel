@@ -5,7 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddUrlToProjectsTable extends Migration
 {
-
     /**
      * Run the migrations.
      *

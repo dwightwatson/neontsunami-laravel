@@ -2,7 +2,6 @@
 
 class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
-
     /**
      * The base URL to use while testing the application.
      *
@@ -40,7 +39,8 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         // This replaces the app's CSRF middleware with and override that exempts
         // all routes from CSRF protection.
 
-        $this->app->instance('NeonTsunami\Http\Middleware\VerifyCsrfToken', $this->app->make('VerifyCsrfToken'));;
+        $this->app->instance('NeonTsunami\Http\Middleware\VerifyCsrfToken', $this->app->make('VerifyCsrfToken'));
+        ;
     }
 }
 

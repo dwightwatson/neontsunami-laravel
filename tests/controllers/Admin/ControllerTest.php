@@ -3,7 +3,6 @@
 namespace Admin;
 
 use NeonTsunami\User;
-
 use TestCase;
 
 class ControllerTest extends TestCase

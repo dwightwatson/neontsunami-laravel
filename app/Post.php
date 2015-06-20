@@ -3,7 +3,6 @@
 namespace NeonTsunami;
 
 use NeonTsunami\Post;
-
 use Carbon\Carbon;
 
 class Post extends Model

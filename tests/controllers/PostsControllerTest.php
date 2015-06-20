@@ -2,7 +2,6 @@
 
 use NeonTsunami\Post;
 use NeonTsunami\User;
-
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PostsControllerTest extends TestCase

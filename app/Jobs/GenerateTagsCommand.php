@@ -4,13 +4,11 @@ namespace NeonTsunami\Commands;
 
 use NeonTsunami\Tag;
 use NeonTsunami\Jobs\Job;
-
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Database\Eloquent\Collection;
 
 class GenerateTagsCommand extends Job implements SelfHandling
 {
-
     /**
      * Tag slugs.
      *

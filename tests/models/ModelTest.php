@@ -6,7 +6,6 @@ use PHPUnit_Framework_TestCase;
 
 class ModelTest extends PHPUnit_Framework_TestCase
 {
-
     public $model;
 
     public function setUp()

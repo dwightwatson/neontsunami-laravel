@@ -1,7 +1,6 @@
 <?php
 
 use NeonTsunami\User;
-
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ExampleTest extends TestCase

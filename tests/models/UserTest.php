@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserTest extends PHPUnit_Framework_TestCase
 {
-
     public $user;
 
     public function setUp()

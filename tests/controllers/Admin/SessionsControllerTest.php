@@ -3,7 +3,6 @@
 namespace Admin;
 
 use NeonTsunami\User;
-
 use Auth;
 use TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;

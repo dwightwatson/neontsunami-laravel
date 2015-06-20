@@ -6,7 +6,6 @@ use PHPUnit_Framework_TestCase;
 
 class PostTest extends PHPUnit_Framework_TestCase
 {
-
     public $post;
 
     public function setUp()

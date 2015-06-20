@@ -3,7 +3,6 @@
 namespace NeonTsunami\Http\Controllers;
 
 use NeonTsunami\Project;
-
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller

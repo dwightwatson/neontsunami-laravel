@@ -3,7 +3,6 @@
 namespace NeonTsunami\Http\Controllers;
 
 use NeonTsunami\Post;
-
 use Illuminate\Http\Request;
 
 class PostsController extends Controller

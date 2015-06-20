@@ -1,7 +1,6 @@
 <?php
 
 use NeonTsunami\Post;
-
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PagesControllerTest extends TestCase

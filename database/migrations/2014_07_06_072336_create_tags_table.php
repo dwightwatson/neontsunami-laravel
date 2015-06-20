@@ -5,7 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTagsTable extends Migration
 {
-
     /**
      * Run the migrations.
      *

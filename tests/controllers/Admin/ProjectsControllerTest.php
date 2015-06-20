@@ -4,7 +4,6 @@ namespace Admin;
 
 use NeonTsunami\Project;
 use NeonTsunami\User;
-
 use TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 

@@ -3,7 +3,6 @@
 namespace NeonTsunami\Http\Controllers;
 
 use NeonTsunami\Series;
-
 use Illuminate\Http\Request;
 
 class SeriesController extends Controller

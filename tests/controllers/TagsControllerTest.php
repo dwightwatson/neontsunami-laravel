@@ -2,7 +2,6 @@
 
 use NeonTsunami\Post;
 use NeonTsunami\Tag;
-
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TagsControllerTest extends TestCase

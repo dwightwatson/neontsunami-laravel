@@ -6,7 +6,6 @@ use NeonTsunami\Post;
 use NeonTsunami\Series;
 use NeonTsunami\Tag;
 use NeonTsunami\Project;
-
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 

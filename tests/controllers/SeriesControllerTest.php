@@ -2,7 +2,6 @@
 
 use NeonTsunami\Post;
 use NeonTsunami\Series;
-
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class SeriesControllerTest extends TestCase
