@@ -14,7 +14,7 @@ class PostsController extends Controller
      * GET /admin/posts
      * Display all of the posts.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -30,7 +30,7 @@ class PostsController extends Controller
      * GET /admin/posts/create
      * Display the form for creating a new post.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -44,8 +44,8 @@ class PostsController extends Controller
      * POST /admin/posts
      * Store a new post in storage.
      *
-     * @param  StorePostRequest  $request
-     * @return Response
+     * @param  \NeonTsunami\Http\Requests\Posts\StorePostRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(StorePostRequest $request)
     {
@@ -65,8 +65,8 @@ class PostsController extends Controller
      * GET /admin/posts/post-slug
      * Display a specified post.
      *
-     * @param  Post  $post
-     * @return Response
+     * @param  \NeonTsunami\Post  $post
+     * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
     {
@@ -78,8 +78,8 @@ class PostsController extends Controller
      * GET /admin/posts/post-slug/edit
      * Display the form for editing a post.
      *
-     * @param  Post  $post
-     * @return Response
+     * @param  \NeonTsuanmi\Post  $post
+     * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
     {
@@ -93,9 +93,9 @@ class PostsController extends Controller
      * PUT /admin/posts/post-slug
      * Update a given post in storage.
      *
-     * @param  Post  $post
-     * @param  UpdatePostRequest  $request
-     * @return Response
+     * @param  \NeonTsunami\Post  $post
+     * @param  \NeonTsunami\Http\Requests\Posts\UpdatePostRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function update(Post $post, UpdatePostRequest $request)
     {
@@ -115,8 +115,8 @@ class PostsController extends Controller
      * DELETE /admin/posts/post-slug
      * Remove a post from storage.
      *
-     * @param  Post  $post
-     * @return Response
+     * @param  \NeonTsunami\Post  $post
+     * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
     {

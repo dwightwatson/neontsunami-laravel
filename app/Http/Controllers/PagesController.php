@@ -10,7 +10,7 @@ class PagesController extends Controller
      * GET /
      * The home page.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -31,7 +31,7 @@ class PagesController extends Controller
      * GET /about
      * The about page.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function about()
     {
@@ -43,7 +43,7 @@ class PagesController extends Controller
      * GET /rss
      * Return the RSS feed of posts.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function rss()
     {

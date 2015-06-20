@@ -12,7 +12,7 @@ class SeriesController extends Controller
      * GET /admin/series
      * Display all of the series.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -28,7 +28,7 @@ class SeriesController extends Controller
      * GET /admin/series/create
      * Display the form for creating a new series.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -40,8 +40,8 @@ class SeriesController extends Controller
      * POST /admin/series
      * Store a new series in storage.
      *
-     * @param  StoreSeriesRequest  $request
-     * @return Response
+     * @param  \NeonTsunami\Http\Requests\Series\StoreSeriesRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(StoreSeriesRequest $request)
     {
@@ -55,8 +55,8 @@ class SeriesController extends Controller
      * GET /admin/series/series-slug
      * Display a specified series.
      *
-     * @param  Series  $series
-     * @return Response
+     * @param  \NeonTsunami\Series  $series
+     * @return \Illuminate\Http\Response
      */
     public function show(Series $series)
     {
@@ -68,8 +68,8 @@ class SeriesController extends Controller
      * GET /admin/series/series-slug/edit
      * Display the form for editing a series.
      *
-     * @param  Series  $series
-     * @return Response
+     * @param  \NeonTsunami\Series  $series
+     * @return \Illuminate\Http\Response
      */
     public function edit(Series $series)
     {
@@ -81,9 +81,9 @@ class SeriesController extends Controller
      * PUT /admin/series/series-slug
      * Update a given series in storage.
      *
-     * @param  Series  $series
-     * @param  UpdateSeriesRequest  $request
-     * @return Response
+     * @param  \NeonTsunami\Series  $series
+     * @param  \NeonTsunami\Http\Requests\Series\UpdateSeriesRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function update(Series $series, UpdateSeriesRequest $request)
     {
@@ -97,8 +97,8 @@ class SeriesController extends Controller
      * DELETE /admin/series/series-slug
      * Remove a series from storage.
      *
-     * @param  Series  $series
-     * @return Response
+     * @param  \NeonTsunami\Series  $series
+     * @return \Illuminate\Http\Response
      */
     public function destroy(Series $series)
     {

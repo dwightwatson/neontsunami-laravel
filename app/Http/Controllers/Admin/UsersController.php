@@ -1,3 +1,4 @@
+
 <?php
 
 namespace NeonTsunami\Http\Controllers\Admin;
@@ -12,7 +13,7 @@ class UsersController extends Controller
      * GET /admin/users
      * Display all of the users.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -26,7 +27,7 @@ class UsersController extends Controller
      * GET /admin/users/create
      * Display the form for creating a new user.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -38,8 +39,8 @@ class UsersController extends Controller
      * POST /admin/users
      * Store a new user in storage.
      *
-     * @param  StoreUserRequest  $request
-     * @return Response
+     * @param  \NeonTsunami\Http\Requests\Users\StoreUserRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(StoreUserRequest $request)
     {
@@ -53,8 +54,8 @@ class UsersController extends Controller
      * GET /admin/users/id
      * Display a specified user.
      *
-     * @param  User  $user
-     * @return Response
+     * @param  \NeonTsunami\User  $user
+     * @return \Illuminate\Http\Response
      */
     public function show(User $user)
     {
@@ -66,8 +67,8 @@ class UsersController extends Controller
      * GET /admin/users/id/edit
      * Display the form for editing a user.
      *
-     * @param  User  $user
-     * @return Response
+     * @param  \NeonTsunami\User  $user
+     * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
     {
@@ -79,9 +80,9 @@ class UsersController extends Controller
      * PUT /admin/users/id
      * Update a given user in storage.
      *
-     * @param  User  $user
-     * @param  UpdateUserRequest  $request
-     * @return Response
+     * @param  \NeonTsunami\User  $user
+     * @param  \NeonTsunami\Http\Requests\Users\UpdateUserRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function update(User $user, UpdateUserRequest $request)
     {
@@ -95,8 +96,8 @@ class UsersController extends Controller
      * DELETE /admin/users/id
      * Remove a user from storage.
      *
-     * @param  User  $user
-     * @return Response
+     * @param  \NeonTsunami\User  $user
+     * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
     {

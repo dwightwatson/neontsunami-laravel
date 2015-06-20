@@ -14,7 +14,7 @@ class SitemapsController extends Controller
      * GET /sitemap
      * Return the sitemap.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {

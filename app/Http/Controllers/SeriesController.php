@@ -12,15 +12,14 @@ class SeriesController extends Controller
      * GET /series
      * Get a listing of all series.
      *
-     * @param  Request  $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         $series = Series::whereHas('posts', function ($query) {
                 $query->published();
-            })
-            ->paginate(25);
+            })->paginate(25);
 
         $page = $request->get('page');
         $title = $page ? "All series (Page {$page})" : 'All series';
@@ -33,8 +32,8 @@ class SeriesController extends Controller
      * GET /series/series-slug
      * Get a single series.
      *
-     * @param  Series  $series
-     * @return Response
+     * @param  \NeonTsunami\Series  $series
+     * @return \Illuminate\Http\Response
      */
     public function show(Series $series)
     {

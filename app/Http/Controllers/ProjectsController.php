@@ -12,8 +12,8 @@ class ProjectsController extends Controller
      * GET /projects
      * Get a listing of all projects.
      *
-     * @param  Request  $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
@@ -30,8 +30,8 @@ class ProjectsController extends Controller
      * GET /projects/project-slug
      * Get a single project.
      *
-     * @param  Project  $project
-     * @return Response
+     * @param  \NeonTsunami\Project  $project
+     * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
     {

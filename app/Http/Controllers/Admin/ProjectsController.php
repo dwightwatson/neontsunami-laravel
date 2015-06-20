@@ -12,7 +12,7 @@ class ProjectsController extends Controller
      * GET /admin/projects
      * Display all of the projects.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -26,7 +26,7 @@ class ProjectsController extends Controller
      * GET /admin/projects/create
      * Display the form for creating a new project.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -38,8 +38,8 @@ class ProjectsController extends Controller
      * POST /admin/projects
      * Store a new project in storage.
      *
-     * @param  StoreProjectRequest  $request
-     * @return Response
+     * @param  \NeonTsunami\Http\Requests\Projects\StoreProjectRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(StoreProjectRequest $request)
     {
@@ -53,8 +53,8 @@ class ProjectsController extends Controller
      * GET /admin/projects/project-slug
      * Display a specified project.
      *
-     * @param  Project  $project
-     * @return Response
+     * @param  \NeonTsunami\Project  $project
+     * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
     {
@@ -66,8 +66,8 @@ class ProjectsController extends Controller
      * GET /admin/projects/project-slug/edit
      * Display the form for editing a project.
      *
-     * @param  Project  $project
-     * @return Response
+     * @param  \NeonTsunami\Project  $project
+     * @return \Illuminate\Http\Response
      */
     public function edit(Project $project)
     {
@@ -79,9 +79,9 @@ class ProjectsController extends Controller
      * PUT /admin/projects/project-slug
      * Update a given project in storage.
      *
-     * @param  Request  $request
-     * @param  UpdateProjectRequest  $project
-     * @return Response
+     * @param  \NeonTsuanmi\Project  $request
+     * @param  \NeonTsunami\Http\Requests\Projects\UpdateProjectRequest  $project
+     * @return \Illuminate\Http\Response
      */
     public function update(Project $project, UpdateProjectRequest $request)
     {
@@ -95,8 +95,8 @@ class ProjectsController extends Controller
      * DELETE /admin/projects/project-slug
      * Remove a project from storage.
      *
-     * @param  Project  $project
-     * @return Response
+     * @param  \NeonTsunami\Project  $project
+     * @return \Illuminate\Http\Response
      */
     public function destroy(Project $project)
     {

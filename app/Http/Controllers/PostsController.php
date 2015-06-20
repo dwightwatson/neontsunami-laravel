@@ -12,8 +12,8 @@ class PostsController extends Controller
      * GET /posts
      * Get a listing of all posts.
      *
-     * @param  Request  $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
@@ -33,8 +33,8 @@ class PostsController extends Controller
      * GET /posts/post-slug
      * Get a single post.
      *
-     * @param  Post  $post
-     * @return Response
+     * @param  \NeonTsunami\Post  $post
+     * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
     {

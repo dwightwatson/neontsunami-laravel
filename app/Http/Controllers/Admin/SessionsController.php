@@ -3,7 +3,7 @@
 namespace NeonTsunami\Http\Controllers\Admin;
 
 use Validator;
-use Illuminate\Auth\Guard as Auth;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
 class SessionsController extends Controller
@@ -24,7 +24,7 @@ class SessionsController extends Controller
      * GET /admin/login
      * Display the form for logging in a user.
      *
-     * @return Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -36,11 +36,11 @@ class SessionsController extends Controller
      * POST /admin/login
      * Attempt to login a user.
      *
-     * @param  Request  $request
-     * @param  Auth     $auth
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Contracts\Auth\Guard     $auth
+     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Auth $auth)
+    public function store(Request $request, Guard $auth)
     {
         $this->validate($request, [
             'email'    => 'required|email|exists:users',
@@ -61,10 +61,10 @@ class SessionsController extends Controller
      * DELETE /admin/logout
      * Log out a user.
      *
-     * @param  Auth  $auth
-     * @return Response
+     * @param  \Illuminate\Contracts\Auth\Guard  $auth
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(Auth $auth)
+    public function destroy(Guard $auth)
     {
         $auth->logout();
 
