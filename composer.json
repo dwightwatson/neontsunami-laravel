@@ -10,7 +10,7 @@
     "anahkiasen/former": "4.0.x-dev",
     "davejamesmiller/laravel-breadcrumbs": "3.0.*",
     "laravelcollective/html": "~5.0",
-    "league/commonmark": "0.7.*",
+    "league/commonmark": "0.10.*",
     "watson/active": "~1.3",
     "watson/sitemap": "~2.0",
     "watson/taggly": "~1.0"
