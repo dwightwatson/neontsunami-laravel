@@ -1,0 +1,33 @@
+.post {
+  border-bottom: 1px solid #e3e3e3;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+
+  &:last-of-type {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .post-title {
+    margin-bottom: 0;
+    word-break: break-word;
+  }
+
+  .post-published {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .post-tags {
+    font-size: 14px;
+
+    a {
+      margin-right: 10px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
