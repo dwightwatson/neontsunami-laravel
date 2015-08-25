@@ -46,6 +46,6 @@ class Series extends Model
     */
     public function posts()
     {
-        return $this->hasMany('NeonTsunami\Post');
+        return $this->hasMany(Post::class);
     }
 }

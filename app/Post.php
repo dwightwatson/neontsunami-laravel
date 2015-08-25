@@ -2,9 +2,6 @@
 
 namespace NeonTsunami;
 
-use NeonTsunami\Post;
-use Carbon\Carbon;
-
 class Post extends Model
 {
     /**
@@ -45,7 +42,7 @@ class Post extends Model
     */
     public function scopePublished($query)
     {
-        return $query->where('published_at', '<=', Carbon::now());
+        return $query->where('published_at', '<=', $this->freshTimestamp());
     }
 
     public function scopeRelated($query, Post $post)
@@ -75,16 +72,16 @@ class Post extends Model
     */
     public function series()
     {
-        return $this->belongsTo('NeonTsunami\Series');
+        return $this->belongsTo(Series::class);
     }
 
     public function tags()
     {
-        return $this->belongsToMany('NeonTsunami\Tag')->withTimestamps();
+        return $this->belongsToMany(Tag::class)->withTimestamps();
     }
 
     public function user()
     {
-        return $this->belongsTo('NeonTsunami\User');
+        return $this->belongsTo(User::class);
     }
 }

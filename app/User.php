@@ -60,6 +60,6 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function tags()
     {
-        return $this->hasManyThrough('NeonTsuanmi\Tag', 'NeonTsunami\Post');
+        return $this->hasManyThrough(Tag::class, Post::class);
     }
 }
