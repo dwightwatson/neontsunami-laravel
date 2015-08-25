@@ -2,10 +2,6 @@
 
 namespace NeonTsunami\Providers;
 
-use NeonTsunami\Post;
-use NeonTsunami\Series;
-use NeonTsunami\Tag;
-use NeonTsunami\Project;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -31,22 +27,22 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot($router);
 
         $router->bind('posts', function ($value, $route) {
-            return Post::whereSlug($value)->firstOrFail();
+            return \NeonTsunami\Post::whereSlug($value)->firstOrFail();
         });
 
         $router->bind('series', function ($value, $route) {
-            return Series::whereSlug($value)->firstOrFail();
+            return \NeonTsunami\Series::whereSlug($value)->firstOrFail();
         });
 
         $router->bind('tags', function ($value, $route) {
-            return Tag::whereSlug($value)->firstOrFail();
+            return \NeonTsunami\Tag::whereSlug($value)->firstOrFail();
         });
 
         $router->bind('projects', function ($value, $route) {
-            return Project::whereSlug($value)->firstOrFail();
+            return \NeonTsunami\Project::whereSlug($value)->firstOrFail();
         });
 
-        $router->model('users', 'NeonTsunami\User');
+        $router->model('users', \NeonTsunami\User::class);
     }
 
     /**

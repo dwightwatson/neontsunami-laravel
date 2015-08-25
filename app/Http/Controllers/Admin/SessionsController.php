@@ -43,7 +43,7 @@ class SessionsController extends Controller
     public function store(Request $request, Guard $auth)
     {
         $this->validate($request, [
-            'email'    => 'required|email|exists:users',
+            'email'    => ['required', 'email', 'exists:users'],
             'password' => 'required'
         ]);
 
@@ -53,7 +53,7 @@ class SessionsController extends Controller
         }
 
         return redirect()->route('admin.sessions.create')
-            ->withError("Your login credentials were invalid.")
+            ->withError('Your login credentials were invalid.')
             ->withInput($request->except('password'));
     }
 
@@ -69,7 +69,7 @@ class SessionsController extends Controller
         $auth->logout();
 
         return redirect()->route('admin.sessions.create')
-            ->withSuccess("You have been logged out.");
+            ->withSuccess('You have been logged out.');
     }
 
     /**
