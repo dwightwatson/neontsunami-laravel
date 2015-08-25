@@ -3,9 +3,8 @@
 namespace Admin;
 
 use NeonTsunami\User;
-use TestCase;
 
-class ControllerTest extends TestCase
+class ControllerTest extends \TestCase
 {
     public function testRedirectsGuests()
     {

@@ -3,9 +3,8 @@
 namespace Admin;
 
 use NeonTsunami\User;
-use TestCase;
 
-class PagesControllerTest extends TestCase
+class PagesControllerTest extends \TestCase
 {
     public function setUp()
     {

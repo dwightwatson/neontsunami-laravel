@@ -4,10 +4,9 @@ namespace Admin;
 
 use NeonTsunami\Series;
 use NeonTsunami\User;
-use TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class SeriesControllerTest extends TestCase
+class SeriesControllerTest extends \TestCase
 {
     use DatabaseTransactions;
 

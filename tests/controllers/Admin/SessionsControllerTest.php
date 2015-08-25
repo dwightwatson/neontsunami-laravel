@@ -3,11 +3,9 @@
 namespace Admin;
 
 use NeonTsunami\User;
-use Auth;
-use TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class SessionsControllerTest extends TestCase
+class SessionsControllerTest extends \TestCase
 {
     use DatabaseTransactions;
 
@@ -31,8 +29,8 @@ class SessionsControllerTest extends TestCase
         ]);
 
         $this->assertRedirectedToRoute('admin.pages.index');
-        $this->assertTrue(Auth::check());
-        $this->assertEquals(Auth::user()->email, $user->email);
+        $this->assertTrue(auth()->check());
+        $this->assertEquals(auth()->user()->email, $user->email);
     }
 
     public function testStoreWithIncorrectCredentials()
@@ -56,7 +54,7 @@ class SessionsControllerTest extends TestCase
 
         $this->assertRedirectedToRoute('admin.sessions.create');
         $this->assertSessionHasErrors(['email', 'password']);
-        $this->assertFalse(Auth::check());
+        $this->assertFalse(auth()->check());
     }
 
     public function testDestroy()
@@ -64,6 +62,6 @@ class SessionsControllerTest extends TestCase
         $this->action('DELETE', 'Admin\SessionsController@destroy');
 
         $this->assertRedirectedToRoute('admin.sessions.create');
-        $this->assertFalse(Auth::check());
+        $this->assertFalse(auth()->check());
     }
 }
