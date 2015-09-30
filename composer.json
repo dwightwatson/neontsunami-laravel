@@ -7,7 +7,7 @@
   "require": {
     "laravel/framework": "5.1.*",
 
-    "anahkiasen/former": "4.0.x-dev",
+    "anahkiasen/former": "~4.0",
     "davejamesmiller/laravel-breadcrumbs": "3.0.*",
     "laravelcollective/html": "~5.0",
     "league/commonmark": "0.10.*",
