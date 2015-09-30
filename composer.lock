@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "adfd6850a3195fb35ac44e45f715f8ad",
+    "content-hash": "6e496220b5838662ff558c5b33cec29e",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -2004,16 +2005,16 @@
         },
         {
             "name": "watson/sitemap",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dwightwatson/sitemap.git",
-                "reference": "a83c91849c590c12c18c1d4b1f954a68b1bd6ce0"
+                "reference": "5703ff5adc11291385674bf3d419634193fcf07c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dwightwatson/sitemap/zipball/a83c91849c590c12c18c1d4b1f954a68b1bd6ce0",
-                "reference": "a83c91849c590c12c18c1d4b1f954a68b1bd6ce0",
+                "url": "https://api.github.com/repos/dwightwatson/sitemap/zipball/5703ff5adc11291385674bf3d419634193fcf07c",
+                "reference": "5703ff5adc11291385674bf3d419634193fcf07c",
                 "shasum": ""
             },
             "require": {
@@ -2046,7 +2047,7 @@
                 "laravel",
                 "sitemaps"
             ],
-            "time": "2015-09-30 01:19:40"
+            "time": "2015-09-30 13:25:21"
         },
         {
             "name": "watson/taggly",
