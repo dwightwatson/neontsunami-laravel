@@ -24,7 +24,7 @@ class SessionsController extends Controller
      * GET /admin/login
      * Display the form for logging in a user.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -38,7 +38,7 @@ class SessionsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Illuminate\Contracts\Auth\Guard     $auth
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request, Guard $auth)
     {
@@ -62,7 +62,7 @@ class SessionsController extends Controller
      * Log out a user.
      *
      * @param  \Illuminate\Contracts\Auth\Guard  $auth
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Guard $auth)
     {

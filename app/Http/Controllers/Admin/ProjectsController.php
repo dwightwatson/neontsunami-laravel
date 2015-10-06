@@ -12,7 +12,7 @@ class ProjectsController extends Controller
      * GET /admin/projects
      * Display all of the projects.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -26,7 +26,7 @@ class ProjectsController extends Controller
      * GET /admin/projects/create
      * Display the form for creating a new project.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -39,7 +39,7 @@ class ProjectsController extends Controller
      * Store a new project in storage.
      *
      * @param  \NeonTsunami\Http\Requests\Projects\StoreProjectRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreProjectRequest $request)
     {
@@ -54,7 +54,7 @@ class ProjectsController extends Controller
      * Display a specified project.
      *
      * @param  \NeonTsunami\Project  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Project $project)
     {
@@ -67,7 +67,7 @@ class ProjectsController extends Controller
      * Display the form for editing a project.
      *
      * @param  \NeonTsunami\Project  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(Project $project)
     {
@@ -81,7 +81,7 @@ class ProjectsController extends Controller
      *
      * @param  \NeonTsuanmi\Project  $request
      * @param  \NeonTsunami\Http\Requests\Projects\UpdateProjectRequest  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Project $project, UpdateProjectRequest $request)
     {
@@ -96,7 +96,7 @@ class ProjectsController extends Controller
      * Remove a project from storage.
      *
      * @param  \NeonTsunami\Project  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Project $project)
     {

@@ -14,7 +14,7 @@ class PostsController extends Controller
      * GET /admin/posts
      * Display all of the posts.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -30,7 +30,7 @@ class PostsController extends Controller
      * GET /admin/posts/create
      * Display the form for creating a new post.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -45,7 +45,7 @@ class PostsController extends Controller
      * Store a new post in storage.
      *
      * @param  \NeonTsunami\Http\Requests\Posts\StorePostRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StorePostRequest $request)
     {
@@ -66,7 +66,7 @@ class PostsController extends Controller
      * Display a specified post.
      *
      * @param  \NeonTsunami\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Post $post)
     {
@@ -79,7 +79,7 @@ class PostsController extends Controller
      * Display the form for editing a post.
      *
      * @param  \NeonTsuanmi\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(Post $post)
     {
@@ -95,7 +95,7 @@ class PostsController extends Controller
      *
      * @param  \NeonTsunami\Post  $post
      * @param  \NeonTsunami\Http\Requests\Posts\UpdatePostRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Post $post, UpdatePostRequest $request)
     {
@@ -116,7 +116,7 @@ class PostsController extends Controller
      * Remove a post from storage.
      *
      * @param  \NeonTsunami\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Post $post)
     {

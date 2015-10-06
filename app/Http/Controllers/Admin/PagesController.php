@@ -13,7 +13,7 @@ class PagesController extends Controller
      * GET /admin/users
      * Display a listing of users.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -33,7 +33,7 @@ class PagesController extends Controller
      * GET /admin/reports
      * Display statistic reports.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function reports()
     {

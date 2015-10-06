@@ -12,7 +12,7 @@ class SeriesController extends Controller
      * Get a listing of all series.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index(Request $request)
     {
@@ -32,7 +32,7 @@ class SeriesController extends Controller
      * Get a single series.
      *
      * @param  \NeonTsunami\Series  $series
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Series $series)
     {

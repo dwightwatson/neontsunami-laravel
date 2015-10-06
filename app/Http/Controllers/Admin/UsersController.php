@@ -12,7 +12,7 @@ class UsersController extends Controller
      * GET /admin/users
      * Display all of the users.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -26,7 +26,7 @@ class UsersController extends Controller
      * GET /admin/users/create
      * Display the form for creating a new user.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -39,7 +39,7 @@ class UsersController extends Controller
      * Store a new user in storage.
      *
      * @param  \NeonTsunami\Http\Requests\Users\StoreUserRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreUserRequest $request)
     {
@@ -54,7 +54,7 @@ class UsersController extends Controller
      * Display a specified user.
      *
      * @param  \NeonTsunami\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(User $user)
     {
@@ -67,7 +67,7 @@ class UsersController extends Controller
      * Display the form for editing a user.
      *
      * @param  \NeonTsunami\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(User $user)
     {
@@ -81,7 +81,7 @@ class UsersController extends Controller
      *
      * @param  \NeonTsunami\User  $user
      * @param  \NeonTsunami\Http\Requests\Users\UpdateUserRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(User $user, UpdateUserRequest $request)
     {
@@ -96,7 +96,7 @@ class UsersController extends Controller
      * Remove a user from storage.
      *
      * @param  \NeonTsunami\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(User $user)
     {

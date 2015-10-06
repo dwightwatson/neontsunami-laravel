@@ -10,7 +10,7 @@ class TagsController extends Controller
      * GET /tags
      * Display a listing of all tags.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -33,7 +33,7 @@ class TagsController extends Controller
      * Display the posts of a given tag.
      *
      * @param  \NeonTsunami\Tag  $tag
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Tag $tag)
     {

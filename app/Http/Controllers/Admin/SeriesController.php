@@ -12,7 +12,7 @@ class SeriesController extends Controller
      * GET /admin/series
      * Display all of the series.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -28,7 +28,7 @@ class SeriesController extends Controller
      * GET /admin/series/create
      * Display the form for creating a new series.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
@@ -41,7 +41,7 @@ class SeriesController extends Controller
      * Store a new series in storage.
      *
      * @param  \NeonTsunami\Http\Requests\Series\StoreSeriesRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreSeriesRequest $request)
     {
@@ -56,7 +56,7 @@ class SeriesController extends Controller
      * Display a specified series.
      *
      * @param  \NeonTsunami\Series  $series
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Series $series)
     {
@@ -69,7 +69,7 @@ class SeriesController extends Controller
      * Display the form for editing a series.
      *
      * @param  \NeonTsunami\Series  $series
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(Series $series)
     {
@@ -83,7 +83,7 @@ class SeriesController extends Controller
      *
      * @param  \NeonTsunami\Series  $series
      * @param  \NeonTsunami\Http\Requests\Series\UpdateSeriesRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Series $series, UpdateSeriesRequest $request)
     {
@@ -98,7 +98,7 @@ class SeriesController extends Controller
      * Remove a series from storage.
      *
      * @param  \NeonTsunami\Series  $series
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Series $series)
     {

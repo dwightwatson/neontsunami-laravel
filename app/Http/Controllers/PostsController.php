@@ -12,7 +12,7 @@ class PostsController extends Controller
      * Get a listing of all posts.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index(Request $request)
     {
@@ -33,7 +33,7 @@ class PostsController extends Controller
      * Get a single post.
      *
      * @param  \NeonTsunami\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Post $post)
     {

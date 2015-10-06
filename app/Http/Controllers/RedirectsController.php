@@ -17,7 +17,7 @@ class RedirectsController extends Controller
      * Redirect legacy post routes to the new pluralised route.
      *
      * @param  string  $slug
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function getPost($slug)
     {
@@ -29,7 +29,7 @@ class RedirectsController extends Controller
      * Redirect legacy tag routes to the new pluralised route.
      *
      * @param  string  $slug
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function getTag($slug)
     {
@@ -41,7 +41,7 @@ class RedirectsController extends Controller
      * Redirect legacy archive routes to the new posts route.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function getArchive(Request $request)
     {

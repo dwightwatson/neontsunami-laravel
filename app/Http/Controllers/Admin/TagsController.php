@@ -13,7 +13,7 @@ class TagsController extends Controller
      * Display all of the tags.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
     {
@@ -31,7 +31,7 @@ class TagsController extends Controller
      * Store a new tag in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(StoreTagRequest $request)
     {

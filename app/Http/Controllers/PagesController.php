@@ -10,7 +10,7 @@ class PagesController extends Controller
      * GET /
      * The home page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
@@ -31,7 +31,7 @@ class PagesController extends Controller
      * GET /about
      * The about page.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function about()
     {
