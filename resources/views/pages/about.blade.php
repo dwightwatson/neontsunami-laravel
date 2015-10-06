@@ -1,7 +1,9 @@
 @extends('app')
 
 @section('content')
-  <h3>About</h3>
+  <div class="page-header">
+    <h3>About</h3>
+  </div>
 
   <img src="{!! asset('images/dwight-conrad-watson.jpg') !!}" alt="Dwight Conrad Watson" class="img-responsive">
 

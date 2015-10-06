@@ -1,7 +1,10 @@
 @extends('app')
 
 @section('content')
-  <h3>Projects</h3>
+  <div class="page-header">
+    <h3>Projects</h3>
+  </div>
+
   <p class="lead">I like to contribute to open source, both in the way of relentless issues and pull-requests on other repositories, but also in the way of maintaining my own. If you use <a href="http://laravel.com/">Laravel</a> or <a href="http://ellislab.com/codeigniter">CodeIgniter</a>, I've probably got something that might be of interest to you.</p>
 
   @unless ($projects->count())

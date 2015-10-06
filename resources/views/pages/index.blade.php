@@ -1,7 +1,10 @@
 @extends('app')
 
 @section('content')
-  <h3>Recent posts</h3>
+  <div class="page-header">
+    <h3>Recent posts</h3>
+  </div>
+
   @each('posts._post', $latestPosts, 'post')
 
   <a href="{!! route('posts.index') !!}">Read more recent posts <span class="glyphicon glyphicon-chevron-right"></span></a>

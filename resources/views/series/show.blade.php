@@ -1,7 +1,10 @@
 @extends('app')
 
 @section('content')
-  <h3>{{ $series->name }}</h3>
+  <div class="page-header">
+    <h3>{{ $series->name }}</h3>
+  </div>
+
   <p class="lead">{{ $series->description }}</p>
 
   <h4>{{ $posts->count() }} {{ str_plural('post', $posts->count()) }} in this series</h4>
