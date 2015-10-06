@@ -4,6 +4,7 @@ namespace NeonTsunami\Http\Controllers\Admin;
 
 use NeonTsunami\Tag;
 use Illuminate\Http\Request;
+use NeonTsunami\Http\Requests\Tags\StoreTagRequest;
 
 class TagsController extends Controller
 {
@@ -23,5 +24,22 @@ class TagsController extends Controller
         }
 
         return response()->json($tags->get());
+    }
+
+    /**
+     * POST /admin/tags
+     * Store a new tag in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreTagRequest $request)
+    {
+        $tag = Tag::firstOrCreate([
+            'name' => $request->input('name'),
+            'slug' => str_slug($request->input('name'))
+        ]);
+
+        return response()->json($tag, 201);
     }
 }

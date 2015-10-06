@@ -24,7 +24,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::post('login', ['as' => 'admin.sessions.store', 'uses' => 'SessionsController@store']);
     Route::delete('logout', ['as' => 'admin.sessions.destroy', 'uses' => 'SessionsController@destroy']);
 
-    Route::resource('tags', 'TagsController', ['only' => 'index']);
+    Route::resource('tags', 'TagsController', ['only' => ['index', 'store']]);
     Route::resource('posts', 'PostsController');
     Route::resource('series', 'SeriesController');
     Route::resource('projects', 'ProjectsController');

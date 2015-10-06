@@ -13,6 +13,7 @@
   $('input[name=tags]').selectize({
     plugins: ['remove_button'],
     persist: false,
+    preload: true,
     valueField: 'name',
     labelField: 'name',
     searchField: 'name',
