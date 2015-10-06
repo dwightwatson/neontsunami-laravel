@@ -32,13 +32,26 @@ class Tag extends Model
      * Get tags that have been used more than 3 times and
      * include that count with the tag.
      *
-     * @return this
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @return \Illuminate\Database\Query\Builder
      */
-    public function scopeUsed()
+    public function scopeUsed($query)
     {
-        return $this->selectRaw('tags.*, COUNT(id) AS count')
+        return $query->selectRaw('tags.*, COUNT(id) AS count')
             ->join('post_tag', 'post_tag.tag_id', '=', 'tags.id')
             ->groupBy('slug');
+    }
+
+    /**
+     * Filter the tags by a search term.
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  string                              $search
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('name', 'LIKE', "%{$search}%");
     }
 
     /*
