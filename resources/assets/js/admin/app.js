@@ -1,7 +1,7 @@
 (function($) {
-  if ($('input[name=name]').length && $('input[name=slug]').length) {
-    $('input[name=name]').on('keyup', function() {
-      var slug = $('input[name=name]').val()
+  if ($('input[name=slug]').length && $('input[name=title], input[name=name]').length) {
+    $('input[name=title], input[name=name]').on('keyup', function() {
+      var slug = $(this).val()
         .toLowerCase()
         .replace(/[^\w ]+/g,'')
         .replace(/ +/g,'-');
@@ -13,11 +13,19 @@
   $('input[name=tags]').selectize({
     plugins: ['remove_button'],
     persist: false,
+    valueField: 'name',
+    labelField: 'name',
+    searchField: 'name',
     create: function(input) {
       return {
         value: input,
         text: input
       };
+    },
+    load: function(query, callback) {
+      $.getJSON('/admin/tags', { q: query }, function(response) {
+        callback(response);
+      });
     }
   });
 
