@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "laravel/framework": "5.1.*",
+    "laravel/framework": "5.2.*",
 
     "anahkiasen/former": "~4.0",
     "davejamesmiller/laravel-breadcrumbs": "3.0.*",
@@ -18,7 +18,9 @@
   "require-dev": {
     "fzaninotto/faker": "~1.4",
     "phpunit/phpunit": "~4.0",
-    "mockery/mockery": "0.9.*"
+    "mockery/mockery": "0.9.*",
+    "symfony/css-selector": "2.8.*|3.0.*",
+    "symfony/dom-crawler": "2.8.*|3.0.*"
   },
   "autoload": {
     "classmap": [
