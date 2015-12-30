@@ -26,7 +26,7 @@
       ga('send', 'pageview');
     </script>
   </head>
-  <body class="{!! controller_name() !!} {!! action_name() !!}">
+  <body class="{!! controller_name(null, true, 'NeonTsunami\Http\Controllers') !!} {!! action_name() !!}">
 
     @unless (Active::route('admin.*'))
       <div class="shards"></div>
