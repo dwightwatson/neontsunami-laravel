@@ -13,12 +13,30 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \NeonTsunami\Http\Middleware\EncryptCookies::class,
-        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-        \Illuminate\Session\Middleware\StartSession::class,
-        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \NeonTsunami\Http\Middleware\VerifyCsrfToken::class,
-        \NeonTsunami\Http\Middleware\RedirectTrailingSlash::class,
+    ];
+
+    /**
+     * The application's route middleware groups.
+     *
+     * @var array
+     */
+    protected $middlewareGroups = [
+        'web' => [
+            \NeonTsunami\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \NeonTsunami\Http\Middleware\RedirectTrailingSlash::class,
+        ],
+
+        'admin' => [
+            'web',
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \NeonTsunami\Http\Middleware\VerifyCsrfToken::class,
+        ],
+
+        'api' => [
+            'throttle:60,1',
+        ],
     ];
 
     /**
