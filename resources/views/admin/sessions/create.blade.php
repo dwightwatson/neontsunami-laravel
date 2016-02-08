@@ -8,12 +8,22 @@
     <h3>Login</h3>
   </div>
 
-  {!! Former::open()->route('admin.sessions.store') !!}
+  {{ Form::open(['route' => 'admin.sessions.store']) }}
 
-    {!! Former::email('email') !!}
-    {!! Former::password('password') !!}
-    {!! Former::actions()->primary_submit('Login') !!}
+    <div class="form-group {{ Form::hasErrors('email') }}">
+      {{ Form::label('email', null, ['class' => 'control-label']) }}
+      {{ Form::email('email', null, ['class' => 'form-control', 'required']) }}
+      {{ Form::errors('email') }}
+    </div>
 
-  {!! Former::close() !!}
+    <div class="form-group {{ Form::hasErrors('password') }}">
+      {{ Form::label('password', null, ['class' => 'control-label']) }}
+      {{ Form::password('password', ['class' => 'form-control', 'required']) }}
+      {{ Form::errors('password') }}
+    </div>
+
+    {{ Form::submit('Login', ['class' => 'btn btn-default']) }}
+
+  {{ Form::close() }}
 
 @stop

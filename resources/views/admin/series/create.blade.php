@@ -11,9 +11,9 @@
   </div>
 
   <div class="col-md-8 col-md-offset-2">
-    {!! Former::open()->route('admin.series.store') !!}
+    {{ Form::open(['route' => 'admin.series.store']) }}
       @include('admin.series._form')
-      {!! Former::actions()->primary_submit('Create series') !!}
-    {!! Former::close() !!}
+      {{ Form::submit('Create series', ['class' => 'btn btn-primary']) }}
+    {{ Form::close() }}
   </div>
 @stop

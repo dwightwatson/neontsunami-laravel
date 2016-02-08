@@ -11,9 +11,9 @@
   </div>
 
   <div class="col-md-8 col-md-offset-2">
-    {!! Former::open()->route('admin.projects.store') !!}
+    {{ Form::open(['route' => 'admin.projects.store']) }}
       @include('admin.projects._form')
-      {!! Former::actions()->primary_submit('Create project') !!}
-    {!! Former::close() !!}
+      {{ Form::submit('Create project', ['class' => 'btn btn-primary']) }}
+    {{ Form::close() }}
   </div>
 @stop

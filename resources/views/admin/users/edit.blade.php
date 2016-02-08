@@ -11,9 +11,9 @@
   </div>
 
   <div class="col-md-8 col-md-offset-2">
-    {!! Former::open()->route('admin.users.update', $user)->method('put')->populate($user) !!}
+    {{ Form::model($user, ['route' => ['admin.users.update', $user], 'method' => 'put']) }}
       @include('admin.users._form')
-      {!! Former::actions()->primary_submit('Save user') !!}
-    {!! Former::close() !!}
+      {{ Form::submit('Save user', ['class' => 'btn btn-primary']) }}
+    {{ Form::close() }}
   </div>
 @stop

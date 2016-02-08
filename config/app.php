@@ -149,7 +149,6 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
-        Former\FormerServiceProvider::class,
         Watson\Active\ActiveServiceProvider::class,
         Watson\Sitemap\SitemapServiceProvider::class,
         Watson\Taggly\TagglyServiceProvider::class,
@@ -212,9 +211,7 @@ return [
         'Form'        => Collective\Html\FormFacade::class,
         'Html'        => Collective\Html\HtmlFacade::class,
 
-        'Active'      => Watson\Active\Facades\Active::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
-        'Former'      => Former\Facades\Former::class,
         'Sitemap'     => Watson\Sitemap\Facades\Sitemap::class,
         'Taggly'      => Watson\Taggly\TagFacade::class,
 
