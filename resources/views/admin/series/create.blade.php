@@ -5,7 +5,9 @@
 @section('content')
   <div class="page-header">
     <h3>New series</h3>
-    <small>{!! link_to_route('admin.series.index', 'Cancel series', null, ['class' => 'btn btn-default']) !!}</small>
+    <small>
+      <a href="{{ route('admin.series.index') }}" class="btn btn-default">Cancel series</a>
+    </small>
   </div>
 
   <div class="col-md-8 col-md-offset-2">

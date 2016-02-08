@@ -25,6 +25,11 @@ class PagesControllerTest extends TestCase
         $this->assertResponseOk();
     }
 
+    public function testWork()
+    {
+        $this->visit('work');
+    }
+
     public function testRss()
     {
         $this->action('GET', 'PagesController@rss');

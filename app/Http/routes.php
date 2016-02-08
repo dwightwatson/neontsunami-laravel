@@ -20,6 +20,7 @@ Route::group(['middleware' => 'web'], function () {
     */
     Route::get('/', ['as' => 'pages.index', 'uses' => 'PagesController@index']);
     Route::get('about', ['as' => 'pages.about', 'uses'=> 'PagesController@about']);
+    Route::get('work', ['as' => 'pages.work', 'uses' => 'PagesController@work']);
     Route::get('rss', ['as' => 'pages.rss', 'uses' => 'PagesController@rss']);
 
     Route::get('sitemap', ['as' => 'sitemaps.index', 'uses' => 'SitemapsController@index']);

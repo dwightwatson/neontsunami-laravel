@@ -40,6 +40,18 @@ class PagesController extends Controller
     }
 
     /**
+     * GET /work
+     * The work page.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function work()
+    {
+        return view('pages.work')
+            ->withTitle('Work');
+    }
+
+    /**
      * GET /rss
      * Return the RSS feed of posts.
      *

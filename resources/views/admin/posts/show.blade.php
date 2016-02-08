@@ -5,7 +5,10 @@
 @section('content')
   <div class="page-header">
     <h3>{{ $post->title }}</h3>
-    <small>{!! link_to_route('admin.posts.edit', 'Edit post', $post, ['class' => 'btn btn-default']) !!} {!! link_to_route('admin.posts.destroy', 'Delete post', $post, ['class' => 'btn btn-danger', 'data-method' => 'destroy', 'data-confirm' => 'Are you sure you want to delete this post?']) !!}</small>
+    <small>
+      <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-default">Edit post</a>
+      <a href="{{ route('admin.posts.destroy', $post) }}" class="btn btn-danger" data-method="delete" data-confirm="Are you sure you want to delete this post?">Delete post</a>
+    </small>
   </div>
 
   <p class="lead">

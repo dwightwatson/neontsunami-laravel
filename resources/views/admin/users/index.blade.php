@@ -5,7 +5,9 @@
 @section('content')
   <div class="page-header">
     <h3>All users</h3>
-    <small>{!! link_to_route('admin.users.create', 'New users', null, ['class' => 'btn btn-default']) !!}</small>
+    <small>
+      <a href="{{ route('admin.users.create') }}" class="btn btn-default">New user</a>
+    </small>
   </div>
 
   @unless ($users->count())
@@ -18,11 +20,15 @@
       </tr>
       @foreach ($users as $user)
         <tr>
-          <td>{!! link_to_route('admin.users.show', $user->first_name, $user) !!}</td>
+          <td>
+            <a href="{{ route('admin.users.show', $user) }}">{{ $user->full_name }}</a>
+          </td>
           <td>{{ $user->created_at->diffForHumans() }}</td>
         </tr>
       @endforeach
     </table>
+
+    {{ $users->render() }}
   @endunless
 
 @stop

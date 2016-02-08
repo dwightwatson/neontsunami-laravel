@@ -5,7 +5,10 @@
 @section('content')
   <div class="page-header">
     <h3>{{ $series->name }}</h3>
-    <small>{!! link_to_route('admin.series.edit', 'Edit series', $series, ['class' => 'btn btn-default']) !!} {!! link_to_route('admin.series.destroy', 'Delete series', $series, ['class' => 'btn btn-danger', 'data-method' => 'destroy', 'data-confirm' => 'Are you sure you want to delete this series?']) !!}</small>
+    <small>
+      <a href="{{ route('admin.series.edit', $series) }}" class="btn btn-default">Edit series</a>
+      <a href="{{ route('admin.series.destroy', $series) }}" class="btn btn-danger" data-method="delete" data-confirm="Are you sure you want to delete this series?">Delete series</a>
+    </small>
   </div>
 
   <div class="series-description">

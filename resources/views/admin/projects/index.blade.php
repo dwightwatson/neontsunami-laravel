@@ -5,7 +5,9 @@
 @section('content')
   <div class="page-header">
     <h3>All projects</h3>
-    <small>{!! link_to_route('admin.projects.create', 'New projects', null, ['class' => 'btn btn-default']) !!}</small>
+    <small>
+      <a href="{{ route('admin.projects.create') }}" class="btn btn-default">New project</a>
+    </small>
   </div>
 
   @unless ($projects->count())
@@ -18,11 +20,15 @@
       </tr>
       @foreach ($projects as $project)
         <tr>
-          <td>{!! link_to_route('admin.projects.show', $project->name, $project) !!}</td>
+          <td>
+            <a href="{{ route('admin.projects.show', $project) }}">{{ $project->name }}</a>
+          </td>
           <td>{{ $project->created_at->diffForHumans() }}</td>
         </tr>
       @endforeach
     </table>
+
+    {{ $projects->render() }}
   @endunless
 
 @stop

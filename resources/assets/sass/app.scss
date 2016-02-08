@@ -78,8 +78,7 @@ header {
   h1 {
     font-family: 'Bebas Neue Bold';
     font-size: 50px;
-    margin-bottom: 0;
-    margin-top: 10px;
+    margin: 10px 0;
 
     a,
     a:hover {
@@ -94,14 +93,17 @@ header {
     margin: 0;
   }
 
+  p.author {
+    @extend .text-muted;
+    font-family: 'Bebas Neue Regular';
+    font-size: 18px;
+  }
+
   @media (min-width: 760px) {
     h1,
-    h2 {
+    h2,
+    p.author {
       text-align: right;
-    }
-
-    h2 {
-      margin: 0 0 30px;
     }
   }
 }

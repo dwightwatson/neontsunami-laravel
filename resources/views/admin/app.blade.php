@@ -5,34 +5,40 @@
         <a href="{!! route('admin.pages.index') !!}" class="navbar-brand">Neon Tsunami</a>
         @if (Auth::check())
           <ul class="nav navbar-nav">
-            <li class="{!! Active::route('admin.posts.*') !!}">
-              {!! link_to_route('admin.posts.index', 'Posts') !!}
+            <li class="{{ active('admin.posts.*') }}">
+              <a href="{{ route('admin.posts.index') }}">Posts</a>
             </li>
-            <li class="{!! Active::route('admin.series.*') !!}">
-              {!! link_to_route('admin.series.index', 'Series') !!}
+            <li class="{{ active('admin.series.*') }}">
+              <a href="{{ route('admin.series.index') }}">Series</a>
             </li>
-            <li class="{!! Active::route('admin.projects.*') !!}">
-              {!! link_to_route('admin.projects.index', 'Projects') !!}
+            <li class="{{ active('admin.projects.*') }}">
+              <a href="{{ route('admin.projects.index') }}">Projects</a>
             </li>
-            <li class="{!! Active::route('admin.users.*') !!}">
-              {!! link_to_route('admin.users.index', 'Users') !!}
+            <li class="{{ active('admin.users.*') }}">
+              <a href="{{ route('admin.users.index') }}">Users</a>
             </li>
-            <li class="{!! Active::route('admin.pages.reports') !!}">
-              {!! link_to_route('admin.pages.reports', 'Reports') !!}
+            <li class="{{ active('admin.pages.reports') }}">
+              <a href="{{ route('admin.pages.reports') }}">Reports</a>
             </li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="{!! route('pages.index') !!}">
+              <a href="{{ route('pages.index') }}">
                 <span class="glyphicon glyphicon-chevron-left"></span> Back to site
               </a>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{ Auth::user()->full_name }} <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span> {{ Auth::user()->full_name }} <span class="caret"></span>
+              </a>
               <ul class="dropdown-menu" role="menu">
-                <li>{!! link_to_route('admin.users.show', 'Account', Auth::user()) !!}</li>
-                <li>{!! link_to_route('admin.sessions.destroy', 'Logout', null, ['data-method' => 'delete']) !!}</li>
+                <li>
+                  <a href="{{ route('admin.users.show', auth()->user()) }}">Account</a>
+                </li>
+                <li>
+                  <a href="{{ route('admin.sessions.destroy') }}" data-method="delete">Logout</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -42,16 +48,16 @@
 
     @yield('breadcrumbs')
 
-    @if (Session::has('success'))
-      <div class="alert alert-success">{{ Session::get('success') }}</div>
+    @if (session()->has('success'))
+      <div class="alert alert-success">{{ session()->get('success') }}</div>
     @endif
 
-    @if (Session::has('info'))
-      <div class="alert alert-info">{{ Session::get('info') }}</div>
+    @if (session()->has('info'))
+      <div class="alert alert-info">{{ session()->get('info') }}</div>
     @endif
 
-    @if (Session::has('error'))
-      <div class="alert alert-danger">{{ Session::get('error') }}</div>
+    @if (session()->has('error'))
+      <div class="alert alert-danger">{{ session()->get('error') }}</div>
     @endif
 
     @yield('content')

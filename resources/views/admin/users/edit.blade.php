@@ -5,7 +5,9 @@
 @section('content')
   <div class="page-header">
     <h3>Edit user</h3>
-    <small>{!! link_to_route('admin.users.show', 'Cancel edit', $user, ['class' => 'btn btn-default']) !!}</small>
+    <small>
+      <a href="{{ route('admin.users.show', $user) }}" class="btn btn-default">Cancel edit</a>
+    </small>
   </div>
 
   <div class="col-md-8 col-md-offset-2">

@@ -5,7 +5,9 @@
 @section('content')
   <div class="page-header">
     <h3>New user</h3>
-    <small>{!! link_to_route('admin.users.index', 'Cancel user', null, ['class' => 'btn btn-default']) !!}</small>
+    <small>
+      <a href="{{ route('admin.users.index') }}" class="btn btn-default">Cancel user</a>
+    </small>
   </div>
 
   <div class="col-md-8 col-md-offset-2">

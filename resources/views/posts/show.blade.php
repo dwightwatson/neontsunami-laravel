@@ -24,7 +24,7 @@
     <p class="post-published">
       Posted {{ $post->published_at->diffForHumans() }}
       @if ($post->series)
-        in {!! link_to_route('series.show', $post->series->name, $post->series->slug) !!}
+        in <a href="{{ route('series.show', $post->series) }}">{{ $post->series->name }}</a>
       @endif
     </p>
   </div>
@@ -35,7 +35,7 @@
     @if ($post->tags->count())
       <div class="post-tags">
         @foreach ($post->tags as $tag)
-          {!! link_to_route('tags.show', $tag->hashtag, $tag->slug) !!}
+          <a href="{{ route('tags.show', $tag) }}">{{ $tag->hashtag }}</a>
         @endforeach
       </div>
     @endif
@@ -57,5 +57,5 @@
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </div>
 
-  {!! link_to_route('posts.index', '&larr; See more posts') !!}
+  <a href="{{ route('posts.index') }}">&larr; See more posts</a>
 @stop
