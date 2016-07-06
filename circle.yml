@@ -1,8 +1,8 @@
 machine:
   php:
-    version: 7.0.4
+    version: 7.0.7
   node:
-    version: 5.5.0
+    version: 6.1.0
   environment:
     APP_KEY: U2Zky7VXIEyaoY4OHhyBJe9kFfXMvvAH
     DB_HOST: 127.0.0.1
