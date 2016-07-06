@@ -1,14 +1,14 @@
 <?php
 
-if (! function_exists('markdown')) {
+if (! function_exists('commonmark')) {
     /**
-     * Convert Markdown into HTML.
+     * Convert Commonmark into HTML.
      *
-     * @param  string  $markdown
+     * @param  string  $commonmark
      * @return string
      */
-    function markdown($markdown)
+    function commonmark($commonmark)
     {
-        return (new League\CommonMark\CommonMarkConverter)->convertToHtml($markdown);
+        return (new League\CommonMark\CommonMarkConverter)->convertToHtml($commonmark);
     }
 }

@@ -12,6 +12,6 @@
   </div>
 
   <div class="project-description">
-    {!! markdown($project->description) !!}
+    {!! commonmark($project->description) !!}
   </div>
 @stop

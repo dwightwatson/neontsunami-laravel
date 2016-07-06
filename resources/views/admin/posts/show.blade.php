@@ -18,6 +18,6 @@
     @endif
   </p>
   <div class="post-content">
-    {!! markdown($post->content) !!}
+    {!! commonmark($post->content) !!}
   </div>
 @stop
