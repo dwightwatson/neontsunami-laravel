@@ -4,7 +4,7 @@ machine:
   node:
     version: 6.1.0
   environment:
-    APP_KEY: U2Zky7VXIEyaoY4OHhyBJe9kFfXMvvAH
+    APP_KEY: SomeRandomStringWith32Characters
     DB_HOST: 127.0.0.1
     DB_DATABASE: circle_test
     DB_USERNAME: ubuntu
@@ -12,9 +12,6 @@ machine:
 
 dependencies:
   pre:
-    - echo "memory_limit = 1024M" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/memory.ini
-    - sed -i 's/^;//' ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
-    - echo "xdebug.max_nesting_level = 256" > ~/.phpenv/versions/$(phpenv global)/etc/conf.d/xdebug.ini
     - npm install -g gulp
 
   post:
@@ -23,4 +20,4 @@ dependencies:
 
 test:
   override:
-    - phpunit --coverage-html $CIRCLE_ARTIFACTS
+    - php -d memory_limit=1024M vendor/bin/phpunit
