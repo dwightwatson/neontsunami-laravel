@@ -75,8 +75,8 @@ class SitemapsController extends Controller
     protected function getSeries($limit = null)
     {
         $series = Series::whereHas('posts', function ($query) {
-                $query->published();
-            })
+            $query->published();
+        })
             ->take($limit)
             ->get();
 

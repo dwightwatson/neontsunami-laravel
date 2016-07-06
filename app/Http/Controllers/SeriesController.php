@@ -17,8 +17,8 @@ class SeriesController extends Controller
     public function index(Request $request)
     {
         $series = Series::whereHas('posts', function ($query) {
-                $query->published();
-            })->paginate(25);
+            $query->published();
+        })->paginate(25);
 
         $page = $request->get('page');
         $title = $page ? "All series (Page {$page})" : 'All series';
