@@ -28,22 +28,22 @@ class PostTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('foo-bar-baz', $this->post->slug);
     }
 
-    public function testPublished()
+    public function testIsPublished()
     {
-        $this->assertFalse($this->post->published());
+        $this->assertFalse($this->post->isPublished());
 
         $this->post->published_at = Carbon::now()->subDay();
-        $this->assertTrue($this->post->published());
+        $this->assertTrue($this->post->isPublished());
 
         $this->post->published_at = Carbon::now()->addDay();
-        $this->assertFalse($this->post->published());
+        $this->assertFalse($this->post->isPublished());
     }
 
-    public function testUnpublished()
+    public function testIsUnpublished()
     {
-        $this->assertTrue($this->post->unpublished());
+        $this->assertTrue($this->post->isUnpublished());
 
         $this->post->published_at = Carbon::now();
-        $this->assertFalse($this->post->unpublished());
+        $this->assertFalse($this->post->isUnpublished());
     }
 }

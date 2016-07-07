@@ -70,12 +70,12 @@ class Post extends Model
     | Relationships
     |--------------------------------------------------------------------------
     */
-    public function published()
+    public function isPublished()
     {
-        return ! $this->unpublished() && $this->published_at <= $this->freshTimestamp();
+        return ! $this->isUnpublished() && $this->published_at <= $this->freshTimestamp();
     }
 
-    public function unpublished()
+    public function isUnpublished()
     {
         return is_null($this->published_at);
     }
