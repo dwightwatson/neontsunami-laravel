@@ -37,6 +37,8 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
+        abort_unless($post->published(), 404);
+
         $post->load('series', 'tags', 'user');
 
         $post->increment('views');

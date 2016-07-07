@@ -70,6 +70,21 @@ class Post extends Model
     | Relationships
     |--------------------------------------------------------------------------
     */
+    public function published()
+    {
+        return ! $this->unpublished() && $this->published_at <= $this->freshTimestamp();
+    }
+
+    public function unpublished()
+    {
+        return is_null($this->published_at);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Relationships
+    |--------------------------------------------------------------------------
+    */
     public function series()
     {
         return $this->belongsTo(Series::class);

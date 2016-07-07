@@ -2,6 +2,7 @@
 
 namespace NeonTsunami;
 
+use Carbon\Carbon;
 use PHPUnit_Framework_TestCase;
 
 class PostTest extends PHPUnit_Framework_TestCase
@@ -13,6 +14,11 @@ class PostTest extends PHPUnit_Framework_TestCase
         parent::setUp();
 
         $this->post = new Post;
+
+        // To prevent the model from needing to talk to the database to get the
+        // correct date format, we'll just tell it. The alternative would be to
+        // have this test extend TestCase and boot the Laravel application.
+        $this->post->setDateFormat('Y-m-d H:i:s');
     }
 
     public function testSetTitleAttribute()
@@ -20,5 +26,24 @@ class PostTest extends PHPUnit_Framework_TestCase
         $this->post->title = 'Foo Bar Baz';
 
         $this->assertEquals('foo-bar-baz', $this->post->slug);
+    }
+
+    public function testPublished()
+    {
+        $this->assertFalse($this->post->published());
+
+        $this->post->published_at = Carbon::now()->subDay();
+        $this->assertTrue($this->post->published());
+
+        $this->post->published_at = Carbon::now()->addDay();
+        $this->assertFalse($this->post->published());
+    }
+
+    public function testUnpublished()
+    {
+        $this->assertTrue($this->post->unpublished());
+
+        $this->post->published_at = Carbon::now();
+        $this->assertFalse($this->post->unpublished());
     }
 }
