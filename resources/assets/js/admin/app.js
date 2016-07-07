@@ -1,7 +1,12 @@
+import '../../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap';
+import '../../../../node_modules/jquery-ujs/src/rails';
+import 'selectize';
+import jQuery from 'jquery';
+
 (function($) {
   if ($('input[name=slug]').length && $('input[name=title], input[name=name]').length) {
     $('input[name=title], input[name=name]').on('keyup', function() {
-      var slug = $(this).val()
+      let slug = $(this).val()
         .toLowerCase()
         .replace(/[^\w ]+/g,'')
         .replace(/ +/g,'-');

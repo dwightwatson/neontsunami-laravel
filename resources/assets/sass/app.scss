@@ -1,5 +1,7 @@
-@import 'bootstrap';
-@import 'selectize.bootstrap3';
+$icon-font-path: '/fonts/';
+
+@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import '../../../node_modules/selectize/dist/css/selectize.bootstrap3';
 @import 'admin';
 @import 'pages';
 @import 'posts';
