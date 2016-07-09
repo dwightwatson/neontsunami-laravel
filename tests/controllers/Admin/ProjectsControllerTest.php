@@ -19,86 +19,62 @@ class ProjectsControllerTest extends \TestCase
 
     public function testIndex()
     {
-        $this->action('GET', 'Admin\ProjectsController@index');
-
-        $this->assertResponseOk();
-        $this->assertViewHas('projects');
+        $this->visit('admin/projects');
     }
 
     public function testCreate()
     {
-        $this->action('GET', 'Admin\ProjectsController@create');
-
-        $this->assertResponseOk();
+        $this->visit('admin/projects/create');
     }
 
     public function testStore()
     {
-        $this->be(factory(User::class)->create());
-
         $project = factory(Project::class)->make(['slug' => 'foo']);
 
-        $input = array_only($project->getAttributes(), $project->getFillable());
-
-        $this->action('POST', 'Admin\ProjectsController@store', $input);
-
-        $this->assertRedirectedToRoute('admin.projects.show', 'foo');
+        $this->visit('admin/projects/create')
+            ->submitForm('Create project', $project->getAttributes())
+            ->seePageIs('admin/projects/foo')
+            ->see($project->title);
     }
 
     public function testStoreFails()
     {
-        $this->action('POST', 'Admin\ProjectsController@store');
-
-        $this->assertRedirectedToRoute('admin.projects.create');
-        $this->assertHasOldInput();
-        $this->assertSessionHasErrors();
+        $this->visit('admin/projects/create')
+            ->submitForm('Create project')
+            ->seePageIs('admin/projects/create');
     }
 
     public function testShow()
     {
         $project = factory(Project::class)->create();
 
-        $this->action('GET', 'Admin\ProjectsController@show', $project);
-
-        $this->assertResponseOk();
-        $this->assertViewHas('project');
+        $this->visit("admin/projects/{$project->slug}")
+            ->see($project->name);
     }
 
     public function testEdit()
     {
         $project = factory(Project::class)->create();
 
-        $this->action('GET', 'Admin\ProjectsController@edit', $project);
-
-        $this->assertResponseOk();
-        $this->assertViewHas('project');
+        $this->visit("admin/projects/{$project->slug}/edit");
     }
 
     public function testUpdate()
     {
         $project = factory(Project::class)->create(['slug' => 'foo']);
 
-        $input = array_only($project->getAttributes(), $project->getFillable());
-
-        $input['slug'] = 'bar';
-
-        $this->action('PUT', 'Admin\ProjectsController@update', $project, $input);
-
-        $this->assertRedirectedToRoute('admin.projects.show', 'bar');
+        $this->visit('admin/projects/foo/edit')
+            ->submitForm('Save project', ['slug' => 'bar'])
+            ->seePageIs('admin/projects/bar');
     }
 
     public function testUpdateFails()
     {
         $project = factory(Project::class)->create(['slug' => 'foo']);
 
-        $this->action('PUT', 'Admin\ProjectsController@update', $project, [
-            'name' => 'Bar',
-            'description' => null
-        ]);
-
-        $this->assertRedirectedToRoute('admin.projects.edit', 'foo');
-        $this->assertHasOldInput();
-        $this->assertSessionHasErrors();
+        $this->visit('admin/projects/foo/edit')
+            ->submitForm('Save project', ['description' => null])
+            ->seePageIs('admin/projects/foo/edit');
     }
 
     public function testDestroy()

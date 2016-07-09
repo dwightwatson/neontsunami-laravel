@@ -12,14 +12,10 @@ class TagsControllerTest extends TestCase
     {
         $tag = factory(Tag::class)->create();
         $posts = factory(Post::class, 3)->create();
-        $tag->posts()->sync([$posts[0]->id, $posts[1]->id, $posts[2]->id]);
+        $tag->posts()->sync($posts);
 
-        $response = $this->action('GET', 'TagsController@index');
-
-        $this->assertResponseOk();
-        $this->assertViewHas('tags');
-
-        $this->assertContains($tag->name, $response->getContent());
+        $this->visit('tags')
+            ->see($tag->name);
     }
 
     public function testShow()
@@ -28,9 +24,8 @@ class TagsControllerTest extends TestCase
         $posts = factory(Post::class, 3)->create();
         $tag->posts()->sync([$posts[0]->id, $posts[1]->id, $posts[2]->id]);
 
-        $response = $this->action('GET', 'TagsController@show', $tag);
-
-        $this->assertResponseOk();
-        $this->assertViewHas('posts');
+        $this->visit("tags/{$tag->slug}")
+            ->see($tag->name)
+            ->see($posts->first()->title);
     }
 }

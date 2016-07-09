@@ -15,35 +15,30 @@ class PostsControllerTest extends \TestCase
     {
         parent::setUp();
 
-        $this->be(new User);
+        $this->actingAs(
+            factory(User::class)->create()
+        );
     }
 
     public function testIndex()
     {
-        $this->action('GET', 'Admin\PostsController@index');
-
-        $this->assertResponseOk();
-        $this->assertViewHas('posts');
+        $this->visit('admin/posts')
+            ->assertViewHas('posts');
     }
 
     public function testCreate()
     {
-        $this->action('GET', 'Admin\PostsController@create');
-
-        $this->assertResponseOk();
+        $this->visit('admin/posts/create');
     }
 
     public function testStore()
     {
-        $this->be(factory(User::class)->create());
+        $post = factory(Post::class)->make(['series_id' => null, 'slug' => 'foo']);
 
-        $post = factory(Post::class)->make(['series_id' => null]);
-
-        $input = array_only($post->getAttributes(), $post->getFillable());
-
-        $this->action('POST', 'Admin\PostsController@store', $input);
-
-        $this->assertRedirectedToRoute('admin.posts.show', $post->slug);
+        $this->visit('admin/posts/create')
+            ->submitForm('Create post', $post->getAttributes())
+            ->seePageIs('admin/posts/foo')
+            ->see($post->title);
     }
 
     public function testStoreWithTags()
@@ -53,44 +48,33 @@ class PostsControllerTest extends \TestCase
 
     public function testStoreFails()
     {
-        $this->action('POST', 'Admin\PostsController@store');
-
-        $this->assertRedirectedToRoute('admin.posts.create');
-        $this->assertHasOldInput();
-        $this->assertSessionHasErrors();
+        $this->visit('admin/posts/create')
+            ->submitForm('Create post')
+            ->seePageIs('admin/posts/create');
     }
 
     public function testShow()
     {
         $post = factory(Post::class)->create();
 
-        $this->action('GET', 'Admin\PostsController@show', $post);
-
-        $this->assertResponseOk();
-        $this->assertViewHas('post');
+        $this->visit("admin/posts/{$post->slug}")
+            ->see($post->title);
     }
 
     public function testEdit()
     {
         $post = factory(Post::class)->create();
 
-        $this->action('GET', 'Admin\PostsController@edit', $post);
-
-        $this->assertResponseOk();
-        $this->assertViewHas('post');
+        $this->visit("admin/posts/{$post->slug}/edit");
     }
 
     public function testUpdate()
     {
         $post = factory(Post::class)->create(['slug' => 'foo']);
 
-        $input = array_only($post->getAttributes(), $post->getFillable());
-
-        $input['slug'] = 'bar';
-
-        $this->action('PUT', 'Admin\PostsController@update', $post, $input);
-
-        $this->assertRedirectedToRoute('admin.posts.show', 'bar');
+        $this->visit('admin/posts/foo/edit')
+            ->submitForm('Save post', ['slug' => 'bar'])
+            ->seePageIs('admin/posts/bar');
     }
 
     public function testUpdateWithTags()
@@ -102,14 +86,9 @@ class PostsControllerTest extends \TestCase
     {
         $post = factory(Post::class)->create(['slug' => 'foo']);
 
-        $this->action('PUT', 'Admin\PostsController@update', $post, [
-            'title'   => 'Bar',
-            'content' => null
-        ]);
-
-        $this->assertRedirectedToRoute('admin.posts.edit', 'foo');
-        $this->assertHasOldInput();
-        $this->assertSessionHasErrors();
+        $this->visit('admin/posts/foo/edit')
+            ->submitForm('Save post', ['content' => null])
+            ->seePageIs('admin/posts/foo/edit');
     }
 
     public function testDestroy()

@@ -11,9 +11,7 @@ class SessionsControllerTest extends \TestCase
 
     public function testCreate()
     {
-        $this->action('GET', 'Admin\SessionsController@create');
-
-        $this->assertResponseOk();
+        $this->visit('admin/login');
     }
 
     public function testStoreWithCorrectCredentials()
@@ -23,12 +21,12 @@ class SessionsControllerTest extends \TestCase
             'password' => 'password'
         ]);
 
-        $this->action('POST', 'Admin\SessionsController@store', [
-            'email'    => $user->email,
-            'password' => 'password'
-        ]);
+        $this->visit('admin/login')
+            ->submitForm('Login', [
+                'email'    => $user->email,
+                'password' => 'password'
+            ])->seePageIs('admin');
 
-        $this->assertRedirectedToRoute('admin.pages.index');
         $this->assertTrue(auth()->check());
         $this->assertEquals(auth()->user()->email, $user->email);
     }
@@ -39,21 +37,22 @@ class SessionsControllerTest extends \TestCase
             'email' => 'text@example.com',
         ]);
 
-        $this->action('POST', 'Admin\SessionsController@store', [
-            'email'    => $user->email,
-            'password' => 'foo'
-        ]);
+        $this->visit('admin/login')
+            ->submitForm('Login', [
+                'email'    => $user->email,
+                'password' => 'foo'
+            ])->seePageIs('admin/login')
+            ->see('Your login credentials were invalid');
 
-        $this->assertRedirectedToRoute('admin.sessions.create');
-        $this->assertSessionHas('error', 'Your login credentials were invalid.');
+        $this->assertFalse(auth()->check());
     }
 
     public function testStoreWithoutCredentials()
     {
-        $this->action('POST', 'Admin\SessionsController@store');
+        $this->visit('admin/login')
+            ->submitForm('Login')
+            ->seePageIs('admin/login');
 
-        $this->assertRedirectedToRoute('admin.sessions.create');
-        $this->assertSessionHasErrors(['email', 'password']);
         $this->assertFalse(auth()->check());
     }
 

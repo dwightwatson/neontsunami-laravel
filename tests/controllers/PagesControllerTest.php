@@ -9,20 +9,16 @@ class PagesControllerTest extends TestCase
 
     public function testIndex()
     {
-        factory(Post::class, 2)->create();
+        $posts = factory(Post::class, 2)->create();
 
-        $this->action('GET', 'PagesController@index');
-
-        $this->assertResponseOk();
-        $this->assertViewHas('latestPosts');
-        $this->assertViewHas('popularPosts');
+        $this->visit('/')
+            ->see($posts->first()->title)
+            ->see($posts->last()->title);
     }
 
     public function testAbout()
     {
-        $this->action('GET', 'PagesController@about');
-
-        $this->assertResponseOk();
+        $this->visit('about');
     }
 
     public function testWork()
@@ -32,9 +28,6 @@ class PagesControllerTest extends TestCase
 
     public function testRss()
     {
-        $this->action('GET', 'PagesController@rss');
-
-        $this->assertResponseOk();
-        $this->assertViewHas('posts');
+        $this->visit('rss');
     }
 }

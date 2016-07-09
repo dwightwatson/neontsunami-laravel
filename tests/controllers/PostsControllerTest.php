@@ -13,10 +13,9 @@ class PostsControllerTest extends TestCase
         $publishedPost = factory(Post::class)->create(['published_at' => new DateTime]);
         $unpublishedPost = factory(Post::class)->create(['published_at' => null]);
 
-        $this->action('GET', 'PostsController@index');
-
-        $this->assertResponseOk();
-        $this->assertViewHas('posts');
+        $this->visit('posts')
+            ->see($publishedPost->title)
+            ->dontSee($unpublishedPost->title);
     }
 
     public function testShow()
@@ -27,11 +26,25 @@ class PostsControllerTest extends TestCase
             factory(Post::class)->make()
         );
 
-        $this->action('GET', 'PostsController@show', $post);
-
-        $this->assertResponseOk();
-        $this->assertViewHas('post');
+        $this->visit("posts/{$post->slug}")
+            ->see($post->title);
 
         $this->assertEquals(1, $post->fresh()->views);
+    }
+
+    public function testShowWithUnpublishedPost()
+    {
+        $this->markTestIncomplete();
+
+        $user = factory(User::class)->create();
+
+        $post = $user->posts()->save(
+            factory(Post::class)->make(['published_at' => null])
+        );
+
+        $this->visit("posts/{$post->slug}")
+            ->seeStatusCode(404);
+
+        $this->assertEquals(0, $post->fresh()->views);
     }
 }

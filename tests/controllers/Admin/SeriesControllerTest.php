@@ -19,86 +19,62 @@ class SeriesControllerTest extends \TestCase
 
     public function testIndex()
     {
-        $this->action('GET', 'Admin\SeriesController@index');
-
-        $this->assertResponseOk();
-        $this->assertViewHas('series');
+        $this->visit('admin/series');
     }
 
     public function testCreate()
     {
-        $this->action('GET', 'Admin\SeriesController@create');
-
-        $this->assertResponseOk();
+        $this->visit('admin/series/create');
     }
 
     public function testStore()
     {
-        $this->be(factory(User::class)->create());
-
         $series = factory(Series::class)->make(['slug' => 'foo']);
 
-        $input = array_only($series->getAttributes(), $series->getFillable());
-
-        $this->action('POST', 'Admin\SeriesController@store', $input);
-
-        $this->assertRedirectedToRoute('admin.series.show', 'foo');
+        $this->visit('admin/series/create')
+            ->submitForm('Create series', $series->getAttributes())
+            ->seePageis('admin/series/foo')
+            ->see($series->name);
     }
 
     public function testStoreFails()
     {
-        $this->action('POST', 'Admin\SeriesController@store');
-
-        $this->assertRedirectedToRoute('admin.series.create');
-        $this->assertHasOldInput();
-        $this->assertSessionHasErrors();
+        $this->visit('admin/series/create')
+            ->submitForm('Create series')
+            ->seePageis('admin/series/create');
     }
 
     public function testShow()
     {
         $series = factory(Series::class)->create();
 
-        $this->action('GET', 'Admin\SeriesController@show', $series);
-
-        $this->assertResponseOk();
-        $this->assertViewHas('series');
+        $this->visit("admin/series/{$series->slug}")
+            ->see($series->name);
     }
 
     public function testEdit()
     {
         $series = factory(Series::class)->create();
 
-        $this->action('GET', 'Admin\SeriesController@edit', $series);
-
-        $this->assertResponseOk();
-        $this->assertViewHas('series');
+        $this->visit("admin/series/{$series->slug}/edit");
     }
 
     public function testUpdate()
     {
         $series = factory(Series::class)->create(['slug' => 'foo']);
 
-        $input = array_only($series->getAttributes(), $series->getFillable());
-
-        $input['slug'] = 'bar';
-
-        $this->action('PUT', 'Admin\SeriesController@update', $series, $input);
-
-        $this->assertRedirectedToRoute('admin.series.show', 'bar');
+        $this->visit("admin/series/foo/edit")
+            ->submitForm('Save series', ['slug' => 'bar'])
+            ->seePageIs('admin/series/bar');
     }
 
     public function testUpdateFails()
     {
         $series = factory(Series::class)->create(['slug' => 'foo']);
 
-        $this->action('PUT', 'Admin\SeriesController@update', $series, [
-            'name' => 'Bar',
-            'description' => null
-        ]);
-
-        $this->assertRedirectedToRoute('admin.series.edit', 'foo');
-        $this->assertHasOldInput();
-        $this->assertSessionHasErrors();
+        $this->visit("admin/series/foo/edit")
+            ->submitForm('Save series', ['description' => null])
+            ->seePageIs('admin/series/foo/edit');
     }
 
     public function testDestroy()

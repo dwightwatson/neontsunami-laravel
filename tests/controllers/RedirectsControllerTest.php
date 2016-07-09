@@ -1,18 +1,26 @@
 <?php
 
+use NeonTsunami\Tag;
+use NeonTsunami\Post;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 class RedirectsControllerTest extends TestCase
 {
+    use DatabaseTransactions;
+
     public function testGetPost()
     {
-        $this->action('GET', 'RedirectsController@getPost', ['foo']);
+        $post = factory(Post::class)->create();
 
-        $this->assertRedirectedToRoute('posts.show', 'foo');
+        $this->visit("post/{$post->slug}")
+            ->seePageIs("posts/{$post->slug}");
     }
 
     public function testGetTag()
     {
-        $this->action('GET', 'RedirectsController@getTag', ['foo']);
+        $tag = factory(Tag::class)->create();
 
-        $this->assertRedirectedToRoute('tags.show', 'foo');
+        $this->visit("tag/{$tag->slug}")
+            ->seePageIs("tags/{$tag->slug}");
     }
 }

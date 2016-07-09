@@ -16,17 +16,9 @@ class SeriesControllerTest extends TestCase
         $publishedPost->series()->associate($series);
         $publishedPost->save();
 
-        $unpublishedPost = factory(Post::class)->create(['published_at' => null]);
-        $unpublishedPost->series()->associate($series);
-        $unpublishedPost->save();
-
-        $response = $this->action('GET', 'SeriesController@index');
-
-        $this->assertResponseOk();
-        $this->assertViewHas('series');
-
-        $this->assertContains($series->name, $response->getContent());
-        $this->assertContains('1 post', $response->getContent());
+        $this->visit("series")
+            ->see($series->name)
+            ->see('1 post');
     }
 
     public function testShow()
@@ -41,13 +33,9 @@ class SeriesControllerTest extends TestCase
         $unpublishedPost->series()->associate($series);
         $unpublishedPost->save();
 
-        $series = $publishedPost->series;
-
-        $response = $this->action('GET', 'SeriesController@show', $series);
-
-        $this->assertResponseOk();
-        $this->assertViewHas('series');
-
-        $this->assertContains('1 post', $response->getContent());
+        $this->visit("series/{$series->slug}")
+            ->see($series->name)
+            ->see($publishedPost->title)
+            ->dontSee($unpublishedPost->title);
     }
 }

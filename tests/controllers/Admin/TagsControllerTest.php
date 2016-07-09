@@ -20,12 +20,10 @@ class TagsControllerTest extends \TestCase
 
     public function testIndex()
     {
-        factory(Tag::class)->create(['name' => 'Foo']);
+        $tag = factory(Tag::class)->create();
 
-        $this->action('GET', 'Admin\TagsController@index');
-
-        $this->assertResponseOk();
-        $this->seeJson(['name' => 'Foo']);
+        $this->visit('admin/tags')
+            ->seeJson(['name' => $tag->name]);
     }
 
     public function testIndexSearches()
@@ -33,42 +31,33 @@ class TagsControllerTest extends \TestCase
         factory(Tag::class)->create(['name' => 'Foo']);
         factory(Tag::class)->create(['name' => 'Bar']);
 
-        $this->action('GET', 'Admin\TagsController@index', ['q' => 'Foo']);
-
-        $this->assertResponseOk();
-        $this->seeJson(['name' => 'Foo']);
-        $this->dontSeeJson(['name' => 'Bar']);
+        $this->json('GET', 'admin/tags', ['q' => 'Foo'])
+            ->seeJson(['name' => 'Foo'])
+            ->dontSeeJson(['name' => 'Bar']);
     }
 
     public function testStore()
     {
         $tag = factory(Tag::class)->make(['name' => 'Foo']);
 
-        $input = array_only($tag->getAttributes(), $tag->getFillable());
-
-        $this->action('POST', 'Admin\TagsController@store', $input);
-
-        $this->assertResponseStatus(201);
-        $this->seeJson(['name' => 'Foo']);
+        $this->json('POST', 'admin/tags', $tag->getAttributes())
+            ->seeJson(['name' => 'Foo'])
+            ->seeStatusCode(201);
     }
 
     public function testStoreDoesNotDuplicateTags()
     {
         $tag = factory(Tag::class)->create(['name' => 'Foo', 'slug' => 'foo']);
 
-        $input = array_only($tag->getAttributes(), $tag->getFillable());
-
-        $this->action('POST', 'Admin\TagsController@store', $input);
-
-        $this->assertResponseStatus(201);
-        $this->seeJson(['name' => 'Foo']);
+        $this->json('POST', 'admin/tags', $tag->getAttributes())
+            ->seeJson(['name' => 'Foo'])
+            ->seeStatusCode(201);
         $this->assertEquals(1, Tag::count());
     }
 
     public function testStoreFails()
     {
-        $this->action('POST', 'Admin\TagsController@store');
-
-        $this->assertResponseStatus(422);
+        $this->json('POST', 'admin/tags')
+            ->seeStatusCode(422);
     }
 }

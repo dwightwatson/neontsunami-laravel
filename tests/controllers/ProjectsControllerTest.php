@@ -9,21 +9,19 @@ class ProjectsControllerTest extends TestCase
 
     public function testIndex()
     {
-        factory(Project::class, 2)->create();
+        $project = factory(Project::class)->create();
 
-        $this->action('GET', 'ProjectsController@index');
-
-        $this->assertResponseOk();
-        $this->assertViewHas('projects');
+        $this->visit('projects')
+            ->see('Projects')
+            ->see($project->title);
     }
 
     public function testShow()
     {
         $project = factory(Project::class)->create();
 
-        $this->action('GET', 'ProjectsController@show', $project);
-
-        $this->assertResponseOk();
-        $this->assertViewHas('project');
+        $this->visit("projects/{$project->slug}")
+            ->see($project->title)
+            ->see($project->description);
     }
 }

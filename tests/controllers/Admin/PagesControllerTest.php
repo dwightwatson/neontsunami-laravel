@@ -6,24 +6,15 @@ use NeonTsunami\User;
 
 class PagesControllerTest extends \TestCase
 {
-    public function setUp()
-    {
-        parent::setUp();
-
-        $this->be(new User);
-    }
-
     public function testIndex()
     {
-        $this->action('GET', 'Admin\PagesController@index');
-
-        $this->assertResponseOk();
+        $this->actingAs(new User)
+            ->visit('admin');
     }
 
     public function testReports()
     {
-        $this->action('GET', 'Admin\PagesController@reports');
-
-        $this->assertResponseOk();
+        $this->actingAs(new User)
+            ->visit('admin/reports');
     }
 }
