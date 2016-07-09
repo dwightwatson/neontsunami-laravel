@@ -1,12 +1,12 @@
 <?php
 
-namespace NeonTsunami\Commands;
+namespace NeonTsunami\Jobs;
 
 use NeonTsunami\Tag;
 use NeonTsunami\Jobs\Job;
 use Illuminate\Database\Eloquent\Collection;
 
-class GenerateTagsCommand extends Job
+class GenerateTagsJob extends Job
 {
     /**
      * Tag slugs.

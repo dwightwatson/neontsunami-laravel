@@ -4,7 +4,7 @@ namespace NeonTsunami\Http\Controllers\Admin;
 
 use NeonTsunami\Post;
 use NeonTsunami\Series;
-use NeonTsunami\Commands\GenerateTagsCommand;
+use NeonTsunami\Jobs\GenerateTagsJob;
 use NeonTsunami\Http\Requests\Posts\StorePostRequest;
 use NeonTsunami\Http\Requests\Posts\UpdatePostRequest;
 
@@ -52,7 +52,7 @@ class PostsController extends Controller
         $post = $request->user()->posts()->create($request->all());
 
         if ($request->has('tags')) {
-            $tags = $this->dispatchFrom(GenerateTagsCommand::class, $request);
+            $tags = $this->dispatchNow(new GenerateTagsJob($request->tags));
 
             $post->tags()->sync($tags);
         }
@@ -102,7 +102,7 @@ class PostsController extends Controller
         $post->update($request->all());
 
         if ($request->has('tags')) {
-            $tags = $this->dispatchFrom(GenerateTagsCommand::class, $request);
+            $tags = $this->dispatchNow(new GenerateTagsJob($request->tags));
 
             $post->tags()->sync($tags);
         }
