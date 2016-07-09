@@ -12,8 +12,6 @@ The tests for this application are written using the integrated Laravel testing 
 
 If you're intested in seeing how I did things before the integration testing functionality was full-featured, take a look at the [last commit using the older PHPUnit assertion style tests](https://github.com/dwightwatson/neontsunami/tree/9579367eec04773f617523b437b8d73f05abb71d).
 
-If you
-
 ### Envoy
 This repository also contains an old `.envoy.blade.php` file, a configuration file for Laravel Envoy. It may serve as a useful reference for those who prefer to use Envoy for deployments.
 
