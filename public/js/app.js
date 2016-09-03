@@ -1,225 +1,82 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
 
-require('./shards');
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
 
-$(function () {
-  $('.shards').shards([239, 84, 17, 0.5], [245, 153, 113, 0.5], [255, 255, 255, 0.5], 1, 1, 1, 1, false);
-});
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
 
-},{"./shards":2}],2:[function(require,module,exports){
-'use strict';
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
 
-/**
-* Shards jQuery plug-in
-* Multilayered gradient background effect
-*
-* @author Jean-Christophe Nicolas <mrjcnicolas@gmail.com>
-* @homepage http://bite-software.co.uk/shards/
-* @version 1.1
-* @license MIT http://opensource.org/licenses/MIT
-* @date 03-06-2013
-*/
-(function ($) {
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 
-    var Plugin = function Plugin(me, c1, c2, sh, steps, wheel, light, alf, fs) {
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
 
-        this.el = me;
-        this.sharp = true;
-        this.fs = fs;
-        this.filter = '';
-        this.colours = {
-            c1: c1,
-            c2: c2,
-            c3: c2,
-            shade: sh,
-            alpha: alf,
-            steps: steps,
-            wheel: wheel,
-            light: ~~light
-        };
-        this.init();
-    };
-    Plugin.prototype.init = function () {
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
 
-        this.cssPrefix = false;
 
-        var ua = navigator.userAgent;
-        if (/Chrome\/(\S+)/.test(ua) || /AppleWebKit\/(\S+)/.test(ua)) {
-            this.cssPrefix = '-webkit';
-        } else if (/Firefox\/(\S+)/.test(ua)) {
-            this.cssPrefix = '-moz';
-        } else if (window.opera) {
-            this.cssPrefix = '-o';
-        } else if (/MSIE ([^;]+)/.test(ua)) {
-            this.cssPrefix = '-ms';
-        };
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
 
-        if (this.cssPrefix) {
-            var steps = this.colours.steps;
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
 
-            while (steps > 0) {
-                this.percents = this.percentage();
-                this.stringBuilder();
-                this.colourFilter();
-                steps -= 1;
-                if (steps > 0) this.filter += ', ';
-            }
-            this.el.css('background-image', this.filter);
+/******/ 	// identity function for calling harmory imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
 
-            if (this.fs) this.fit();
-        } else {
-            console.log('sorry bro, your browser isnt supported.');
-        }
-    };
-    Plugin.prototype.stringBuilder = function () {
+/******/ 	// define getter function for harmory exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		Object.defineProperty(exports, name, {
+/******/ 			configurable: false,
+/******/ 			enumerable: true,
+/******/ 			get: getter
+/******/ 		});
+/******/ 	};
 
-        var col = this.colours,
-            c1 = this.catcol(col.c1),
-            c2 = this.catcol(col.c2),
-            c3 = this.catcol(col.c3),
-            shade = this.catcol(col.shade),
-            deg = ~~(Math.random() * 360);
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
 
-        this.filter += this.cssPrefix + '-linear-gradient(' + deg + 'deg,' + c1 + ' ' + this.percents.a + ' ,' + shade + ' ' + this.percents.b + ', ' + c2 + ' ' + this.percents.c + ', ' + c3 + ' ' + this.percents.d + ')';
-    };
-    Plugin.prototype.catcol = function (col) {
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 
-        var beg = 'rgba(',
-            end = ')',
-            part = col.toString();
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
 
-        return beg.concat(part).concat(end);
-    };
-    Plugin.prototype.fit = function () {
-        this.el.css({
-            'width': '100%',
-            'height': window.innerHeight
-        });
-    };
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports) {
 
-    Plugin.prototype.percentage = function () {
+"use strict";
+eval("'use strict';\n\n/**\n* Shards jQuery plug-in\n* Multilayered gradient background effect\n*\n* @author Jean-Christophe Nicolas <mrjcnicolas@gmail.com>\n* @homepage http://bite-software.co.uk/shards/\n* @version 1.1\n* @license MIT http://opensource.org/licenses/MIT\n* @date 03-06-2013\n*/\n(function ($) {\n\n    var Plugin = function Plugin(me, c1, c2, sh, steps, wheel, light, alf, fs) {\n\n        this.el = me;\n        this.sharp = true;\n        this.fs = fs;\n        this.filter = '';\n        this.colours = {\n            c1: c1,\n            c2: c2,\n            c3: c2,\n            shade: sh,\n            alpha: alf,\n            steps: steps,\n            wheel: wheel,\n            light: ~~light\n        };\n        this.init();\n    };\n    Plugin.prototype.init = function () {\n        var this$1 = this;\n\n\n        this.cssPrefix = false;\n\n        var ua = navigator.userAgent;\n        if (/Chrome\\/(\\S+)/.test(ua) || /AppleWebKit\\/(\\S+)/.test(ua)) {\n            this.cssPrefix = '-webkit';\n        } else if (/Firefox\\/(\\S+)/.test(ua)) {\n            this.cssPrefix = '-moz';\n        } else if (window.opera) {\n            this.cssPrefix = '-o';\n        } else if (/MSIE ([^;]+)/.test(ua)) {\n            this.cssPrefix = '-ms';\n        };\n\n        if (this.cssPrefix) {\n            var steps = this.colours.steps;\n\n            while (steps > 0) {\n                this$1.percents = this$1.percentage();\n                this$1.stringBuilder();\n                this$1.colourFilter();\n                steps -= 1;\n                if (steps > 0) this$1.filter += ', ';\n            }\n            this.el.css('background-image', this.filter);\n\n            if (this.fs) this.fit();\n        } else {\n            console.log('sorry bro, your browser isnt supported.');\n        }\n    };\n    Plugin.prototype.stringBuilder = function () {\n\n        var col = this.colours,\n            c1 = this.catcol(col.c1),\n            c2 = this.catcol(col.c2),\n            c3 = this.catcol(col.c3),\n            shade = this.catcol(col.shade),\n            deg = ~~(Math.random() * 360);\n\n        this.filter += this.cssPrefix + '-linear-gradient(' + deg + 'deg,' + c1 + ' ' + this.percents.a + ' ,' + shade + ' ' + this.percents.b + ', ' + c2 + ' ' + this.percents.c + ', ' + c3 + ' ' + this.percents.d + ')';\n    };\n    Plugin.prototype.catcol = function (col) {\n\n        var beg = 'rgba(',\n            end = ')',\n            part = col.toString();\n\n        return beg.concat(part).concat(end);\n    };\n    Plugin.prototype.fit = function () {\n        this.el.css({\n            'width': '100%',\n            'height': window.innerHeight\n        });\n    };\n\n    Plugin.prototype.percentage = function () {\n\n        var p1 = ~~(Math.random() * 85),\n            p2 = p1 + ~~(Math.random() * 15),\n            p3 = p2,\n            p4 = 100 - p2 + ~~(Math.random() * p2);\n\n        var percents = {\n            a: p1 + '%',\n            b: p2 + '%',\n            c: p3 + '%',\n            d: p4 + '%'\n        };\n\n        return percents;\n    };\n    Plugin.prototype.colourFilter = function () {\n\n        var col = this.colours;\n\n        col.c1 = this.colstep(col.c1);\n        col.c1.push(col.alpha);\n        col.c2 = this.colstep(col.c2);\n        col.c2.push(col.alpha);\n        col.c3 = this.colstep(col.c2);\n        col.c3.push(col.alpha);\n        col.shade = this.colstep(col.shade);\n        col.shade.push(col.alpha);\n    };\n    Plugin.prototype.colstep = function (col) {\n\n        var hsl = this.hsl(col),\n            wheel = this.colours.wheel,\n            hue = 360 * wheel;\n\n        if (this.colours.light > 3) this.colours.light = 3;\n\n        hsl[0] = hsl[0] - ~~(Math.random() * hue / 2) + ~~(Math.random() * hue / 2);\n        hsl[1] = wheel * 100;\n        hsl[2] = 30 * this.colours.light;\n        return this.rgb(hsl);\n    };\n    Plugin.prototype.hsl = function (rgb) {\n\n        var r1 = rgb[0] / 255;\n        var g1 = rgb[1] / 255;\n        var b1 = rgb[2] / 255;\n        var maxColor = Math.max(r1, g1, b1);\n        var minColor = Math.min(r1, g1, b1);\n        //Calculate L:\n        var L = (maxColor + minColor) / 2;\n        var S = 0;\n        var H = 0;\n        if (maxColor != minColor) {\n            //Calculate S:\n            if (L < 0.5) {\n                S = (maxColor - minColor) / (maxColor + minColor);\n            } else {\n                S = (maxColor - minColor) / (2.0 - maxColor - minColor);\n            }\n            //Calculate H:\n            if (r1 == maxColor) {\n                H = (g1 - b1) / (maxColor - minColor);\n            } else if (g1 == maxColor) {\n                H = 2.0 + (b1 - r1) / (maxColor - minColor);\n            } else {\n                H = 4.0 + (r1 - g1) / (maxColor - minColor);\n            }\n        }\n\n        L = L * 100;\n        S = S * 100;\n        H = H * 60;\n        if (H < 0) {\n            H += 360;\n        }\n\n        var result = [H, S, L];\n        return result;\n    };\n    Plugin.prototype.rgb = function (hsl) {\n        var h = hsl[0];\n        var s = hsl[1];\n        var l = hsl[2];\n\n        var m1, m2, hue;\n        var r, g, b;\n        s /= 100;\n        l /= 100;\n        if (s == 0) r = g = b = l * 255;else {\n            if (l <= 0.5) m2 = l * (s + 1);else m2 = l + s - l * s;\n            m1 = l * 2 - m2;\n            hue = h / 360;\n            r = this.hue2rgb(m1, m2, hue + 1 / 3);\n            g = this.hue2rgb(m1, m2, hue);\n            b = this.hue2rgb(m1, m2, hue - 1 / 3);\n        }\n        return [Math.round(r), Math.round(g), Math.round(b)];\n    };\n    Plugin.prototype.hue2rgb = function (m1, m2, hue) {\n        var v;\n        if (hue < 0) hue += 1;else if (hue > 1) hue -= 1;\n\n        if (6 * hue < 1) v = m1 + (m2 - m1) * hue * 6;else if (2 * hue < 1) v = m2;else if (3 * hue < 2) v = m1 + (m2 - m1) * (2 / 3 - hue) * 6;else v = m1;\n\n        return 255 * v;\n    };\n    $.fn.shards = function (colour1, colour2, shadeColour, steps, wheel, lightness, alpha, fullscreen) {\n\n        var el = $(this);\n        var shards = new Plugin(el, colour1, colour2, shadeColour, steps, wheel, lightness, alpha, fullscreen);\n\n        if (fullscreen) {\n            $(window).resize(function () {\n                shards.fit();\n            });\n        }\n\n        return this.el;\n    };\n})(jQuery);//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9yZXNvdXJjZXMvYXNzZXRzL2pzL3NoYXJkcy5qcz9lNDhhIl0sInNvdXJjZXNDb250ZW50IjpbIid1c2Ugc3RyaWN0JztcblxuLyoqXG4qIFNoYXJkcyBqUXVlcnkgcGx1Zy1pblxuKiBNdWx0aWxheWVyZWQgZ3JhZGllbnQgYmFja2dyb3VuZCBlZmZlY3RcbipcbiogQGF1dGhvciBKZWFuLUNocmlzdG9waGUgTmljb2xhcyA8bXJqY25pY29sYXNAZ21haWwuY29tPlxuKiBAaG9tZXBhZ2UgaHR0cDovL2JpdGUtc29mdHdhcmUuY28udWsvc2hhcmRzL1xuKiBAdmVyc2lvbiAxLjFcbiogQGxpY2Vuc2UgTUlUIGh0dHA6Ly9vcGVuc291cmNlLm9yZy9saWNlbnNlcy9NSVRcbiogQGRhdGUgMDMtMDYtMjAxM1xuKi9cbihmdW5jdGlvbiAoJCkge1xuXG4gICAgdmFyIFBsdWdpbiA9IGZ1bmN0aW9uIFBsdWdpbihtZSwgYzEsIGMyLCBzaCwgc3RlcHMsIHdoZWVsLCBsaWdodCwgYWxmLCBmcykge1xuXG4gICAgICAgIHRoaXMuZWwgPSBtZTtcbiAgICAgICAgdGhpcy5zaGFycCA9IHRydWU7XG4gICAgICAgIHRoaXMuZnMgPSBmcztcbiAgICAgICAgdGhpcy5maWx0ZXIgPSAnJztcbiAgICAgICAgdGhpcy5jb2xvdXJzID0ge1xuICAgICAgICAgICAgYzE6IGMxLFxuICAgICAgICAgICAgYzI6IGMyLFxuICAgICAgICAgICAgYzM6IGMyLFxuICAgICAgICAgICAgc2hhZGU6IHNoLFxuICAgICAgICAgICAgYWxwaGE6IGFsZixcbiAgICAgICAgICAgIHN0ZXBzOiBzdGVwcyxcbiAgICAgICAgICAgIHdoZWVsOiB3aGVlbCxcbiAgICAgICAgICAgIGxpZ2h0OiB+fmxpZ2h0XG4gICAgICAgIH07XG4gICAgICAgIHRoaXMuaW5pdCgpO1xuICAgIH07XG4gICAgUGx1Z2luLnByb3RvdHlwZS5pbml0ID0gZnVuY3Rpb24gKCkge1xuXG4gICAgICAgIHRoaXMuY3NzUHJlZml4ID0gZmFsc2U7XG5cbiAgICAgICAgdmFyIHVhID0gbmF2aWdhdG9yLnVzZXJBZ2VudDtcbiAgICAgICAgaWYgKC9DaHJvbWVcXC8oXFxTKykvLnRlc3QodWEpIHx8IC9BcHBsZVdlYktpdFxcLyhcXFMrKS8udGVzdCh1YSkpIHtcbiAgICAgICAgICAgIHRoaXMuY3NzUHJlZml4ID0gJy13ZWJraXQnO1xuICAgICAgICB9IGVsc2UgaWYgKC9GaXJlZm94XFwvKFxcUyspLy50ZXN0KHVhKSkge1xuICAgICAgICAgICAgdGhpcy5jc3NQcmVmaXggPSAnLW1veic7XG4gICAgICAgIH0gZWxzZSBpZiAod2luZG93Lm9wZXJhKSB7XG4gICAgICAgICAgICB0aGlzLmNzc1ByZWZpeCA9ICctbyc7XG4gICAgICAgIH0gZWxzZSBpZiAoL01TSUUgKFteO10rKS8udGVzdCh1YSkpIHtcbiAgICAgICAgICAgIHRoaXMuY3NzUHJlZml4ID0gJy1tcyc7XG4gICAgICAgIH07XG5cbiAgICAgICAgaWYgKHRoaXMuY3NzUHJlZml4KSB7XG4gICAgICAgICAgICB2YXIgc3RlcHMgPSB0aGlzLmNvbG91cnMuc3RlcHM7XG5cbiAgICAgICAgICAgIHdoaWxlIChzdGVwcyA+IDApIHtcbiAgICAgICAgICAgICAgICB0aGlzLnBlcmNlbnRzID0gdGhpcy5wZXJjZW50YWdlKCk7XG4gICAgICAgICAgICAgICAgdGhpcy5zdHJpbmdCdWlsZGVyKCk7XG4gICAgICAgICAgICAgICAgdGhpcy5jb2xvdXJGaWx0ZXIoKTtcbiAgICAgICAgICAgICAgICBzdGVwcyAtPSAxO1xuICAgICAgICAgICAgICAgIGlmIChzdGVwcyA+IDApIHRoaXMuZmlsdGVyICs9ICcsICc7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICB0aGlzLmVsLmNzcygnYmFja2dyb3VuZC1pbWFnZScsIHRoaXMuZmlsdGVyKTtcblxuICAgICAgICAgICAgaWYgKHRoaXMuZnMpIHRoaXMuZml0KCk7XG4gICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgICBjb25zb2xlLmxvZygnc29ycnkgYnJvLCB5b3VyIGJyb3dzZXIgaXNudCBzdXBwb3J0ZWQuJyk7XG4gICAgICAgIH1cbiAgICB9O1xuICAgIFBsdWdpbi5wcm90b3R5cGUuc3RyaW5nQnVpbGRlciA9IGZ1bmN0aW9uICgpIHtcblxuICAgICAgICB2YXIgY29sID0gdGhpcy5jb2xvdXJzLFxuICAgICAgICAgICAgYzEgPSB0aGlzLmNhdGNvbChjb2wuYzEpLFxuICAgICAgICAgICAgYzIgPSB0aGlzLmNhdGNvbChjb2wuYzIpLFxuICAgICAgICAgICAgYzMgPSB0aGlzLmNhdGNvbChjb2wuYzMpLFxuICAgICAgICAgICAgc2hhZGUgPSB0aGlzLmNhdGNvbChjb2wuc2hhZGUpLFxuICAgICAgICAgICAgZGVnID0gfn4oTWF0aC5yYW5kb20oKSAqIDM2MCk7XG5cbiAgICAgICAgdGhpcy5maWx0ZXIgKz0gdGhpcy5jc3NQcmVmaXggKyAnLWxpbmVhci1ncmFkaWVudCgnICsgZGVnICsgJ2RlZywnICsgYzEgKyAnICcgKyB0aGlzLnBlcmNlbnRzLmEgKyAnICwnICsgc2hhZGUgKyAnICcgKyB0aGlzLnBlcmNlbnRzLmIgKyAnLCAnICsgYzIgKyAnICcgKyB0aGlzLnBlcmNlbnRzLmMgKyAnLCAnICsgYzMgKyAnICcgKyB0aGlzLnBlcmNlbnRzLmQgKyAnKSc7XG4gICAgfTtcbiAgICBQbHVnaW4ucHJvdG90eXBlLmNhdGNvbCA9IGZ1bmN0aW9uIChjb2wpIHtcblxuICAgICAgICB2YXIgYmVnID0gJ3JnYmEoJyxcbiAgICAgICAgICAgIGVuZCA9ICcpJyxcbiAgICAgICAgICAgIHBhcnQgPSBjb2wudG9TdHJpbmcoKTtcblxuICAgICAgICByZXR1cm4gYmVnLmNvbmNhdChwYXJ0KS5jb25jYXQoZW5kKTtcbiAgICB9O1xuICAgIFBsdWdpbi5wcm90b3R5cGUuZml0ID0gZnVuY3Rpb24gKCkge1xuICAgICAgICB0aGlzLmVsLmNzcyh7XG4gICAgICAgICAgICAnd2lkdGgnOiAnMTAwJScsXG4gICAgICAgICAgICAnaGVpZ2h0Jzogd2luZG93LmlubmVySGVpZ2h0XG4gICAgICAgIH0pO1xuICAgIH07XG5cbiAgICBQbHVnaW4ucHJvdG90eXBlLnBlcmNlbnRhZ2UgPSBmdW5jdGlvbiAoKSB7XG5cbiAgICAgICAgdmFyIHAxID0gfn4oTWF0aC5yYW5kb20oKSAqIDg1KSxcbiAgICAgICAgICAgIHAyID0gcDEgKyB+fihNYXRoLnJhbmRvbSgpICogMTUpLFxuICAgICAgICAgICAgcDMgPSBwMixcbiAgICAgICAgICAgIHA0ID0gMTAwIC0gcDIgKyB+fihNYXRoLnJhbmRvbSgpICogcDIpO1xuXG4gICAgICAgIHZhciBwZXJjZW50cyA9IHtcbiAgICAgICAgICAgIGE6IHAxICsgJyUnLFxuICAgICAgICAgICAgYjogcDIgKyAnJScsXG4gICAgICAgICAgICBjOiBwMyArICclJyxcbiAgICAgICAgICAgIGQ6IHA0ICsgJyUnXG4gICAgICAgIH07XG5cbiAgICAgICAgcmV0dXJuIHBlcmNlbnRzO1xuICAgIH07XG4gICAgUGx1Z2luLnByb3RvdHlwZS5jb2xvdXJGaWx0ZXIgPSBmdW5jdGlvbiAoKSB7XG5cbiAgICAgICAgdmFyIGNvbCA9IHRoaXMuY29sb3VycztcblxuICAgICAgICBjb2wuYzEgPSB0aGlzLmNvbHN0ZXAoY29sLmMxKTtcbiAgICAgICAgY29sLmMxLnB1c2goY29sLmFscGhhKTtcbiAgICAgICAgY29sLmMyID0gdGhpcy5jb2xzdGVwKGNvbC5jMik7XG4gICAgICAgIGNvbC5jMi5wdXNoKGNvbC5hbHBoYSk7XG4gICAgICAgIGNvbC5jMyA9IHRoaXMuY29sc3RlcChjb2wuYzIpO1xuICAgICAgICBjb2wuYzMucHVzaChjb2wuYWxwaGEpO1xuICAgICAgICBjb2wuc2hhZGUgPSB0aGlzLmNvbHN0ZXAoY29sLnNoYWRlKTtcbiAgICAgICAgY29sLnNoYWRlLnB1c2goY29sLmFscGhhKTtcbiAgICB9O1xuICAgIFBsdWdpbi5wcm90b3R5cGUuY29sc3RlcCA9IGZ1bmN0aW9uIChjb2wpIHtcblxuICAgICAgICB2YXIgaHNsID0gdGhpcy5oc2woY29sKSxcbiAgICAgICAgICAgIHdoZWVsID0gdGhpcy5jb2xvdXJzLndoZWVsLFxuICAgICAgICAgICAgaHVlID0gMzYwICogd2hlZWw7XG5cbiAgICAgICAgaWYgKHRoaXMuY29sb3Vycy5saWdodCA+IDMpIHRoaXMuY29sb3Vycy5saWdodCA9IDM7XG5cbiAgICAgICAgaHNsWzBdID0gaHNsWzBdIC0gfn4oTWF0aC5yYW5kb20oKSAqIGh1ZSAvIDIpICsgfn4oTWF0aC5yYW5kb20oKSAqIGh1ZSAvIDIpO1xuICAgICAgICBoc2xbMV0gPSB3aGVlbCAqIDEwMDtcbiAgICAgICAgaHNsWzJdID0gMzAgKiB0aGlzLmNvbG91cnMubGlnaHQ7XG4gICAgICAgIHJldHVybiB0aGlzLnJnYihoc2wpO1xuICAgIH07XG4gICAgUGx1Z2luLnByb3RvdHlwZS5oc2wgPSBmdW5jdGlvbiAocmdiKSB7XG5cbiAgICAgICAgdmFyIHIxID0gcmdiWzBdIC8gMjU1O1xuICAgICAgICB2YXIgZzEgPSByZ2JbMV0gLyAyNTU7XG4gICAgICAgIHZhciBiMSA9IHJnYlsyXSAvIDI1NTtcbiAgICAgICAgdmFyIG1heENvbG9yID0gTWF0aC5tYXgocjEsIGcxLCBiMSk7XG4gICAgICAgIHZhciBtaW5Db2xvciA9IE1hdGgubWluKHIxLCBnMSwgYjEpO1xuICAgICAgICAvL0NhbGN1bGF0ZSBMOlxuICAgICAgICB2YXIgTCA9IChtYXhDb2xvciArIG1pbkNvbG9yKSAvIDI7XG4gICAgICAgIHZhciBTID0gMDtcbiAgICAgICAgdmFyIEggPSAwO1xuICAgICAgICBpZiAobWF4Q29sb3IgIT0gbWluQ29sb3IpIHtcbiAgICAgICAgICAgIC8vQ2FsY3VsYXRlIFM6XG4gICAgICAgICAgICBpZiAoTCA8IDAuNSkge1xuICAgICAgICAgICAgICAgIFMgPSAobWF4Q29sb3IgLSBtaW5Db2xvcikgLyAobWF4Q29sb3IgKyBtaW5Db2xvcik7XG4gICAgICAgICAgICB9IGVsc2Uge1xuICAgICAgICAgICAgICAgIFMgPSAobWF4Q29sb3IgLSBtaW5Db2xvcikgLyAoMi4wIC0gbWF4Q29sb3IgLSBtaW5Db2xvcik7XG4gICAgICAgICAgICB9XG4gICAgICAgICAgICAvL0NhbGN1bGF0ZSBIOlxuICAgICAgICAgICAgaWYgKHIxID09IG1heENvbG9yKSB7XG4gICAgICAgICAgICAgICAgSCA9IChnMSAtIGIxKSAvIChtYXhDb2xvciAtIG1pbkNvbG9yKTtcbiAgICAgICAgICAgIH0gZWxzZSBpZiAoZzEgPT0gbWF4Q29sb3IpIHtcbiAgICAgICAgICAgICAgICBIID0gMi4wICsgKGIxIC0gcjEpIC8gKG1heENvbG9yIC0gbWluQ29sb3IpO1xuICAgICAgICAgICAgfSBlbHNlIHtcbiAgICAgICAgICAgICAgICBIID0gNC4wICsgKHIxIC0gZzEpIC8gKG1heENvbG9yIC0gbWluQ29sb3IpO1xuICAgICAgICAgICAgfVxuICAgICAgICB9XG5cbiAgICAgICAgTCA9IEwgKiAxMDA7XG4gICAgICAgIFMgPSBTICogMTAwO1xuICAgICAgICBIID0gSCAqIDYwO1xuICAgICAgICBpZiAoSCA8IDApIHtcbiAgICAgICAgICAgIEggKz0gMzYwO1xuICAgICAgICB9XG5cbiAgICAgICAgdmFyIHJlc3VsdCA9IFtILCBTLCBMXTtcbiAgICAgICAgcmV0dXJuIHJlc3VsdDtcbiAgICB9O1xuICAgIFBsdWdpbi5wcm90b3R5cGUucmdiID0gZnVuY3Rpb24gKGhzbCkge1xuICAgICAgICB2YXIgaCA9IGhzbFswXTtcbiAgICAgICAgdmFyIHMgPSBoc2xbMV07XG4gICAgICAgIHZhciBsID0gaHNsWzJdO1xuXG4gICAgICAgIHZhciBtMSwgbTIsIGh1ZTtcbiAgICAgICAgdmFyIHIsIGcsIGI7XG4gICAgICAgIHMgLz0gMTAwO1xuICAgICAgICBsIC89IDEwMDtcbiAgICAgICAgaWYgKHMgPT0gMCkgciA9IGcgPSBiID0gbCAqIDI1NTtlbHNlIHtcbiAgICAgICAgICAgIGlmIChsIDw9IDAuNSkgbTIgPSBsICogKHMgKyAxKTtlbHNlIG0yID0gbCArIHMgLSBsICogcztcbiAgICAgICAgICAgIG0xID0gbCAqIDIgLSBtMjtcbiAgICAgICAgICAgIGh1ZSA9IGggLyAzNjA7XG4gICAgICAgICAgICByID0gdGhpcy5odWUycmdiKG0xLCBtMiwgaHVlICsgMSAvIDMpO1xuICAgICAgICAgICAgZyA9IHRoaXMuaHVlMnJnYihtMSwgbTIsIGh1ZSk7XG4gICAgICAgICAgICBiID0gdGhpcy5odWUycmdiKG0xLCBtMiwgaHVlIC0gMSAvIDMpO1xuICAgICAgICB9XG4gICAgICAgIHJldHVybiBbTWF0aC5yb3VuZChyKSwgTWF0aC5yb3VuZChnKSwgTWF0aC5yb3VuZChiKV07XG4gICAgfTtcbiAgICBQbHVnaW4ucHJvdG90eXBlLmh1ZTJyZ2IgPSBmdW5jdGlvbiAobTEsIG0yLCBodWUpIHtcbiAgICAgICAgdmFyIHY7XG4gICAgICAgIGlmIChodWUgPCAwKSBodWUgKz0gMTtlbHNlIGlmIChodWUgPiAxKSBodWUgLT0gMTtcblxuICAgICAgICBpZiAoNiAqIGh1ZSA8IDEpIHYgPSBtMSArIChtMiAtIG0xKSAqIGh1ZSAqIDY7ZWxzZSBpZiAoMiAqIGh1ZSA8IDEpIHYgPSBtMjtlbHNlIGlmICgzICogaHVlIDwgMikgdiA9IG0xICsgKG0yIC0gbTEpICogKDIgLyAzIC0gaHVlKSAqIDY7ZWxzZSB2ID0gbTE7XG5cbiAgICAgICAgcmV0dXJuIDI1NSAqIHY7XG4gICAgfTtcbiAgICAkLmZuLnNoYXJkcyA9IGZ1bmN0aW9uIChjb2xvdXIxLCBjb2xvdXIyLCBzaGFkZUNvbG91ciwgc3RlcHMsIHdoZWVsLCBsaWdodG5lc3MsIGFscGhhLCBmdWxsc2NyZWVuKSB7XG5cbiAgICAgICAgdmFyIGVsID0gJCh0aGlzKTtcbiAgICAgICAgdmFyIHNoYXJkcyA9IG5ldyBQbHVnaW4oZWwsIGNvbG91cjEsIGNvbG91cjIsIHNoYWRlQ29sb3VyLCBzdGVwcywgd2hlZWwsIGxpZ2h0bmVzcywgYWxwaGEsIGZ1bGxzY3JlZW4pO1xuXG4gICAgICAgIGlmIChmdWxsc2NyZWVuKSB7XG4gICAgICAgICAgICAkKHdpbmRvdykucmVzaXplKGZ1bmN0aW9uICgpIHtcbiAgICAgICAgICAgICAgICBzaGFyZHMuZml0KCk7XG4gICAgICAgICAgICB9KTtcbiAgICAgICAgfVxuXG4gICAgICAgIHJldHVybiB0aGlzLmVsO1xuICAgIH07XG59KShqUXVlcnkpO1xuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyByZXNvdXJjZXMvYXNzZXRzL2pzL3NoYXJkcy5qcyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTs7Ozs7Ozs7Ozs7QUFXQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7Iiwic291cmNlUm9vdCI6IiJ9");
 
-        var p1 = ~~(Math.random() * 85),
-            p2 = p1 + ~~(Math.random() * 15),
-            p3 = p2,
-            p4 = 100 - p2 + ~~(Math.random() * p2);
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
 
-        var percents = {
-            a: p1 + '%',
-            b: p2 + '%',
-            c: p3 + '%',
-            d: p4 + '%'
-        };
+"use strict";
+eval("'use strict';\n\n__webpack_require__(0);\n\n$(function () {\n  $('.shards').shards([239, 84, 17, 0.5], [245, 153, 113, 0.5], [255, 255, 255, 0.5], 1, 1, 1, 1, false);\n});//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMS5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy9yZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcz84YjY3Il0sInNvdXJjZXNDb250ZW50IjpbIid1c2Ugc3RyaWN0JztcblxucmVxdWlyZSgnLi9zaGFyZHMnKTtcblxuJChmdW5jdGlvbiAoKSB7XG4gICQoJy5zaGFyZHMnKS5zaGFyZHMoWzIzOSwgODQsIDE3LCAwLjVdLCBbMjQ1LCAxNTMsIDExMywgMC41XSwgWzI1NSwgMjU1LCAyNTUsIDAuNV0sIDEsIDEsIDEsIDEsIGZhbHNlKTtcbn0pO1xuXG5cbi8vIFdFQlBBQ0sgRk9PVEVSIC8vXG4vLyByZXNvdXJjZXMvYXNzZXRzL2pzL2FwcC5qcyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJzb3VyY2VSb290IjoiIn0=");
 
-        return percents;
-    };
-    Plugin.prototype.colourFilter = function () {
-
-        var col = this.colours;
-
-        col.c1 = this.colstep(col.c1);
-        col.c1.push(col.alpha);
-        col.c2 = this.colstep(col.c2);
-        col.c2.push(col.alpha);
-        col.c3 = this.colstep(col.c2);
-        col.c3.push(col.alpha);
-        col.shade = this.colstep(col.shade);
-        col.shade.push(col.alpha);
-    };
-    Plugin.prototype.colstep = function (col) {
-
-        var hsl = this.hsl(col),
-            wheel = this.colours.wheel,
-            hue = 360 * wheel;
-
-        if (this.colours.light > 3) this.colours.light = 3;
-
-        hsl[0] = hsl[0] - ~~(Math.random() * hue / 2) + ~~(Math.random() * hue / 2);
-        hsl[1] = wheel * 100;
-        hsl[2] = 30 * this.colours.light;
-        return this.rgb(hsl);
-    };
-    Plugin.prototype.hsl = function (rgb) {
-
-        var r1 = rgb[0] / 255;
-        var g1 = rgb[1] / 255;
-        var b1 = rgb[2] / 255;
-        var maxColor = Math.max(r1, g1, b1);
-        var minColor = Math.min(r1, g1, b1);
-        //Calculate L:
-        var L = (maxColor + minColor) / 2;
-        var S = 0;
-        var H = 0;
-        if (maxColor != minColor) {
-            //Calculate S:
-            if (L < 0.5) {
-                S = (maxColor - minColor) / (maxColor + minColor);
-            } else {
-                S = (maxColor - minColor) / (2.0 - maxColor - minColor);
-            }
-            //Calculate H:
-            if (r1 == maxColor) {
-                H = (g1 - b1) / (maxColor - minColor);
-            } else if (g1 == maxColor) {
-                H = 2.0 + (b1 - r1) / (maxColor - minColor);
-            } else {
-                H = 4.0 + (r1 - g1) / (maxColor - minColor);
-            }
-        }
-
-        L = L * 100;
-        S = S * 100;
-        H = H * 60;
-        if (H < 0) {
-            H += 360;
-        }
-
-        var result = [H, S, L];
-        return result;
-    };
-    Plugin.prototype.rgb = function (hsl) {
-        var h = hsl[0];
-        var s = hsl[1];
-        var l = hsl[2];
-
-        var m1, m2, hue;
-        var r, g, b;
-        s /= 100;
-        l /= 100;
-        if (s == 0) r = g = b = l * 255;else {
-            if (l <= 0.5) m2 = l * (s + 1);else m2 = l + s - l * s;
-            m1 = l * 2 - m2;
-            hue = h / 360;
-            r = this.hue2rgb(m1, m2, hue + 1 / 3);
-            g = this.hue2rgb(m1, m2, hue);
-            b = this.hue2rgb(m1, m2, hue - 1 / 3);
-        }
-        return [Math.round(r), Math.round(g), Math.round(b)];
-    };
-    Plugin.prototype.hue2rgb = function (m1, m2, hue) {
-        var v;
-        if (hue < 0) hue += 1;else if (hue > 1) hue -= 1;
-
-        if (6 * hue < 1) v = m1 + (m2 - m1) * hue * 6;else if (2 * hue < 1) v = m2;else if (3 * hue < 2) v = m1 + (m2 - m1) * (2 / 3 - hue) * 6;else v = m1;
-
-        return 255 * v;
-    };
-    $.fn.shards = function (colour1, colour2, shadeColour, steps, wheel, lightness, alpha, fullscreen) {
-
-        var el = $(this);
-        var shards = new Plugin(el, colour1, colour2, shadeColour, steps, wheel, lightness, alpha, fullscreen);
-
-        if (fullscreen) {
-            $(window).resize(function () {
-                shards.fit();
-            });
-        }
-
-        return this.el;
-    };
-})(jQuery);
-
-},{}]},{},[1]);
-
-//# sourceMappingURL=app.js.map
+/***/ }
+/******/ ]);

@@ -2,7 +2,7 @@
 
 namespace NeonTsunami\Providers;
 
-use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
@@ -19,58 +19,78 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
-        parent::boot($router);
-
-        $router->bind('posts', function ($value, $route) {
+        Route::bind('posts', function ($value, $route) {
             return \NeonTsunami\Post::whereSlug($value)->firstOrFail();
         });
 
-        $router->bind('series', function ($value, $route) {
+        Route::bind('series', function ($value, $route) {
             return \NeonTsunami\Series::whereSlug($value)->firstOrFail();
         });
 
-        $router->bind('tags', function ($value, $route) {
+        Route::bind('tags', function ($value, $route) {
             return \NeonTsunami\Tag::whereSlug($value)->firstOrFail();
         });
 
-        $router->bind('projects', function ($value, $route) {
+        Route::bind('projects', function ($value, $route) {
             return \NeonTsunami\Project::whereSlug($value)->firstOrFail();
         });
 
-        $router->model('users', \NeonTsunami\User::class);
+        Route::model('users', \NeonTsunami\User::class);
+
+        parent::boot();
     }
 
 
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
-    public function map(Router $router)
+    public function map()
     {
-        $this->mapWebRoutes($router);
+        $this->mapWebRoutes();
+
+        $this->mapApiRoutes();
+
         //
     }
+
     /**
      * Define the "web" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
-    protected function mapWebRoutes(Router $router)
+    protected function mapWebRoutes()
     {
-        $router->group([
-            'namespace' => $this->namespace, 'middleware' => 'web',
+        Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace,
         ], function ($router) {
-            require app_path('Http/routes.php');
+            require base_path('routes/web.php');
+        });
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::group([
+            'middleware' => 'api',
+            'namespace' => $this->namespace,
+            'prefix' => 'api',
+        ], function ($router) {
+            require base_path('routes/api.php');
         });
     }
 }
