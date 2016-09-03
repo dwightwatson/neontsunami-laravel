@@ -34,7 +34,7 @@ class SeriesControllerTest extends TestCase
         $publishedPost->user()->associate($user);
         $publishedPost->save();
 
-        $unpublishedPost = factory(Post::class)->create(['published_at' => null]);
+        $unpublishedPost = factory(Post::class)->make(['published_at' => null]);
         $unpublishedPost->series()->associate($series);
         $unpublishedPost->user()->associate($user);
         $unpublishedPost->save();

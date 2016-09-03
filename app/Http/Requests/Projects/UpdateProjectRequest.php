@@ -42,7 +42,7 @@ class UpdateProjectRequest extends Request
     {
         $url = $this->redirector->getUrlGenerator();
 
-        $project = $this->route()->parameter('projects');
+        $project = $this->route()->parameter('project');
 
         return $url->route('admin.projects.edit', $project);
     }

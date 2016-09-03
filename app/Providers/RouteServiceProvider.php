@@ -23,23 +23,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::bind('posts', function ($value, $route) {
-            return \NeonTsunami\Post::whereSlug($value)->firstOrFail();
-        });
-
-        Route::bind('series', function ($value, $route) {
-            return \NeonTsunami\Series::whereSlug($value)->firstOrFail();
-        });
-
-        Route::bind('tags', function ($value, $route) {
-            return \NeonTsunami\Tag::whereSlug($value)->firstOrFail();
-        });
-
-        Route::bind('projects', function ($value, $route) {
-            return \NeonTsunami\Project::whereSlug($value)->firstOrFail();
-        });
-
-        Route::model('users', \NeonTsunami\User::class);
+        //
 
         parent::boot();
     }

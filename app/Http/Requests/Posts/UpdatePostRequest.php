@@ -42,7 +42,7 @@ class UpdatePostRequest extends Request
     {
         $url = $this->redirector->getUrlGenerator();
 
-        $post = $this->route()->parameter('posts');
+        $post = $this->route()->parameter('post');
 
         return $url->route('admin.posts.edit', $post);
     }
