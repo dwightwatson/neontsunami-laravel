@@ -23,7 +23,7 @@ class UpdateUserRequest extends Request
      */
     public function rules()
     {
-        $user = $this->route()->parameter('users');
+        $user = $this->route()->parameter('user');
 
         return [
             'first_name' => 'required',

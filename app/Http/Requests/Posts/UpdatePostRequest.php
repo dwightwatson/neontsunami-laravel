@@ -23,7 +23,7 @@ class UpdatePostRequest extends Request
      */
     public function rules()
     {
-        $post = $this->route()->parameter('posts');
+        $post = $this->route()->parameter('post');
 
         return [
             'series_id'    => 'exists:series,id',
