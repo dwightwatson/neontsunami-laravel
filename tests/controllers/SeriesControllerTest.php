@@ -1,6 +1,7 @@
 <?php
 
 use NeonTsunami\Post;
+use NeonTsunami\User;
 use NeonTsunami\Series;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -10,10 +11,12 @@ class SeriesControllerTest extends TestCase
 
     public function testIndex()
     {
+        $user = factory(User::class)->create();
         $series = factory(Series::class)->create();
 
         $publishedPost = factory(Post::class)->create();
         $publishedPost->series()->associate($series);
+        $publishedPost->user()->associate($user);
         $publishedPost->save();
 
         $this->visit("series")
@@ -23,14 +26,17 @@ class SeriesControllerTest extends TestCase
 
     public function testShow()
     {
+        $user = factory(User::class)->create();
         $series = factory(Series::class)->create();
 
         $publishedPost = factory(Post::class)->create();
         $publishedPost->series()->associate($series);
+        $publishedPost->user()->associate($user);
         $publishedPost->save();
 
         $unpublishedPost = factory(Post::class)->create(['published_at' => null]);
         $unpublishedPost->series()->associate($series);
+        $unpublishedPost->user()->associate($user);
         $unpublishedPost->save();
 
         $this->visit("series/{$series->slug}")

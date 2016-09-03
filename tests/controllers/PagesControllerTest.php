@@ -1,6 +1,7 @@
 <?php
 
 use NeonTsunami\Post;
+use NeonTsunami\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PagesControllerTest extends TestCase
@@ -9,7 +10,9 @@ class PagesControllerTest extends TestCase
 
     public function testIndex()
     {
-        $posts = factory(Post::class, 2)->create();
+        $user = factory(User::class)->create();
+
+        $posts = $user->posts()->saveMany(factory(Post::class, 2)->make());
 
         $this->visit('/')
             ->see($posts->first()->title)

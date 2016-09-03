@@ -2,6 +2,7 @@
 
 use NeonTsunami\Tag;
 use NeonTsunami\Post;
+use NeonTsunami\User;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RedirectsControllerTest extends TestCase
@@ -10,7 +11,9 @@ class RedirectsControllerTest extends TestCase
 
     public function testGetPost()
     {
-        $post = factory(Post::class)->create();
+        $user = factory(User::class)->create();
+
+        $post = $user->posts()->save(factory(Post::class)->make());
 
         $this->visit("post/{$post->slug}")
             ->seePageIs("posts/{$post->slug}");
