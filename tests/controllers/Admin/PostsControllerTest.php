@@ -92,7 +92,11 @@ class PostsControllerTest extends \TestCase
 
     public function testUpdateFails()
     {
-        $post = factory(Post::class)->create(['slug' => 'foo']);
+        $user = factory(User::class)->create();
+
+        $post = $user->posts()->save(factory(Post::class)->make([
+            'slug' => 'foo'
+        ]));
 
         $this->visit('admin/posts/foo/edit')
             ->submitForm('Save post', ['content' => null])
@@ -101,8 +105,9 @@ class PostsControllerTest extends \TestCase
 
     public function testDestroy()
     {
-        $post = factory(Post::class)->create();
+        $user = factory(User::class)->create();
 
+        $post = $user->posts()->save(factory(Post::class)->make());
         $this->action('DELETE', 'Admin\PostsController@destroy', $post);
 
         $this->assertRedirectedToRoute('admin.posts.index');
