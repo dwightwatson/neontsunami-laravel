@@ -14,7 +14,7 @@ class SeriesControllerTest extends TestCase
         $user = factory(User::class)->create();
         $series = factory(Series::class)->create();
 
-        $publishedPost = factory(Post::class)->create();
+        $publishedPost = factory(Post::class)->make();
         $publishedPost->series()->associate($series);
         $publishedPost->user()->associate($user);
         $publishedPost->save();
@@ -29,7 +29,7 @@ class SeriesControllerTest extends TestCase
         $user = factory(User::class)->create();
         $series = factory(Series::class)->create();
 
-        $publishedPost = factory(Post::class)->create();
+        $publishedPost = factory(Post::class)->make();
         $publishedPost->series()->associate($series);
         $publishedPost->user()->associate($user);
         $publishedPost->save();

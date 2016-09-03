@@ -30,7 +30,7 @@ class TagsControllerTest extends TestCase
         $user = factory(User::class)->create();
 
         $posts = $user->posts()->saveMany(
-            factory(Post::class, 3)->create()
+            factory(Post::class, 3)->make()
         );
 
         $tag->posts()->sync([$posts[0]->id, $posts[1]->id, $posts[2]->id]);
