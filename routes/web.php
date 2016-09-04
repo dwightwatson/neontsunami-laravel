@@ -17,12 +17,12 @@ Route::get('tags/ruby%20on%20rails', 'RedirectsController@getTagsRubyOnRails');
 | Public routes
 |--------------------------------------------------------------------------
 */
-Route::get('/', ['as' => 'pages.index', 'uses' => 'PagesController@index']);
-Route::get('about', ['as' => 'pages.about', 'uses'=> 'PagesController@about']);
-Route::get('work', ['as' => 'pages.work', 'uses' => 'PagesController@work']);
-Route::get('rss', ['as' => 'pages.rss', 'uses' => 'PagesController@rss']);
+Route::get('/', 'PagesController@index')->name('pages.index');
+Route::get('about', 'PagesController@about')->name('pages.about');
+Route::get('work', 'PagesController@work')->name('pages.work');
+ROute::get('rss', 'PagesController@rss')->name('pages.rss');
 
-Route::get('sitemap', ['as' => 'sitemaps.index', 'uses' => 'SitemapsController@index']);
+Route::get('sitemap', 'SitemapsController@index')->name('sitemaps.index');
 
 Route::resource('posts', 'PostsController', ['only' => ['index', 'show']]);
 Route::resource('series', 'SeriesController', ['only' => ['index', 'show']]);
@@ -34,12 +34,12 @@ Route::resource('projects', 'ProjectsController', ['only' => ['index', 'show']])
 | Admin routes
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function () {
-    Route::get('/', ['as' => 'admin.pages.index', 'uses' => 'PagesController@index']);
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'admin'], function () {
+    Route::get('/', 'PagesController@index')->name('pages.index');
 
-    Route::get('login', ['as' => 'admin.sessions.create', 'uses' => 'SessionsController@create']);
-    Route::post('login', ['as' => 'admin.sessions.store', 'uses' => 'SessionsController@store']);
-    Route::delete('logout', ['as' => 'admin.sessions.destroy', 'uses' => 'SessionsController@destroy']);
+    Route::get('login', 'SessionsController@create')->name('sessions.create');
+    Route::post('login', 'SessionsController@store')->name('sessions.store');
+    Route::delete('logout', 'SessionsController@destroy')->name('sessions.destroy');
 
     Route::resource('tags', 'TagsController', ['only' => ['index', 'store']]);
     Route::resource('posts', 'PostsController');
@@ -47,5 +47,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('projects', 'ProjectsController');
     Route::resource('users', 'UsersController');
 
-    Route::get('reports', ['as' => 'admin.pages.reports', 'uses' => 'PagesController@reports']);
+    Route::get('reports', 'PagesController@reports')->name('pages.reports');
 });

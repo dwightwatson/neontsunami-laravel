@@ -10,8 +10,15 @@ class PostsControllerTest extends TestCase
 
     public function testIndex()
     {
-        $publishedPost = factory(Post::class)->create(['published_at' => new DateTime]);
-        $unpublishedPost = factory(Post::class)->create(['published_at' => null]);
+        $user = factory(User::class)->create();
+
+        $publishedPost = $user->posts()->save(
+            factory(Post::class)->make(['published_at' => new DateTime])
+        );
+
+        $unpublishedPost = $user->posts()->save(
+            factory(Post::class)->make(['published_at' => null])
+        );
 
         $this->visit('posts')
             ->see($publishedPost->title)

@@ -10,13 +10,13 @@ class ControllerTest extends \TestCase
     {
         $this->withSession([])
             ->visit('admin')
-            ->seePageIs('admin/login')
-            ->see("You'll need to login to access the admin section.");
+            ->seePageIs('admin/login');
     }
 
     public function testAllowsAuthenticatedAccess()
     {
         $this->actingAs(new User)
-            ->visit('admin');
+            ->visit('admin')
+            ->seePageIs('admin');
     }
 }

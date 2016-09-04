@@ -3,6 +3,7 @@
 namespace NeonTsunami;
 
 use Illuminate\Auth\Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
-    use Authenticatable, Authorizable, CanResetPassword;
+    use Authenticatable, Authorizable, CanResetPassword, Notifiable;
 
     /**
      * The database table used by the model.

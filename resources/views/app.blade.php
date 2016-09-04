@@ -1,7 +1,7 @@
 @include('_header')
   <header class="col-sm-3">
     <h1><a href="{{ route('pages.index') }}">Neon Tsunami</a></h1>
-    <h2>A blog on Laravel, Rails &amp; Swift</h2>
+    <h2>A blog on Laravel, Phoenix &amp; Rails</h2>
     <p class="author">By Dwight Conrad Watson</p>
 
     <ul class="menu">

@@ -23,7 +23,7 @@ class UpdateUserRequest extends Request
      */
     public function rules()
     {
-        $user = $this->route()->parameter('users');
+        $user = $this->route()->parameter('user');
 
         return [
             'first_name' => 'required',
@@ -41,7 +41,7 @@ class UpdateUserRequest extends Request
     {
         $url = $this->redirector->getUrlGenerator();
 
-        $user = $this->route()->parameter('users');
+        $user = $this->route()->parameter('user');
 
         return $url->route('admin.users.edit', $user);
     }

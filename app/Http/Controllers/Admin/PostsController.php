@@ -34,7 +34,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $series = [null => 'Select...'] + Series::lists('name', 'id')->all();
+        $series = [null => 'Select...'] + Series::pluck('name', 'id')->all();
 
         return view('admin.posts.create', compact('series'))
             ->withTitle('Create post');
@@ -49,7 +49,7 @@ class PostsController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $post = $request->user()->posts()->create($request->all());
+        $post = $request->user()->posts()->create(array_filter($request->all()));
 
         if ($request->has('tags')) {
             $tags = $this->dispatchNow(new GenerateTagsJob($request->tags));
@@ -83,7 +83,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        $series = [null => 'Select...'] + Series::lists('name', 'id')->all();
+        $series = [null => 'Select...'] + Series::pluck('name', 'id')->all();
 
         return view('admin.posts.edit', compact('post', 'series'))
             ->withTitle('Edit post');
@@ -99,7 +99,7 @@ class PostsController extends Controller
      */
     public function update(Post $post, UpdatePostRequest $request)
     {
-        $post->update($request->all());
+        $post->update(array_filter($request->all()));
 
         if ($request->has('tags')) {
             $tags = $this->dispatchNow(new GenerateTagsJob($request->tags));
