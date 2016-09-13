@@ -49,6 +49,8 @@ class Post extends Model
         if ($this->isPublished()) {
             return $this->toArray();
         }
+
+        return [];
     }
 
     public function publish()
