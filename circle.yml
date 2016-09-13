@@ -9,6 +9,8 @@ machine:
     DB_DATABASE: circle_test
     DB_USERNAME: ubuntu
     DB_PASSWORD:
+    ALGOLIA_APP_ID: NoneWhenTesting
+    ALGOLIA_SECRET: NoneWhenTesting
 
 dependencies:
   pre:
