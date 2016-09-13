@@ -6,7 +6,9 @@
   "type": "project",
   "require": {
     "laravel/framework": "5.3.*",
+    "laravel/scout": "^1.1",
 
+    "algolia/algoliasearch-client-php": "^1.10",
     "davejamesmiller/laravel-breadcrumbs": "3.0.*",
     "laravelcollective/html": "~5.0",
     "league/commonmark": "0.14.*",

@@ -2,8 +2,12 @@
 
 namespace NeonTsunami;
 
+use Laravel\Scout\Searchable;
+
 class Post extends Model
 {
+    use Searchable;
+
     /**
      * The database table used by the model.
      *

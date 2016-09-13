@@ -168,6 +168,7 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
         Watson\Active\ActiveServiceProvider::class,
         Watson\Sitemap\SitemapServiceProvider::class,
         Watson\Taggly\TagglyServiceProvider::class,

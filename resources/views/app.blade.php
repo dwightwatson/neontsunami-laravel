@@ -30,6 +30,14 @@
         <a href="{{ route('pages.rss') }}">RSS</a>
       </li>
     </ul>
+
+    <div class="algolia">
+      <input type="text" class="form-control" placeholder="Search...">
+
+      <a href="https://www.algolia.com">
+        <img src="{{ elixir('images/algolia.jpg') }}" title="Search powered by Algolia">
+      </a>
+    </div>
   </header>
 
   <section id="content" class="col-sm-8 col-md-6">

@@ -5,6 +5,8 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "algoliasearch": "^3.18.1",
+    "autocomplete.js": "^0.21.4",
     "bootstrap-sass": "^3.3.7",
     "gulp": "^3.9.1",
     "jquery": "^3.1.0",
