@@ -51,6 +51,12 @@ class Post extends Model
         }
     }
 
+    public function publish()
+    {
+        $this->published_at = $this->freshTimestamp();
+        $this->save();
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Scopes
