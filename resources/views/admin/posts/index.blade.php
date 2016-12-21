@@ -17,6 +17,7 @@
       <tr>
         <td>Title</td>
         <td>Author</td>
+        <td>Views</td>
         <td>Published</td>
       </tr>
       @foreach ($posts as $post)
@@ -26,6 +27,9 @@
           </td>
           <td>
             <a href="{{ route('admin.users.show', $post->user) }}">{{ $post->user->full_name }}</a>
+          </td>
+          <td>
+            {{ number_format($post->views) }}
           </td>
           <td>{{ $post->published_at ? $post->published_at->diffForHumans() : 'Unpublished' }}</td>
         </tr>
