@@ -1,10 +1,10 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
-use NeonTsunami\Project;
-use NeonTsunami\Http\Requests\Projects\StoreProjectRequest;
-use NeonTsunami\Http\Requests\Projects\UpdateProjectRequest;
+use App\Project;
+use App\Http\Requests\Projects\StoreProjectRequest;
+use App\Http\Requests\Projects\UpdateProjectRequest;
 
 class ProjectsController extends Controller
 {
@@ -38,7 +38,7 @@ class ProjectsController extends Controller
      * POST /admin/projects
      * Store a new project in storage.
      *
-     * @param  \NeonTsunami\Http\Requests\Projects\StoreProjectRequest  $request
+     * @param  \App\Http\Requests\Projects\StoreProjectRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreProjectRequest $request)
@@ -53,7 +53,7 @@ class ProjectsController extends Controller
      * GET /admin/projects/project-slug
      * Display a specified project.
      *
-     * @param  \NeonTsunami\Project  $project
+     * @param  \App\Project  $project
      * @return \Illuminate\View\View
      */
     public function show(Project $project)
@@ -66,7 +66,7 @@ class ProjectsController extends Controller
      * GET /admin/projects/project-slug/edit
      * Display the form for editing a project.
      *
-     * @param  \NeonTsunami\Project  $project
+     * @param  \App\Project  $project
      * @return \Illuminate\View\View
      */
     public function edit(Project $project)
@@ -79,13 +79,13 @@ class ProjectsController extends Controller
      * PUT /admin/projects/project-slug
      * Update a given project in storage.
      *
-     * @param  \NeonTsuanmi\Project  $request
-     * @param  \NeonTsunami\Http\Requests\Projects\UpdateProjectRequest  $project
+     * @param  \App\Project  $request
+     * @param  \App\Http\Requests\Projects\UpdateProjectRequest  $project
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Project $project, UpdateProjectRequest $request)
     {
-        $project->update($request->all());
+        $project->update(array_filter($request->all()));
 
         return redirect()->route('admin.projects.show', $project)
             ->withSuccess('The project was updated.');
@@ -95,7 +95,7 @@ class ProjectsController extends Controller
      * DELETE /admin/projects/project-slug
      * Remove a project from storage.
      *
-     * @param  \NeonTsunami\Project  $project
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Project $project)

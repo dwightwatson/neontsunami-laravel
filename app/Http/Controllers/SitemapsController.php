@@ -1,11 +1,11 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers;
+namespace App\Http\Controllers;
 
-use NeonTsunami\Post;
-use NeonTsunami\Project;
-use NeonTsunami\Series;
 use Sitemap;
+use App\Post;
+use App\Project;
+use App\Series;
 
 class SitemapsController extends Controller
 {

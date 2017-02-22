@@ -1,10 +1,10 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
-use NeonTsunami\Series;
-use NeonTsunami\Http\Requests\Series\StoreSeriesRequest;
-use NeonTsunami\Http\Requests\Series\UpdateSeriesRequest;
+use App\Series;
+use App\Http\Requests\Series\StoreSeriesRequest;
+use App\Http\Requests\Series\UpdateSeriesRequest;
 
 class SeriesController extends Controller
 {
@@ -40,7 +40,7 @@ class SeriesController extends Controller
      * POST /admin/series
      * Store a new series in storage.
      *
-     * @param  \NeonTsunami\Http\Requests\Series\StoreSeriesRequest  $request
+     * @param  \App\Http\Requests\Series\StoreSeriesRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreSeriesRequest $request)
@@ -55,7 +55,7 @@ class SeriesController extends Controller
      * GET /admin/series/series-slug
      * Display a specified series.
      *
-     * @param  \NeonTsunami\Series  $series
+     * @param  \App\Series  $series
      * @return \Illuminate\View\View
      */
     public function show(Series $series)
@@ -68,7 +68,7 @@ class SeriesController extends Controller
      * GET /admin/series/series-slug/edit
      * Display the form for editing a series.
      *
-     * @param  \NeonTsunami\Series  $series
+     * @param  \App\Series  $series
      * @return \Illuminate\View\View
      */
     public function edit(Series $series)
@@ -81,13 +81,13 @@ class SeriesController extends Controller
      * PUT /admin/series/series-slug
      * Update a given series in storage.
      *
-     * @param  \NeonTsunami\Series  $series
-     * @param  \NeonTsunami\Http\Requests\Series\UpdateSeriesRequest  $request
+     * @param  \App\Series  $series
+     * @param  \App\Http\Requests\Series\UpdateSeriesRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Series $series, UpdateSeriesRequest $request)
     {
-        $series->update($request->all());
+        $series->update(array_filter($request->all()));
 
         return redirect()->route('admin.series.show', $series)
             ->withSuccess('The series was updated.');
@@ -97,7 +97,7 @@ class SeriesController extends Controller
      * DELETE /admin/series/series-slug
      * Remove a series from storage.
      *
-     * @param  \NeonTsunami\Series  $series
+     * @param  \App\Series  $series
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Series $series)

@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Requests\Tags;
+namespace App\Http\Requests\Tags;
 
-use NeonTsunami\Http\Requests\Request;
+use App\Http\Requests\Request;
 use Illuminate\Http\JsonResponse;
 
 class StoreTagRequest extends Request

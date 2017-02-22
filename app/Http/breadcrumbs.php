@@ -1,9 +1,9 @@
 <?php
 
-use NeonTsunami\Post;
-use NeonTsunami\Project;
-use NeonTsunami\Series;
-use NeonTsunami\User;
+use App\Post;
+use App\Project;
+use App\Series;
+use App\User;
 
 // Pages
 Breadcrumbs::register('admin.pages.index', function ($breadcrumbs) {

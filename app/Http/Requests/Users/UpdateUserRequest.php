@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Requests\Users;
+namespace App\Http\Requests\Users;
 
-use NeonTsunami\Http\Requests\Request;
+use App\Http\Requests\Request;
 
 class UpdateUserRequest extends Request
 {
@@ -26,9 +26,7 @@ class UpdateUserRequest extends Request
         $user = $this->route()->parameter('user');
 
         return [
-            'first_name' => 'required',
-            'last_name'  => 'required',
-            'email'      => ['required', 'email', 'unique:users,email,'.$user->getKey()]
+            'email' => ['email', 'unique:users,email,'.$user->getKey()]
         ];
     }
 

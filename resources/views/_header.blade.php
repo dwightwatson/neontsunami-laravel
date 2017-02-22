@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{!! isset($title) ? e($title) . " &mdash; Neon Tsunami" : "Neon Tsunami" !!}</title>
-    <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
-    <link rel="icon" type="image/png" href="{{ elixir('images/favicon.png') }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <meta name="description" content="{!! $description or 'A blog on web development, focused on frameworks like Swift, Laravel, Ruby on Rails and Angular by Dwight Watson.' !!}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 

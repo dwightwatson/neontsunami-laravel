@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers;
+namespace App\Http\Controllers;
 
-use NeonTsunami\Project;
+use App\Project;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -29,7 +29,7 @@ class ProjectsController extends Controller
      * GET /projects/project-slug
      * Get a single project.
      *
-     * @param  \NeonTsunami\Project  $project
+     * @param  \App\Project  $project
      * @return \Illuminate\View\View
      */
     public function show(Project $project)

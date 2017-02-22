@@ -35,7 +35,7 @@
       <input type="text" class="form-control" placeholder="Search...">
 
       <a href="https://www.algolia.com">
-        <img src="{{ elixir('images/algolia.jpg') }}" title="Search powered by Algolia">
+        <img src="{{ asset('images/algolia.jpg') }}" title="Search powered by Algolia">
       </a>
     </div>
   </header>

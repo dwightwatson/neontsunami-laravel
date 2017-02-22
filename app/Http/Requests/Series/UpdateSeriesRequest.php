@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Requests\Series;
+namespace App\Http\Requests\Series;
 
-use NeonTsunami\Http\Requests\Request;
+use App\Http\Requests\Request;
 
 class UpdateSeriesRequest extends Request
 {
@@ -26,9 +26,7 @@ class UpdateSeriesRequest extends Request
         $series = $this->route()->parameter('series');
 
         return [
-            'name'        => 'required',
-            'slug'        => ['required', 'unique:series,slug,'.$series->getKey()],
-            'description' => 'required'
+            'slug' => ['unique:series,slug,'.$series->getKey()],
         ];
     }
 

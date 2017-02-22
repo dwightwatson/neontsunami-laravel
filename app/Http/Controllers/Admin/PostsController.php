@@ -1,12 +1,12 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
-use NeonTsunami\Post;
-use NeonTsunami\Series;
-use NeonTsunami\Jobs\GenerateTagsJob;
-use NeonTsunami\Http\Requests\Posts\StorePostRequest;
-use NeonTsunami\Http\Requests\Posts\UpdatePostRequest;
+use App\Post;
+use App\Series;
+use App\Jobs\GenerateTagsJob;
+use App\Http\Requests\Posts\StorePostRequest;
+use App\Http\Requests\Posts\UpdatePostRequest;
 
 class PostsController extends Controller
 {
@@ -44,7 +44,7 @@ class PostsController extends Controller
      * POST /admin/posts
      * Store a new post in storage.
      *
-     * @param  \NeonTsunami\Http\Requests\Posts\StorePostRequest  $request
+     * @param  \App\Http\Requests\Posts\StorePostRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StorePostRequest $request)
@@ -67,7 +67,7 @@ class PostsController extends Controller
      * GET /admin/posts/post-slug
      * Display a specified post.
      *
-     * @param  \NeonTsunami\Post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\View\View
      */
     public function show(Post $post)
@@ -80,7 +80,7 @@ class PostsController extends Controller
      * GET /admin/posts/post-slug/edit
      * Display the form for editing a post.
      *
-     * @param  \NeonTsuanmi\Post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\View\View
      */
     public function edit(Post $post)
@@ -95,8 +95,8 @@ class PostsController extends Controller
      * PUT /admin/posts/post-slug
      * Update a given post in storage.
      *
-     * @param  \NeonTsunami\Post  $post
-     * @param  \NeonTsunami\Http\Requests\Posts\UpdatePostRequest  $request
+     * @param  \App\Post  $post
+     * @param  \App\Http\Requests\Posts\UpdatePostRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Post $post, UpdatePostRequest $request)
@@ -117,7 +117,7 @@ class PostsController extends Controller
      * DELETE /admin/posts/post-slug
      * Remove a post from storage.
      *
-     * @param  \NeonTsunami\Post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Post $post)

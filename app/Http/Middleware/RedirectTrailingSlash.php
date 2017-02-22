@@ -1,6 +1,6 @@
 <?php
 
-namespace NeonTsunami\Http\Middleware;
+namespace App\Http\Middleware;
 
 use Closure;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Requests\Posts;
+namespace App\Http\Requests\Posts;
 
-use NeonTsunami\Http\Requests\Request;
+use App\Http\Requests\Request;
 
 class UpdatePostRequest extends Request
 {
@@ -26,10 +26,8 @@ class UpdatePostRequest extends Request
         $post = $this->route()->parameter('post');
 
         return [
-            'series_id'    => 'exists:series,id',
-            'title'        => 'required',
-            'slug'         => ['required', 'unique:posts,slug,'.$post->getKey()],
-            'content'      => 'required'
+            'series_id' => 'nullable|exists:series,id',
+            'slug'      => ['unique:posts,slug,'.$post->getKey()],
         ];
     }
 

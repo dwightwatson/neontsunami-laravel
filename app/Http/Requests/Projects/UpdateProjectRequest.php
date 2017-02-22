@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Requests\Projects;
+namespace App\Http\Requests\Projects;
 
-use NeonTsunami\Http\Requests\Request;
+use App\Http\Requests\Request;
 
 class UpdateProjectRequest extends Request
 {
@@ -26,10 +26,8 @@ class UpdateProjectRequest extends Request
         $project = $this->route()->parameter('project');
 
         return [
-            'name'        => 'required',
-            'slug'        => ['required', 'unique:projects,slug,'.$project->getKey()],
-            'description' => 'required',
-            'url'         => 'url'
+            'slug' => ['unique:projects,slug,'.$project->getKey()],
+            'url'  => 'url'
         ];
     }
 

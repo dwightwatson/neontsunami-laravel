@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Requests\Series;
+namespace App\Http\Requests\Series;
 
-use NeonTsunami\Http\Requests\Request;
+use App\Http\Requests\Request;
 
 class StoreSeriesRequest extends Request
 {

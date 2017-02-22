@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => NeonTsunami\User::class,
+            'model' => App\User::class,
         ],
 
         // 'users' => [

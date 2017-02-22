@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Requests\Projects;
+namespace App\Http\Requests\Projects;
 
-use NeonTsunami\Http\Requests\Request;
+use App\Http\Requests\Request;
 
 class StoreProjectRequest extends Request
 {

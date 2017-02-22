@@ -1,6 +1,6 @@
 <?php
 
-namespace NeonTsunami;
+namespace App;
 
 class Project extends Model
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
-use NeonTsunami\Tag;
+use App\Tag;
 use Illuminate\Http\Request;
-use NeonTsunami\Http\Requests\Tags\StoreTagRequest;
+use App\Http\Requests\Tags\StoreTagRequest;
 
 class TagsController extends Controller
 {

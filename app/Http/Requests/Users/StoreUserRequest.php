@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Requests\Users;
+namespace App\Http\Requests\Users;
 
-use NeonTsunami\Http\Requests\Request;
+use App\Http\Requests\Request;
 
 class StoreUserRequest extends Request
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers;
+namespace App\Http\Controllers;
 
-use NeonTsunami\Tag;
+use App\Tag;
 
 class TagsController extends Controller
 {
@@ -32,7 +32,7 @@ class TagsController extends Controller
      * GET /tags/tag
      * Display the posts of a given tag.
      *
-     * @param  \NeonTsunami\Tag  $tag
+     * @param  \App\Tag  $tag
      * @return \Illuminate\View\View
      */
     public function show(Tag $tag)

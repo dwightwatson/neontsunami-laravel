@@ -169,6 +169,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
         Watson\Active\ActiveServiceProvider::class,
         Watson\Sitemap\SitemapServiceProvider::class,
         Watson\Taggly\TagglyServiceProvider::class,
@@ -176,11 +177,11 @@ return [
         /*
          * Application Service Providers...
          */
-        NeonTsunami\Providers\AppServiceProvider::class,
-        NeonTsunami\Providers\AuthServiceProvider::class,
-        // NeonTsunami\Providers\BroadcastServiceProvider::class,
-        NeonTsunami\Providers\EventServiceProvider::class,
-        NeonTsunami\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
 
     ],
 
@@ -201,6 +202,8 @@ return [
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
+        'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
+        'Bus' => Illuminate\Support\Facades\Bus::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,

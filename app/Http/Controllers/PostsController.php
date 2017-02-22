@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers;
+namespace App\Http\Controllers;
 
-use NeonTsunami\Post;
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -32,7 +32,7 @@ class PostsController extends Controller
      * GET /posts/post-slug
      * Get a single post.
      *
-     * @param  \NeonTsunami\Post  $post
+     * @param  \App\Post  $post
      * @return \Illuminate\View\View
      */
     public function show(Post $post)

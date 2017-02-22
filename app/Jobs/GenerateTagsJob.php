@@ -1,9 +1,9 @@
 <?php
 
-namespace NeonTsunami\Jobs;
+namespace App\Jobs;
 
-use NeonTsunami\Tag;
-use NeonTsunami\Jobs\Job;
+use App\Tag;
+use App\Jobs\Job;
 use Illuminate\Database\Eloquent\Collection;
 
 class GenerateTagsJob extends Job

@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers;
+namespace App\Http\Controllers;
 
-use NeonTsunami\Post;
+use App\Post;
 
 class PagesController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace NeonTsunami;
+namespace App;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -58,7 +58,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     */
     public function posts()
     {
-        return $this->hasMany('NeonTsunami\Post');
+        return $this->hasMany(Post::class);
     }
 
     public function tags()

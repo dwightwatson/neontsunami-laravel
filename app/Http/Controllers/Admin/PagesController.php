@@ -1,11 +1,11 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
-use NeonTsunami\Post;
-use NeonTsunami\User;
-use NeonTsunami\Series;
-use NeonTsunami\Project;
+use App\Post;
+use App\User;
+use App\Series;
+use App\Project;
 
 class PagesController extends Controller
 {

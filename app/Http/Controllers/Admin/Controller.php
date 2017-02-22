@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
-use NeonTsunami\Http\Controllers\Controller as BaseController;
+use App\Http\Controllers\Controller as BaseController;
 
 abstract class Controller extends BaseController
 {

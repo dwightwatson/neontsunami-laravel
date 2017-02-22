@@ -5,7 +5,7 @@
     <h3>About</h3>
   </div>
 
-  <img src="{{ elixir('images/dwight-conrad-watson.jpg') }}" alt="Dwight Conrad Watson" class="img-responsive">
+  <img src="{{ asset('images/dwight-conrad-watson.jpg') }}" alt="Dwight Conrad Watson" class="img-responsive">
 
   <p class="lead">I'm a web developer based in <strong>Sydney, Australia</strong> with a keen interest in frameworks like <a href="http://laravel.com/" title="Laravel">Laravel</a>, <a href="http://rubyonrails.org/" title="Ruby on Rails">Ruby On Rails</a> and <a href="https://angularjs.org/" title="AngularJS">AngularJS</a>. I manage a number of high-traffic websites and apps including <a href="https://studentvip.com.au">StudentVIP</a>, <a href="https://lostoncampus.com.au">Lost On Campus</a> and <a href="https://www.timetableexchange.com.au">Timetable Exchange</a>. I also enjoy contributing to and maintaining my own <a href="https://github.com/dwightwatson">open-source projects</a>.</p>
 

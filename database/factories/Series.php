@@ -1,6 +1,6 @@
 <?php
 
-$factory->define(NeonTsunami\Series::class, function ($faker) {
+$factory->define(App\Series::class, function ($faker) {
     return [
         'name'        => $faker->word,
         'slug'        => $faker->unique()->slug(1),

@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers;
+namespace App\Http\Controllers;
 
-use NeonTsunami\Series;
+use App\Series;
 use Illuminate\Http\Request;
 
 class SeriesController extends Controller
@@ -31,7 +31,7 @@ class SeriesController extends Controller
      * GET /series/series-slug
      * Get a single series.
      *
-     * @param  \NeonTsunami\Series  $series
+     * @param  \App\Series  $series
      * @return \Illuminate\View\View
      */
     public function show(Series $series)

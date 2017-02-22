@@ -1,8 +1,8 @@
 <?php
 
-namespace NeonTsunami\Http\Requests\Posts;
+namespace App\Http\Requests\Posts;
 
-use NeonTsunami\Http\Requests\Request;
+use App\Http\Requests\Request;
 
 class StorePostRequest extends Request
 {
@@ -31,7 +31,7 @@ class StorePostRequest extends Request
     public function rules()
     {
         return [
-            'series_id' => 'exists:series,id',
+            'series_id' => 'nullable|exists:series,id',
             'title'     => 'required',
             'slug'      => ['required', 'unique:posts,slug'],
             'content'   => 'required'

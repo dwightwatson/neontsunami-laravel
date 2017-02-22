@@ -1,10 +1,10 @@
 <?php
 
-namespace NeonTsunami\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
-use NeonTsunami\User;
-use NeonTsunami\Http\Requests\Users\StoreUserRequest;
-use NeonTsunami\Http\Requests\Users\UpdateUserRequest;
+use App\User;
+use App\Http\Requests\Users\StoreUserRequest;
+use App\Http\Requests\Users\UpdateUserRequest;
 
 class UsersController extends Controller
 {
@@ -38,7 +38,7 @@ class UsersController extends Controller
      * POST /admin/users
      * Store a new user in storage.
      *
-     * @param  \NeonTsunami\Http\Requests\Users\StoreUserRequest  $request
+     * @param  \App\Http\Requests\Users\StoreUserRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreUserRequest $request)
@@ -53,7 +53,7 @@ class UsersController extends Controller
      * GET /admin/users/id
      * Display a specified user.
      *
-     * @param  \NeonTsunami\User  $user
+     * @param  \App\User  $user
      * @return \Illuminate\View\View
      */
     public function show(User $user)
@@ -66,7 +66,7 @@ class UsersController extends Controller
      * GET /admin/users/id/edit
      * Display the form for editing a user.
      *
-     * @param  \NeonTsunami\User  $user
+     * @param  \App\User  $user
      * @return \Illuminate\View\View
      */
     public function edit(User $user)
@@ -79,13 +79,13 @@ class UsersController extends Controller
      * PUT /admin/users/id
      * Update a given user in storage.
      *
-     * @param  \NeonTsunami\User  $user
-     * @param  \NeonTsunami\Http\Requests\Users\UpdateUserRequest  $request
+     * @param  \App\User  $user
+     * @param  \App\Http\Requests\Users\UpdateUserRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(User $user, UpdateUserRequest $request)
     {
-        $user->update($request->all());
+        $user->update(array_filter($request->all()));
 
         return redirect()->route('admin.users.show', $user)
             ->withSuccess('The user was updated');
@@ -95,7 +95,7 @@ class UsersController extends Controller
      * DELETE /admin/users/id
      * Remove a user from storage.
      *
-     * @param  \NeonTsunami\User  $user
+     * @param  \App\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(User $user)

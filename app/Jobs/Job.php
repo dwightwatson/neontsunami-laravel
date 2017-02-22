@@ -1,6 +1,6 @@
 <?php
 
-namespace NeonTsunami\Jobs;
+namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
 
