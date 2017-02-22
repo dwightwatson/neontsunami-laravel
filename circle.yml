@@ -1,8 +1,8 @@
 machine:
-  php:
-    version: 7.0.7
   node:
     version: 6.1.0
+  php:
+    version: 7.1.0
   environment:
     APP_KEY: SomeRandomStringWith32Characters
     DB_HOST: 127.0.0.1
@@ -12,12 +12,17 @@ machine:
 
 dependencies:
   pre:
-    - npm install -g gulp
+    - npm install -g yarn
+
+  override:
+    - composer install --no-interaction
+    - yarn install
 
   post:
     - php artisan migrate --force
-    - gulp
+    - npm run dev
 
 test:
   override:
-    - php -d memory_limit=1024M vendor/bin/phpunit
+    - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
+    - php -d memory_limit=1024M vendor/bin/phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml
