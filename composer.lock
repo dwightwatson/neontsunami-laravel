@@ -2250,16 +2250,16 @@
         },
         {
             "name": "watson/breadcrumbs",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dwightwatson/breadcrumbs.git",
-                "reference": "faec9605b412bd9c05eca497b0f42dd81b8329e6"
+                "reference": "a3445dc83940b9be427a311ac9cd94cc70767d22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dwightwatson/breadcrumbs/zipball/faec9605b412bd9c05eca497b0f42dd81b8329e6",
-                "reference": "faec9605b412bd9c05eca497b0f42dd81b8329e6",
+                "url": "https://api.github.com/repos/dwightwatson/breadcrumbs/zipball/a3445dc83940b9be427a311ac9cd94cc70767d22",
+                "reference": "a3445dc83940b9be427a311ac9cd94cc70767d22",
                 "shasum": ""
             },
             "require": {
@@ -2293,7 +2293,7 @@
                 "breadcrumbs",
                 "laravel"
             ],
-            "time": "2017-02-21T22:12:29+00:00"
+            "time": "2017-02-24T09:30:43+00:00"
         },
         {
             "name": "watson/sitemap",
