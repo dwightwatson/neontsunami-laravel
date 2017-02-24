@@ -4,6 +4,7 @@ machine:
   php:
     version: 7.1.0
   environment:
+    APP_ENV: testing
     APP_KEY: SomeRandomStringWith32Characters
     DB_HOST: 127.0.0.1
     DB_DATABASE: circle_test
@@ -13,6 +14,8 @@ machine:
 dependencies:
   pre:
     - npm install -g yarn
+    - touch .env
+    - touch .env.dusk
 
   override:
     - composer install --no-interaction
@@ -26,3 +29,4 @@ test:
   override:
     - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
     - php -d memory_limit=1024M vendor/bin/phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml
+    - php artisan dusk
