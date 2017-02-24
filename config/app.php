@@ -167,10 +167,10 @@ return [
          * Package Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
-        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Watson\Active\ActiveServiceProvider::class,
+        Watson\Breadcrumbs\ServiceProvider::class,
         Watson\Sitemap\SitemapServiceProvider::class,
         Watson\Taggly\TagglyServiceProvider::class,
 
@@ -235,7 +235,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
 
-        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Breadcrumbs' => Watson\Breadcrumbs\Facade::class,
         'Sitemap' => Watson\Sitemap\Facades\Sitemap::class,
         'Taggly' => Watson\Taggly\TagFacade::class,
 
