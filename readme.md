@@ -8,12 +8,11 @@ This is the source code for my website/blog [Neon Tsunami](http://www.neontsunam
 If you're interested in seeing how I did things on Laravel 4.2, take a look at the [last commit using 4.2](https://github.com/dwightwatson/neontsunami/tree/85ed06524e834999678ff92bbab520d17ce17889).
 
 ### Tests
-The tests for this application are written using the integrated Laravel testing suite.
+The tests for this application are written using Laravel's HTTP testing support, as well as Dusk browser testing.
 
-If you're intested in seeing how I did things before the integration testing functionality was full-featured, take a look at the [last commit using the older PHPUnit assertion style tests](https://github.com/dwightwatson/neontsunami/tree/9579367eec04773f617523b437b8d73f05abb71d).
+If you're interested in seeing how I did things before the browser testing functionality was introduced, take a look at the [last commit before upgrading to Laravel 5.4](https://github.com/dwightwatson/neontsunami/tree/d56dce716a98a5f412b7ada685856ac67f54cfaf).
 
-### Envoy
-This repository also contains an old `.envoy.blade.php` file, a configuration file for Laravel Envoy. It may serve as a useful reference for those who prefer to use Envoy for deployments.
+If you're interested in seeing how I did things before the integration testing functionality was full-featured, take a look at the [last commit using the older PHPUnit assertion style tests](https://github.com/dwightwatson/neontsunami/tree/9579367eec04773f617523b437b8d73f05abb71d).
 
 ### License
 The Neon Tsunami website is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
