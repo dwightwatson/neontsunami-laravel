@@ -33,11 +33,13 @@ class TagsControllerTest extends TestCase
     public function testIndexSearches()
     {
         factory(Tag::class)->create(['name' => 'Foo']);
+        factory(Tag::class)->create(['name' => 'Bar']);
 
         $response = $this->json('GET', 'admin/tags', ['q' => 'Foo']);
 
         $response->assertStatus(200)
-            ->assertJsonFragment(['name' => 'Foo']);
+            ->assertJsonFragment(['name' => 'Foo'])
+            ->assertJsonMissing(['name' => 'Bar']);
     }
 
     public function testStore()
