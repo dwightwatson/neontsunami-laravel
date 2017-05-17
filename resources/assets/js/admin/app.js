@@ -1,9 +1,11 @@
 import '../bootstrap';
 import '../../../../node_modules/bootstrap-sass/assets/javascripts/bootstrap';
-import '../../../../node_modules/jquery-ujs/src/rails';
+import Rails from 'rails-ujs';
 import 'selectize';
 
 (function($) {
+  Rails.start();
+
   if ($('input[name=slug]').length && $('input[name=title], input[name=name]').length) {
     $('input[name=title], input[name=name]').on('keyup', function() {
       let slug = $(this).val()
