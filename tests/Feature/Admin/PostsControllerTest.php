@@ -85,7 +85,7 @@ class PostsControllerTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        $post = $user->posts()->save(factory(Post::class)->make([
+        $user->posts()->save(factory(Post::class)->make([
             'slug' => 'foo'
         ]));
 
