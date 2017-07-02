@@ -14,6 +14,8 @@ class SessionsControllerTest extends TestCase
 
     public function testCreate()
     {
+        $this->disableExceptionHandling();
+
         $response = $this->get('/admin/login');
 
         $response->assertStatus(200);

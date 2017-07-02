@@ -6,7 +6,6 @@
   "type": "project",
   "require": {
     "algolia/algoliasearch-client-php": "^1.10",
-    "davejamesmiller/laravel-breadcrumbs": "3.0.*",
     "laravel/dusk": "^1.0",
     "laravel/framework": "5.4.*",
     "laravel/scout": "^3.0",
@@ -14,6 +13,7 @@
     "laravelcollective/html": "~5.0",
     "league/commonmark": "0.15.*",
     "watson/active": "~2.0",
+    "watson/breadcrumbs": "^1.0",
     "watson/sitemap": "~2.0",
     "watson/taggly": "~1.0"
   },

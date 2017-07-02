@@ -1,20 +1,27 @@
 {
   "private": true,
+  "engines": {
+    "node": "7.6.0",
+    "yarn": "0.21.3"
+  },
   "scripts": {
-    "dev": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "hot": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "node node_modules/cross-env/bin/cross-env.js NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "heroku-postbuild": "npm run production"
   },
   "devDependencies": {
     "algoliasearch": "^3.18.1",
-    "autocomplete.js": "^0.21.4",
+    "autocomplete.js": "^0.28.1",
     "bootstrap-sass": "^3.3.7",
+    "cross-env": "^5.0.1",
     "jquery": "^3.1.0",
-    "jquery-ujs": "^1.2.1",
-    "laravel-mix": "^0.8.1",
-    "selectize": "^0.12.2",
-    "vue": "^1.0.26",
-    "vue-resource": "^0.9.3"
+    "laravel-mix": "1.0",
+    "rails-ujs": "^5.1.1",
+    "selectize": "^0.12.2"
   }
 }
