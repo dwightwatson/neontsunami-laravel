@@ -18,9 +18,9 @@
     "algoliasearch": "^3.18.1",
     "autocomplete.js": "^0.28.1",
     "bootstrap-sass": "^3.3.7",
-    "cross-env": "^3.2.3",
+    "cross-env": "^5.0.1",
     "jquery": "^3.1.0",
-    "laravel-mix": "0.*",
+    "laravel-mix": "1.0",
     "rails-ujs": "^5.1.1",
     "selectize": "^0.12.2"
   }
