@@ -13,7 +13,7 @@
     this.el = me;
     this.sharp = true;
     this.fs = fs;
-    this.filter = "";
+    this.filter = '';
     this.colours = {
       c1: c1,
       c2: c2,
@@ -31,13 +31,13 @@
 
     var ua = navigator.userAgent;
     if (/Chrome\/(\S+)/.test(ua) || /AppleWebKit\/(\S+)/.test(ua)) {
-      this.cssPrefix = "-webkit";
+      this.cssPrefix = '-webkit';
     } else if (/Firefox\/(\S+)/.test(ua)) {
-      this.cssPrefix = "-moz";
+      this.cssPrefix = '-moz';
     } else if (window.opera) {
-      this.cssPrefix = "-o";
+      this.cssPrefix = '-o';
     } else if (/MSIE ([^;]+)/.test(ua)) {
-      this.cssPrefix = "-ms";
+      this.cssPrefix = '-ms';
     }
 
     if (this.cssPrefix) {
@@ -48,13 +48,13 @@
         this.stringBuilder();
         this.colourFilter();
         steps -= 1;
-        if (steps > 0) this.filter += ", ";
+        if (steps > 0) this.filter += ', ';
       }
-      this.el.css("background-image", this.filter);
+      this.el.css('background-image', this.filter);
 
       if (this.fs) this.fit();
     } else {
-      console.log("sorry bro, your browser isnt supported.");
+      console.log('sorry bro, your browser isnt supported.');
     }
   };
   Plugin.prototype.stringBuilder = function() {
@@ -67,34 +67,34 @@
 
     this.filter +=
       this.cssPrefix +
-      "-linear-gradient(" +
+      '-linear-gradient(' +
       deg +
-      "deg," +
+      'deg,' +
       c1 +
-      " " +
+      ' ' +
       this.percents.a +
-      " ," +
+      ' ,' +
       shade +
-      " " +
+      ' ' +
       this.percents.b +
-      ", " +
+      ', ' +
       c2 +
-      " " +
+      ' ' +
       this.percents.c +
-      ", " +
+      ', ' +
       c3 +
-      " " +
+      ' ' +
       this.percents.d +
-      ")";
+      ')';
   };
   Plugin.prototype.catcol = function(col) {
-    var beg = "rgba(", end = ")", part = col.toString();
+    var beg = 'rgba(', end = ')', part = col.toString();
 
     return beg.concat(part).concat(end);
   };
   Plugin.prototype.fit = function() {
     this.el.css({
-      width: "100%",
+      width: '100%',
       height: window.innerHeight
     });
   };
@@ -106,10 +106,10 @@
       p4 = 100 - p2 + ~~(Math.random() * p2);
 
     var percents = {
-      a: p1 + "%",
-      b: p2 + "%",
-      c: p3 + "%",
-      d: p4 + "%"
+      a: p1 + '%',
+      b: p2 + '%',
+      c: p3 + '%',
+      d: p4 + '%'
     };
 
     return percents;
