@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Tag;
 use App\Post;
 use App\Series;
-use App\Jobs\GenerateTagsJob;
 use App\Http\Requests\Posts\StorePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 
@@ -51,11 +51,9 @@ class PostsController extends Controller
     {
         $post = $request->user()->posts()->create($request->all());
 
-        if ($request->has('tags')) {
-            $tags = $this->dispatchNow(new GenerateTagsJob($request->tags));
-
-            $post->tags()->sync($tags);
-        }
+        $post->tags()->sync(
+            Tag::whereIn('name', explode(',', $request->tags))->pluck('id')->all()
+        );
 
         return redirect()->route('admin.posts.show', $post)
             ->withSuccess('The post was created.');

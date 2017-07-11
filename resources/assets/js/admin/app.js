@@ -24,11 +24,9 @@ import 'selectize';
     valueField: 'name',
     labelField: 'name',
     searchField: 'name',
-    create: function(input) {
-      return {
-        value: input,
-        text: input
-      };
+    create: function(input, callback) {
+      $.post('/admin/tags', { name: input })
+        .done(response => callback({ value: response.name, text: response.name }));
     },
     load: function(query, callback) {
       $.getJSON('/admin/tags', { q: query }, response => callback(response));
