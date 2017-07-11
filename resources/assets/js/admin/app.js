@@ -31,9 +31,7 @@ import 'selectize';
       };
     },
     load: function(query, callback) {
-      $.getJSON('/admin/tags', { q: query }, function(response) {
-        callback(response);
-      });
+      $.getJSON('/admin/tags', { q: query }, response => callback(response));
     }
   });
 
