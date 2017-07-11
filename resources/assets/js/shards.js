@@ -15,13 +15,13 @@
     this.fs = fs;
     this.filter = '';
     this.colours = {
-      c1: c1,
+      c1,
       c2: c2,
       c3: c2,
       shade: sh,
       alpha: alf,
-      steps: steps,
-      wheel: wheel,
+      steps,
+      wheel,
       light: ~~light
     };
     this.init();
@@ -182,8 +182,9 @@
     var r, g, b;
     s /= 100;
     l /= 100;
-    if (s == 0) r = g = b = l * 255;
-    else {
+    if (s === 0) {
+      r = g = b = l * 255;
+    } else {
       if (l <= 0.5) m2 = l * (s + 1);
       else m2 = l + s - l * s;
       m1 = l * 2 - m2;
@@ -196,8 +197,11 @@
   };
   Plugin.prototype.hue2rgb = function(m1, m2, hue) {
     var v;
-    if (hue < 0) hue += 1;
-    else if (hue > 1) hue -= 1;
+    if (hue < 0) {
+      hue += 1;
+    } else if (hue > 1) {
+      hue -= 1;
+    }
 
     if (6 * hue < 1) v = m1 + (m2 - m1) * hue * 6;
     else if (2 * hue < 1) v = m2;
