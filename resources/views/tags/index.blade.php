@@ -5,7 +5,7 @@
     <h3>Tags</h3>
   </div>
 
-  <p class="lead">Tag cloud built using my {!! link_to('https://github.com/dwightwatson/taggly', 'Taggly') !!} package.</p>
+  <p class="lead">Tag cloud built using my {{ link_to('https://github.com/dwightwatson/taggly', 'Taggly') }} package.</p>
 
   @unless ($tags->count())
     <div class="alert alert-info">

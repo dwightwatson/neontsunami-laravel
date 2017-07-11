@@ -2,7 +2,7 @@
   <div class="container">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
-        <a href="{!! route('admin.pages.index') !!}" class="navbar-brand">Neon Tsunami</a>
+        <a href="{{ route('admin.pages.index') }}" class="navbar-brand">Neon Tsunami</a>
         @if (Auth::check())
           <ul class="nav navbar-nav">
             <li class="{{ active('admin.posts.*') }}">

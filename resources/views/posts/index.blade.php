@@ -14,6 +14,6 @@
     </div>
   @else
     @each('posts._post', $posts, 'post')
-    {!! $posts->render() !!}
+    {{ $posts->render() }}
   @endunless
 @stop

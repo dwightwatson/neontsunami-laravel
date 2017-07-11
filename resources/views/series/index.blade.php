@@ -13,6 +13,6 @@
     </div>
   @else
     @each('series._series', $series, 'series')
-    {!! $series->render() !!}
+    {{ $series->render() }}
   @endunless
 @stop

@@ -13,6 +13,6 @@
     </div>
   @else
     @each('projects._project', $projects, 'project')
-    {!! $projects->render() !!}
+    {{ $projects->render() }}
   @endunless
 @stop

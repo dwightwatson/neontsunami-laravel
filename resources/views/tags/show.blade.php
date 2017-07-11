@@ -9,5 +9,5 @@
 
   @each('posts._post', $posts, 'post')
 
-  {!! $posts->render() !!}
+  {{ $posts->render() }}
 @stop
