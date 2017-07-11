@@ -85,7 +85,7 @@ class ProjectsController extends Controller
      */
     public function update(Project $project, UpdateProjectRequest $request)
     {
-        $project->update(array_filter($request->all()));
+        $project->update($request->all());
 
         return redirect()->route('admin.projects.show', $project)
             ->withSuccess('The project was updated.');

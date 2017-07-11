@@ -85,7 +85,7 @@ class UsersController extends Controller
      */
     public function update(User $user, UpdateUserRequest $request)
     {
-        $user->update(array_filter($request->all()));
+        $user->update($request->all());
 
         return redirect()->route('admin.users.show', $user)
             ->withSuccess('The user was updated');

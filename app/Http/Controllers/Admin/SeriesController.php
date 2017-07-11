@@ -87,7 +87,7 @@ class SeriesController extends Controller
      */
     public function update(Series $series, UpdateSeriesRequest $request)
     {
-        $series->update(array_filter($request->all()));
+        $series->update($request->all());
 
         return redirect()->route('admin.series.show', $series)
             ->withSuccess('The series was updated.');

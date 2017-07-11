@@ -49,7 +49,7 @@ class PostsController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $post = $request->user()->posts()->create(array_filter($request->all()));
+        $post = $request->user()->posts()->create($request->all());
 
         if ($request->has('tags')) {
             $tags = $this->dispatchNow(new GenerateTagsJob($request->tags));
@@ -99,7 +99,7 @@ class PostsController extends Controller
      */
     public function update(Post $post, UpdatePostRequest $request)
     {
-        $post->update(array_filter($request->all()));
+        $post->update($request->all());
 
         if ($request->has('tags')) {
             $tags = $this->dispatchNow(new GenerateTagsJob($request->tags));
