@@ -51,8 +51,6 @@ class PostsController extends Controller
     {
         $post = $request->user()->posts()->create(array_filter($request->all()));
 
-        $post->publish();
-
         if ($request->has('tags')) {
             $tags = $this->dispatchNow(new GenerateTagsJob($request->tags));
 
