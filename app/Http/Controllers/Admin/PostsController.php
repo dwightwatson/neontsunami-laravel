@@ -34,7 +34,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $series = [null => 'Select...'] + Series::pluck('name', 'id')->all();
+        $series = Series::pluck('name', 'id')->all();
 
         return view('admin.posts.create', compact('series'))
             ->withTitle('Create post');
@@ -83,7 +83,7 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        $series = [null => 'Select...'] + Series::pluck('name', 'id')->all();
+        $series = Series::pluck('name', 'id')->all();
 
         return view('admin.posts.edit', compact('post', 'series'))
             ->withTitle('Edit post');

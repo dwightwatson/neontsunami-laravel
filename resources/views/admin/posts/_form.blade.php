@@ -22,11 +22,13 @@
   {{ Form::errors('tags') }}
 </div>
 
-<div class="form-group {{ Form::hasErrors('series_id') }}">
-  {{ Form::label('series_id', 'Series', ['class' => 'control-label']) }}
-  {{ Form::select('series_id', $series, null, ['class' => 'form-control']) }}
-  {{ Form::errors('series_id') }}
-</div>
+@if (count($series))
+  <div class="form-group {{ Form::hasErrors('series_id') }}">
+    {{ Form::label('series_id', 'Series', ['class' => 'control-label']) }}
+    {{ Form::select('series_id', ['' => 'Select...'] + $series, null, ['class' => 'form-control']) }}
+    {{ Form::errors('series_id') }}
+  </div>
+@endif
 
 <div class="form-group {{ Form::hasErrors('published_at') }}">
   {{ Form::label('published_at', null, ['class' => 'control-label']) }}
