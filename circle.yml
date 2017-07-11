@@ -13,11 +13,11 @@ machine:
 dependencies:
   pre:
     - npm install -g yarn
-    - npm rebuild node-sass
 
   override:
     - composer install --no-interaction
     - yarn install
+    - npm rebuild node-sass
 
   post:
     - php artisan migrate --force
