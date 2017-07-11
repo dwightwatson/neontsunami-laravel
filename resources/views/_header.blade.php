@@ -28,4 +28,3 @@
   </head>
   <body class="{{ controller_name() }} {{ action_name() }}">
     <div class="container">
-      <div class="row">
