@@ -1786,6 +1786,10 @@ domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
+dotenv-expand@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-4.0.1.tgz#68fddc1561814e0a10964111057ff138ced7d7a8"
+
 dotenv@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
@@ -3329,9 +3333,9 @@ kind-of@^4.0.0:
   dependencies:
     is-buffer "^1.1.5"
 
-laravel-mix@1.0:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/laravel-mix/-/laravel-mix-1.0.7.tgz#f9636bf6025118f365bfa0f5f1ae49f41df0aa6a"
+laravel-mix@^1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/laravel-mix/-/laravel-mix-1.1.1.tgz#ba0af05f85497df5bd56ac67d7c1a2dd8af5510f"
   dependencies:
     autoprefixer "^7.1.1"
     babel-core "^6.24.1"
@@ -3342,6 +3346,7 @@ laravel-mix@1.0:
     concatenate "0.0.2"
     css-loader "^0.28.3"
     dotenv "^4.0.0"
+    dotenv-expand "^4.0.1"
     extract-text-webpack-plugin "^2.1.0"
     file-loader "^0.11.1"
     friendly-errors-webpack-plugin "^1.6.1"
