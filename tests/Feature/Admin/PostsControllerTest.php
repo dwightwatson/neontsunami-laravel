@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Admin;
 
+use App\Tag;
 use App\Post;
 use App\User;
 use Tests\TestCase;
@@ -47,7 +48,18 @@ class PostsControllerTest extends TestCase
 
     public function testStoreWithTags()
     {
-        $this->markTestIncomplete();
+        $tag = factory(Tag::class)->create(['name' => 'Bar']);
+        $post = factory(Post::class)->make(['series_id' => null, 'slug' => 'foo']);
+
+        $attributes = array_merge($post->getAttributes(), ['tags' => 'bar']);
+
+        $response = $this->post('/admin/posts', $attributes);
+
+        $response->assertRedirect('/admin/posts/foo');
+
+        tap(Post::first(), function ($post) use ($tag) {
+            $this->assertTrue($post->tags->contains($tag));
+        });
     }
 
     public function testStoreFails()
@@ -97,7 +109,21 @@ class PostsControllerTest extends TestCase
 
     public function testUpdateWithTags()
     {
-        $this->markTestIncomplete();
+        $tag = factory(Tag::class)->create(['name' => 'Bat']);
+        $user = factory(User::class)->create();
+
+        $post = $user->posts()->save(factory(Post::class)->make([
+            'slug' => 'foo'
+        ]));
+
+        $response = $this->from('/admin/posts/foo/edit')
+            ->put('/admin/posts/foo', ['slug' => 'bar', 'tags' => 'bat']);
+
+        $response->assertRedirect('/admin/posts/bar');
+
+        tap($post->fresh(), function ($post) use ($tag) {
+            $this->assertTrue($post->tags->contains($tag));
+        });
     }
 
     public function testUpdateFails()

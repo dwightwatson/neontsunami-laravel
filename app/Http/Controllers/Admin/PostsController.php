@@ -99,11 +99,9 @@ class PostsController extends Controller
     {
         $post->update($request->all());
 
-        if ($request->has('tags')) {
-            $tags = $this->dispatchNow(new GenerateTagsJob($request->tags));
-
-            $post->tags()->sync($tags);
-        }
+        $post->tags()->sync(
+            Tag::whereIn('name', explode(',', $request->tags))->pluck('id')->all()
+        );
 
         return redirect()->route('admin.posts.show', $post)
             ->withSuccess('The post was updated.');
