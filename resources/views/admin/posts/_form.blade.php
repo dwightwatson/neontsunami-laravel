@@ -18,7 +18,7 @@
 
 <div class="form-group {{ Form::hasErrors('tags') }}">
   {{ Form::label('tags', null, ['class' => 'control-label']) }}
-  {{ Form::text('tags', null, ['class' => 'form-control']) }}
+  {{ Form::text('tags', isset($post) ? $post->tags->pluck('name')->implode(',') : null, ['class' => 'form-control']) }}
   {{ Form::errors('tags') }}
 </div>
 

@@ -17,7 +17,16 @@
       , published {{ $post->published_at->diffForHumans() }}.
     @endif
   </p>
+
   <div class="post-content">
     {!! commonmark($post->content) !!}
   </div>
+
+  @if ($post->tags->count())
+    <div class="post-tags">
+      @foreach ($post->tags as $tag)
+        <a href="{{ route('tags.show', $tag) }}">{{ $tag->hashtag }}</a>
+      @endforeach
+    </div>
+  @endif
 @stop
