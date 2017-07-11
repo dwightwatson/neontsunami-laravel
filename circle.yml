@@ -13,7 +13,7 @@ machine:
 dependencies:
   pre:
     - npm install -g yarn
-    - npm rebuid node-sass
+    - npm rebuild node-sass
 
   override:
     - composer install --no-interaction
