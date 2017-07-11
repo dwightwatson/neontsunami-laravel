@@ -27,10 +27,5 @@
     </script>
   </head>
   <body class="{{ controller_name() }} {{ action_name() }}">
-
-    @unless (active('admin.*'))
-      <div class="shards"></div>
-    @endunless
-
     <div class="container">
       <div class="row">

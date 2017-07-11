@@ -1,5 +1,17 @@
 $icon-font-path: '/fonts/';
 
+$primary-color: #EF5411;
+$select-color: fade-out($primary-color, 0.3);
+$dark-gray: #4A4A4A;
+$light-gray: #979797;
+
+// Bootstrap variable overrides
+$page-header-border-color: $primary-color;
+$alert-success-bg: transparent;
+$alert-info-bg: transparent;
+$alert-warning-bg: transparent;
+$alert-danger-bg: transparent;
+
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 @import '../../../node_modules/selectize/dist/css/selectize.bootstrap3';
 @import 'algolia';
@@ -32,10 +44,9 @@ $icon-font-path: '/fonts/';
   font-style: normal;
 }
 
-$primary-color: #EF5411;
-$select-color: fade-out($primary-color, 0.3);
-$dark-gray: #4A4A4A;
-$light-gray: #979797;
+body {
+  border-top: 3px solid $primary-color;
+}
 
 a {
   color: $primary-color;
@@ -133,7 +144,7 @@ ul.menu {
 
     // Active navigation elements get a similar, but darker, background.
     &.active {
-      background: $light-gray;
+      background: $primary-color;
 
       a,
       a:hover,
@@ -144,7 +155,7 @@ ul.menu {
       &:after {
         content: "";
         position: absolute;
-        background: $light-gray;
+        background: $primary-color;
         top: 0;
         bottom: 0;
         width: 9999px;
@@ -172,7 +183,7 @@ ul.menu {
 
       // Get a nice light background when hovering over the navigation items.
       &:hover {
-        background: lighten($light-gray, 20%);
+        background: lighten($primary-color, 20%);
 
         a,
         a:hover,
@@ -184,7 +195,7 @@ ul.menu {
         &:after {
           content: "";
           position: absolute;
-          background: lighten($light-gray, 20%);
+          background: lighten($primary-color, 20%);
           top: 0;
           bottom: 0;
           width: 9999px;
@@ -192,10 +203,6 @@ ul.menu {
         }
       }
     }
-  }
-
-  section#content {
-    padding-top: 80px;
   }
 }
 
@@ -232,9 +239,9 @@ p {
 }
 
 footer {
-  color: light-gray;
+  color: $light-gray;
   font-size: 12px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid $primary-color;
   padding-top: 15px;
   margin-top: 15px;
 
