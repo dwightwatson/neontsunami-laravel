@@ -18,12 +18,12 @@
         <td>Name</td>
         <td>Created</td>
       </tr>
-      @foreach ($series as $series)
+      @foreach ($series as $singleSeries)
         <tr>
           <td>
-            <a href="{{ route('admin.series.show', $series) }}">{{ $series->name }}</a>
+            <a href="{{ route('admin.series.show', $singleSeries) }}">{{ $singleSeries->name }}</a>
           </td>
-          <td>{{ $series->created_at->diffForHumans() }}</td>
+          <td>{{ $singleSeries->created_at->diffForHumans() }}</td>
         </tr>
       @endforeach
     </table>
