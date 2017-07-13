@@ -16,7 +16,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::latest()->get();
+        $projects = Project::latest()->paginate(25);
 
         return view('admin.projects.index', compact('projects'))
             ->withTitle('All projects');
