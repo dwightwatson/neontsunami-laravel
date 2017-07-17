@@ -32,6 +32,6 @@
 
 <div class="form-group {{ Form::hasErrors('published_at') }}">
   {{ Form::label('published_at', null, ['class' => 'control-label']) }}
-  {{ Form::datetime('published_at', (new DateTime)->format('Y-m-d H:i:s'), ['class' => 'form-control']) }}
+  {{ Form::datetime('published_at', isset($post) ? $post->published_at->toDateTimeString() : (new DateTime)->format('Y-m-d H:i:s'), ['class' => 'form-control']) }}
   {{ Form::errors('published_at') }}
 </div>
