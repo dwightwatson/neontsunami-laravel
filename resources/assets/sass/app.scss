@@ -12,6 +12,8 @@ $alert-info-bg: transparent;
 $alert-warning-bg: transparent;
 $alert-danger-bg: transparent;
 
+$white: #fff;
+
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 @import '../../../node_modules/selectize/dist/css/selectize.bootstrap3';
 @import 'algolia';
