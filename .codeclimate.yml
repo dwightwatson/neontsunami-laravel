@@ -26,3 +26,7 @@ ratings:
     - "**.js"
     - "**.php"
     - "**.scss"
+
+exclude_paths:
+  - bootstrap/**/*
+  - resources/views/**/*
