@@ -1,7 +1,7 @@
 .post {
   border-bottom: 1px solid $primary-color;
-  padding-bottom: 30px;
   margin-bottom: 30px;
+  padding-bottom: 30px;
 
   &:last-of-type {
     border-bottom: 0;
@@ -24,10 +24,10 @@
 
     a {
       margin-right: 10px;
+    }
 
-      &:last-of-type {
-        margin-right: 0;
-      }
+    a:last-of-type {
+      margin-right: 0;
     }
   }
 }

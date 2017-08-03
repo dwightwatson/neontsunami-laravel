@@ -58,7 +58,7 @@ a {
 
 .page-header,
 .page-header h3 {
-  margin-top: 0
+  margin-top: 0;
 }
 
 ::selection {
@@ -154,11 +154,11 @@ ul.menu {
       a,
       a:hover,
       a:active {
-        color: #FFF;
+        color: $white;
       }
 
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         background: $primary-color;
         top: 0;
@@ -171,15 +171,15 @@ ul.menu {
 }
 
 @media (min-width: 768px) {
-  ul.menu {
+  .menu {
     li {
+      display: block;
       position: relative;
       text-align: right;
-      display: block;
 
       a {
-        width: 100%;
         padding: 5px 0;
+        width: 100%;
       }
 
       &.active a {
@@ -193,12 +193,12 @@ ul.menu {
         a,
         a:hover,
         a:active {
-          color: #FFF;
+          color: $white;
           padding-right: 5px;
         }
 
         &:after {
-          content: "";
+          content: '';
           position: absolute;
           background: lighten($primary-color, 20%);
           top: 0;

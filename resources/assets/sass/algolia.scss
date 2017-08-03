@@ -38,8 +38,8 @@
 
   img {
     @include img-responsive;
-    height: 30px;
     float: right;
+    height: 30px;
     padding-top: 10px;
   }
 }
