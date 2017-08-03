@@ -1,8 +1,10 @@
 $icon-font-path: '/fonts/';
 
-$primary-color: #EF5411;
-$select-color: fade-out($primary-color, 0.3);
-$dark-gray: #4A4A4A;
+$primary-color: #ef5411;
+$select-color: fade-out($primary-color, .3);
+$white: #fff;
+$dark-gray: #4a4a4a;
+$gray: #999;
 $light-gray: #979797;
 
 // Bootstrap variable overrides
@@ -12,7 +14,6 @@ $alert-info-bg: transparent;
 $alert-warning-bg: transparent;
 $alert-danger-bg: transparent;
 
-$white: #fff;
 
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 @import '../../../node_modules/selectize/dist/css/selectize.bootstrap3';

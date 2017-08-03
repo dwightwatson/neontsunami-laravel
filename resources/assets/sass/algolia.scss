@@ -7,14 +7,14 @@
   }
 
   .aa-hint {
-    color: #999;
+    color: $grey;
   }
 
   .aa-dropdown-menu {
+    background-color: $white;
+    border: 1px solid $grey;
+    border-top: 0;
     width: 100%;
-    background-color: #fff;
-    border: 1px solid #999;
-    border-top: none;
 
     .aa-suggestion {
       cursor: pointer;
