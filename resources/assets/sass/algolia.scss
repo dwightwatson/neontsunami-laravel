@@ -7,12 +7,12 @@
   }
 
   .aa-hint {
-    color: $grey;
+    color: $gray;
   }
 
   .aa-dropdown-menu {
     background-color: $white;
-    border: 1px solid $grey;
+    border: 1px solid $gray;
     border-top: 0;
     width: 100%;
 
@@ -25,8 +25,8 @@
       }
 
       em {
-        font-weight: bold;
         font-style: normal;
+        font-weight: bold;
       }
     }
   }

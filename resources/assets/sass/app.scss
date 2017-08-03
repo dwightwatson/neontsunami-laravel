@@ -115,7 +115,7 @@ header {
     margin: 0;
   }
 
-  p.author {
+  .author {
     @extend .text-muted;
     font-family: 'Bebas Neue Regular';
     font-size: 18px;
@@ -124,19 +124,19 @@ header {
   @media (min-width: 760px) {
     h1,
     h2,
-    p.author {
+    .author {
       text-align: right;
     }
   }
 }
 
-ul.menu {
+.menu {
   padding: 0;
 
   li {
+    display: inline-block;
     font-family: 'Bebas Neue Regular';
     list-style-type: none;
-    display: inline-block;
     margin: 5px 0;
 
     a,
@@ -147,7 +147,7 @@ ul.menu {
       font-size: 20px;
       padding: 5px 10px;
       text-decoration: none;
-      transition: padding 0.5s;
+      transition: padding .5s;
     }
 
     // Active navigation elements get a similar, but darker, background.
@@ -162,12 +162,12 @@ ul.menu {
 
       &:after {
         content: '';
-        position: absolute;
         background: $primary-color;
-        top: 0;
         bottom: 0;
-        width: 9999px;
+        position: absolute;
         right: 100%;
+        top: 0;
+        width: 9999px;
       }
     }
   }
