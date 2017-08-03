@@ -10,7 +10,9 @@ engines:
   phpcodesniffer:
     enabled: true
     exclude_paths:
-      - database/migrations/**/*
+      - database/**/*
+      - database/**/*
+      - tests/**/*
   phpmd:
     enabled: true
     checks:
