@@ -5,17 +5,19 @@ engines:
       languages:
         - javascript:
         - php:
-    exclude_paths:
-      - spec/**/*
   eslint:
     enabled: true
   phpcodesniffer:
     enabled: true
+    exclude_paths:
+      - database/migrations/**/*
   phpmd:
     enabled: true
     checks:
       Naming/ShortMethodName:
         enabled: false
+    exclude_paths:
+      - tests/**/*
   scss-lint:
     enabled: true
 
