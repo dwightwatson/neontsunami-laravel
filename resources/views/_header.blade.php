@@ -27,4 +27,4 @@
     </script>
   </head>
   <body class="{{ controller_name() }} {{ action_name() }}">
-    <div class="container">
+    <div id="app" class="container">

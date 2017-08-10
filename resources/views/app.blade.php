@@ -36,13 +36,7 @@
         </li>
       </ul>
 
-      <div class="algolia">
-        <input type="text" class="form-control" placeholder="Search...">
-
-        <a href="https://www.algolia.com">
-          <img src="{{ asset('images/algolia.jpg') }}" title="Search powered by Algolia">
-        </a>
-      </div>
+      <autocomplete algolia-logo="{{ asset('images/algolia.jpg') }}"></autocomplete>
     </div>
 
     <section id="content" class="col-sm-8 col-md-6">
