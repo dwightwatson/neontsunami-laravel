@@ -64,5 +64,4 @@
       </footer>
     </section>
   </div>
-
 @include('_footer')
