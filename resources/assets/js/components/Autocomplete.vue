@@ -16,7 +16,7 @@ export default {
   props: ['algoliaLogo'],
 
   mounted() {
-    const client = algoliasearch('0OG014ESJC', '3df2cabb4a669248096f9f44ca4251a8');
+    const client = algoliasearch(process.env.MIX_ALGOLIA_APP_ID, process.env.MIX_ALGOLIA_SEARCH_KEY);
     const index = client.initIndex('posts');
 
     let search = autocomplete(this.$refs.input, { hint: true }, [{
