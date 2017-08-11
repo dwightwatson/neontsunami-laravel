@@ -6,10 +6,5 @@ const app = new Vue({
 
   components: {
     Autocomplete
-  },
-
-  mounted() {
-    console.log('Mounted');
-    debugger;
   }
 });
