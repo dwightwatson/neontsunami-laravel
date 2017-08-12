@@ -43,7 +43,6 @@
       @yield('content')
 
       <footer>
-        <p class="copyright">Copyright Dwight Watson {{ date('Y') }}</p>
         <ul class="list-inline">
           <li>
             <a href="https://www.facebook.com/dwightconradwatson">Facebook</a>
