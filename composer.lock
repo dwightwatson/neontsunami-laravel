@@ -707,16 +707,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "0.15.5",
+            "version": "0.15.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "1162ff74f8ab66593d62c58142310101b415cd2a"
+                "reference": "91742543c25fecedc84a4883d2919213e04a73b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/1162ff74f8ab66593d62c58142310101b415cd2a",
-                "reference": "1162ff74f8ab66593d62c58142310101b415cd2a",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/91742543c25fecedc84a4883d2919213e04a73b7",
+                "reference": "91742543c25fecedc84a4883d2919213e04a73b7",
                 "shasum": ""
             },
             "require": {
@@ -772,7 +772,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2017-08-05T19:40:59+00:00"
+            "time": "2017-08-08T11:47:33+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2594,12 +2594,12 @@
             "version": "0.9.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mockery/mockery.git",
+                "url": "https://github.com/padraic/mockery.git",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
+                "url": "https://api.github.com/repos/padraic/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856",
                 "shasum": ""
             },
@@ -2752,16 +2752,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.2.1",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "183824db76118b9dddffc7e522b91fa175f75119"
+                "reference": "4aada1f93c72c35e22fb1383b47fee43b8f1d157"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/183824db76118b9dddffc7e522b91fa175f75119",
-                "reference": "183824db76118b9dddffc7e522b91fa175f75119",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/4aada1f93c72c35e22fb1383b47fee43b8f1d157",
+                "reference": "4aada1f93c72c35e22fb1383b47fee43b8f1d157",
                 "shasum": ""
             },
             "require": {
@@ -2793,7 +2793,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-08-04T20:55:59+00:00"
+            "time": "2017-08-08T06:39:58+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
