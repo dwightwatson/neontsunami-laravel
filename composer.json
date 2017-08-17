@@ -13,6 +13,7 @@
     "laravel/tinker": "^1.0",
     "laravelcollective/html": "~5.0",
     "league/commonmark": "0.15.*",
+    "sentry/sentry-laravel": "^0.8.0",
     "watson/active": "~2.0",
     "watson/breadcrumbs": "^1.0",
     "watson/sitemap": "~2.0",

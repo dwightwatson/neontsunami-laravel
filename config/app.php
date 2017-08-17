@@ -170,6 +170,7 @@ return [
         Heartbeats\Heartbeats\ServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
+        Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
         Watson\Active\ActiveServiceProvider::class,
         Watson\Breadcrumbs\ServiceProvider::class,
         Watson\Sitemap\SitemapServiceProvider::class,
