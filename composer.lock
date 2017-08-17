@@ -487,12 +487,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/heartbeats-pro/heartbeats-php.git",
-                "reference": "4f46d05c6b6d7ff33a501ab974668b91261eb953"
+                "reference": "342f26651153ad1d634a8b911f9ad554550b7cef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heartbeats-pro/heartbeats-php/zipball/4f46d05c6b6d7ff33a501ab974668b91261eb953",
-                "reference": "4f46d05c6b6d7ff33a501ab974668b91261eb953",
+                "url": "https://api.github.com/repos/heartbeats-pro/heartbeats-php/zipball/342f26651153ad1d634a8b911f9ad554550b7cef",
+                "reference": "342f26651153ad1d634a8b911f9ad554550b7cef",
                 "shasum": ""
             },
             "require": {
@@ -530,7 +530,7 @@
                 "analytics",
                 "heartbeats"
             ],
-            "time": "2017-08-17T12:34:20+00:00"
+            "time": "2017-08-17T12:42:20+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -3034,12 +3034,12 @@
             "version": "0.9.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/padraic/mockery.git",
+                "url": "https://github.com/mockery/mockery.git",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/6fdb61243844dc924071d3404bb23994ea0b6856",
                 "reference": "6fdb61243844dc924071d3404bb23994ea0b6856",
                 "shasum": ""
             },
