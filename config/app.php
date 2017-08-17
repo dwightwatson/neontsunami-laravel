@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
+        Heartbeats\Heartbeats\ServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Watson\Active\ActiveServiceProvider::class,

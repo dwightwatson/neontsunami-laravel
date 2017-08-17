@@ -6,6 +6,7 @@
   "type": "project",
   "require": {
     "algolia/algoliasearch-client-php": "^1.10",
+    "heartbeats/heartbeats": "dev-master",
     "laravel/dusk": "^1.0",
     "laravel/framework": "5.4.*",
     "laravel/scout": "^3.0",
