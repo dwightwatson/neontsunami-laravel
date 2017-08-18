@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "09ab8607f4ca4e51ad59dff00fdfca7d",
+    "content-hash": "c98d9c9c27e39f03a2fca44fa06d43f1",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -486,19 +486,20 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/heartbeats-pro/heartbeats-php.git",
-                "reference": "5c8d83adb127be101f89b145e8578d7e8617cf4e"
+                "url": "https://github.com/heartbeats-pro/heartbeats.git",
+                "reference": "2236379485fb7bd71c199b4a732d1ece492bbc50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heartbeats-pro/heartbeats-php/zipball/5c8d83adb127be101f89b145e8578d7e8617cf4e",
-                "reference": "5c8d83adb127be101f89b145e8578d7e8617cf4e",
+                "url": "https://api.github.com/repos/heartbeats-pro/heartbeats/zipball/2236379485fb7bd71c199b4a732d1ece492bbc50",
+                "reference": "2236379485fb7bd71c199b4a732d1ece492bbc50",
                 "shasum": ""
             },
             "require": {
                 "barryvdh/laravel-debugbar": "^2.4",
                 "illuminate/contracts": ">= 5.4",
                 "illuminate/database": ">= 5.4",
+                "illuminate/queue": ">= 5.4",
                 "kitetail/zttp": "^0.2.0",
                 "php": ">=7.0.0"
             },
@@ -530,7 +531,7 @@
                 "analytics",
                 "heartbeats"
             ],
-            "time": "2017-08-17T13:10:24+00:00"
+            "time": "2017-08-18T15:08:43+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
