@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c98d9c9c27e39f03a2fca44fa06d43f1",
+    "content-hash": "09ab8607f4ca4e51ad59dff00fdfca7d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -487,12 +487,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/heartbeats-pro/heartbeats.git",
-                "reference": "2236379485fb7bd71c199b4a732d1ece492bbc50"
+                "reference": "18ce35ae5bdeb7f7bf481c6fa6666f7e4cadcec7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heartbeats-pro/heartbeats/zipball/2236379485fb7bd71c199b4a732d1ece492bbc50",
-                "reference": "2236379485fb7bd71c199b4a732d1ece492bbc50",
+                "url": "https://api.github.com/repos/heartbeats-pro/heartbeats/zipball/18ce35ae5bdeb7f7bf481c6fa6666f7e4cadcec7",
+                "reference": "18ce35ae5bdeb7f7bf481c6fa6666f7e4cadcec7",
                 "shasum": ""
             },
             "require": {
@@ -531,7 +531,7 @@
                 "analytics",
                 "heartbeats"
             ],
-            "time": "2017-08-18T15:08:43+00:00"
+            "time": "2017-08-20T05:23:52+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
