@@ -487,12 +487,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/heartbeats-pro/heartbeats.git",
-                "reference": "18ce35ae5bdeb7f7bf481c6fa6666f7e4cadcec7"
+                "reference": "855b6c3598ca123eb5b55a936d95586116fa8d63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heartbeats-pro/heartbeats/zipball/18ce35ae5bdeb7f7bf481c6fa6666f7e4cadcec7",
-                "reference": "18ce35ae5bdeb7f7bf481c6fa6666f7e4cadcec7",
+                "url": "https://api.github.com/repos/heartbeats-pro/heartbeats/zipball/855b6c3598ca123eb5b55a936d95586116fa8d63",
+                "reference": "855b6c3598ca123eb5b55a936d95586116fa8d63",
                 "shasum": ""
             },
             "require": {
@@ -531,7 +531,7 @@
                 "analytics",
                 "heartbeats"
             ],
-            "time": "2017-08-20T05:23:52+00:00"
+            "time": "2017-08-20T05:56:55+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -3676,16 +3676,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b"
+                "reference": "9a02332089ac48e704c70f6cefed30c224e3c0b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
-                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/9a02332089ac48e704c70f6cefed30c224e3c0b0",
+                "reference": "9a02332089ac48e704c70f6cefed30c224e3c0b0",
                 "shasum": ""
             },
             "require": {
@@ -3721,7 +3721,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-08-03T14:17:41+00:00"
+            "time": "2017-08-20T05:47:52+00:00"
         },
         {
             "name": "phpunit/phpunit",
