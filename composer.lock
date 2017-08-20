@@ -487,12 +487,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/heartbeats-pro/heartbeats.git",
-                "reference": "855b6c3598ca123eb5b55a936d95586116fa8d63"
+                "reference": "61c6e0c6b6c90a9934da5040a02f63e440256a6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heartbeats-pro/heartbeats/zipball/855b6c3598ca123eb5b55a936d95586116fa8d63",
-                "reference": "855b6c3598ca123eb5b55a936d95586116fa8d63",
+                "url": "https://api.github.com/repos/heartbeats-pro/heartbeats/zipball/61c6e0c6b6c90a9934da5040a02f63e440256a6e",
+                "reference": "61c6e0c6b6c90a9934da5040a02f63e440256a6e",
                 "shasum": ""
             },
             "require": {
@@ -531,7 +531,7 @@
                 "analytics",
                 "heartbeats"
             ],
-            "time": "2017-08-20T05:56:55+00:00"
+            "time": "2017-08-20T06:34:50+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
