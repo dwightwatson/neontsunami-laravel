@@ -4,8 +4,6 @@ namespace Tests\Unit\Models;
 
 use App\Model;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ModelTest extends TestCase
 {

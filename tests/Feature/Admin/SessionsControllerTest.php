@@ -4,18 +4,14 @@ namespace Tests\Feature\Admin;
 
 use App\User;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class SessionsControllerTest extends TestCase
 {
-    use DatabaseTransactions;
+    use RefreshDatabase;
 
     public function testCreate()
     {
-        $this->disableExceptionHandling();
-
         $response = $this->get('/admin/login');
 
         $response->assertStatus(200);
@@ -57,6 +53,8 @@ class SessionsControllerTest extends TestCase
 
     public function testStoreWithoutCredentials()
     {
+        $this->from('/admin/login');
+
         $response = $this->post('/admin/login', []);
 
         $response->assertRedirect('/admin/login');

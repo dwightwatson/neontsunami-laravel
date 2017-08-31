@@ -4,8 +4,6 @@ namespace Tests\Unit\Models;
 
 use App\Tag;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TagTest extends TestCase
 {
