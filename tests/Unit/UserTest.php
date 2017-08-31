@@ -5,8 +5,6 @@ namespace App;
 use App\User;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTest extends TestCase
 {

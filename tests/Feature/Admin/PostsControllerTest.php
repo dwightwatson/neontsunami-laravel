@@ -6,13 +6,11 @@ use App\Tag;
 use App\Post;
 use App\User;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PostsControllerTest extends TestCase
 {
-    use DatabaseTransactions;
+    use RefreshDatabase;
 
     public function setUp()
     {
@@ -39,6 +37,8 @@ class PostsControllerTest extends TestCase
 
     public function testStore()
     {
+        $this->withoutExceptionHandling();
+
         $post = factory(Post::class)->make(['series_id' => null, 'slug' => 'foo']);
 
         $response = $this->post('/admin/posts', $post->getAttributes());
