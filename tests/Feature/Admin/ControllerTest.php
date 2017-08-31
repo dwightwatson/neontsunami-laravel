@@ -4,17 +4,19 @@ namespace Tests\Feature\Admin;
 
 use App\User;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function testRedirectsGuests()
     {
         $response = $this->get('/admin');
 
         $response->assertRedirect('/admin/login');
+
+        $this->assertGuest();
     }
 
     public function testAllowsAuthenticatedAccess()
@@ -22,5 +24,7 @@ class ControllerTest extends TestCase
         $response = $this->actingAs(new User)->get('/admin');
 
         $response->assertStatus(200);
+
+        $this->assertAuthenticated();
     }
 }
