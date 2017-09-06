@@ -22,7 +22,7 @@ class StoreTagRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'filled'
+            'name' => 'required'
         ];
     }
 

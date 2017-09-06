@@ -22,9 +22,9 @@ class StorePostRequest extends Request
     {
         return [
             'series_id' => 'nullable|exists:series,id',
-            'title'     => 'filled',
-            'slug'      => ['filled', 'unique:posts,slug'],
-            'content'   => 'filled'
+            'title'     => 'required',
+            'slug'      => ['required', 'unique:posts,slug'],
+            'content'   => 'required'
         ];
     }
 }
