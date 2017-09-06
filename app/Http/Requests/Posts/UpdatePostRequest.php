@@ -17,8 +17,8 @@ class UpdatePostRequest extends Request
         $post = $this->route()->parameter('post');
 
         return [
-            'series_id' => 'nullable|exists:series,id',
-            'slug' => Rule::unique('posts', 'slug')->ignore($post->getKey())
+            'series_id' => ['nullable', Rule::exists('series', 'id')],
+            'slug' => Rule::unique('posts')->ignore($post->getKey())
         ];
     }
 

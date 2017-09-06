@@ -22,9 +22,9 @@ class StorePostRequest extends Request
     public function rules()
     {
         return [
-            'series_id' => 'nullable|exists:series,id',
+            'series_id' => ['nullable', Rule::exists('series', 'id')],
             'title' => 'required',
-            'slug' => ['required', Rule::unique('posts', 'slug')],
+            'slug' => ['required', Rule::unique('posts')],
             'content' => 'required'
         ];
     }

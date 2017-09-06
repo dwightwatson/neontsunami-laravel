@@ -23,7 +23,7 @@ class StoreSeriesRequest extends Request
     {
         return [
             'name' => 'required',
-            'slug' => ['required', Rule::unique('series', 'slug')],
+            'slug' => ['required', Rule::unique('series')],
             'description' => 'required'
         ];
     }

@@ -17,7 +17,7 @@ class UpdateUserRequest extends Request
         $user = $this->route()->parameter('user');
 
         return [
-            'email' => ['email', Rule::unique('users', 'email')->ignore($user->getKey())]
+            'email' => ['email', Rule::unique('users')->ignore($user->getKey())]
         ];
     }
 

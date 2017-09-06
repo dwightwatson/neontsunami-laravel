@@ -17,7 +17,7 @@ class UpdateSeriesRequest extends Request
         $series = $this->route()->parameter('series');
 
         return [
-            'slug' => Rule::unique('series', 'slug')->ignore($series->getKey())
+            'slug' => Rule::unique('series')->ignore($series->getKey())
         ];
     }
 

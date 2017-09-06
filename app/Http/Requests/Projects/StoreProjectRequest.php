@@ -23,7 +23,7 @@ class StoreProjectRequest extends Request
     {
         return [
             'name'        => 'required',
-            'slug'        => ['required', Rule::unique('projects', 'slug')],
+            'slug'        => ['required', Rule::unique('projects')],
             'description' => 'required',
             'url'         => 'url'
         ];

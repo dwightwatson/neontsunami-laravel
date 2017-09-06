@@ -17,7 +17,7 @@ class UpdateProjectRequest extends Request
         $project = $this->route()->parameter('project');
 
         return [
-            'slug' => Rule::unique('projects', 'slug')->ignore($project->getKey()),
+            'slug' => Rule::unique('projects')->ignore($project->getKey()),
             'url'  => 'url'
         ];
     }
