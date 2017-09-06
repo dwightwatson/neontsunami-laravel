@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Posts;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 class StorePostRequest extends Request
 {
@@ -22,9 +23,9 @@ class StorePostRequest extends Request
     {
         return [
             'series_id' => 'nullable|exists:series,id',
-            'title'     => 'required',
-            'slug'      => ['required', 'unique:posts,slug'],
-            'content'   => 'required'
+            'title' => 'required',
+            'slug' => ['required', Rule::unique('posts', 'slug')],
+            'content' => 'required'
         ];
     }
 }

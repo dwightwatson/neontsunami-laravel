@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Users;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 class StoreUserRequest extends Request
 {
@@ -22,9 +23,9 @@ class StoreUserRequest extends Request
     {
         return [
             'first_name' => 'required',
-            'last_name'  => 'required',
-            'email'      => ['required', 'email', 'unique:users,email'],
-            'password'   => 'required'
+            'last_name' => 'required',
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
+            'password' => 'required'
         ];
     }
 }

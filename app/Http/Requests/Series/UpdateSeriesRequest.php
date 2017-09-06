@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Series;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 class UpdateSeriesRequest extends Request
 {
@@ -16,7 +17,7 @@ class UpdateSeriesRequest extends Request
         $series = $this->route()->parameter('series');
 
         return [
-            'slug' => ['unique:series,slug,'.$series->getKey()],
+            'slug' => Rule::unique('series', 'slug')->ignore($series->getKey())
         ];
     }
 

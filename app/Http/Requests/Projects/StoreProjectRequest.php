@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Projects;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 class StoreProjectRequest extends Request
 {
@@ -22,7 +23,7 @@ class StoreProjectRequest extends Request
     {
         return [
             'name'        => 'required',
-            'slug'        => ['required', 'unique:projects,slug'],
+            'slug'        => ['required', Rule::unique('projects', 'slug')],
             'description' => 'required',
             'url'         => 'url'
         ];

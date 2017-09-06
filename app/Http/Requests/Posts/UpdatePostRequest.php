@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Posts;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 class UpdatePostRequest extends Request
 {
@@ -17,7 +18,7 @@ class UpdatePostRequest extends Request
 
         return [
             'series_id' => 'nullable|exists:series,id',
-            'slug'      => ['unique:posts,slug,'.$post->getKey()],
+            'slug' => Rule::unique('posts', 'slug')->ignore($post->getKey())
         ];
     }
 

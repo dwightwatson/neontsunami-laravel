@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Projects;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 class UpdateProjectRequest extends Request
 {
@@ -16,7 +17,7 @@ class UpdateProjectRequest extends Request
         $project = $this->route()->parameter('project');
 
         return [
-            'slug' => ['unique:projects,slug,'.$project->getKey()],
+            'slug' => Rule::unique('projects', 'slug')->ignore($project->getKey()),
             'url'  => 'url'
         ];
     }

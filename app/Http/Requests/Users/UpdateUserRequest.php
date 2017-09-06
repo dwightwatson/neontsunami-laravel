@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Users;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 class UpdateUserRequest extends Request
 {
@@ -16,7 +17,7 @@ class UpdateUserRequest extends Request
         $user = $this->route()->parameter('user');
 
         return [
-            'email' => ['email', 'unique:users,email,'.$user->getKey()]
+            'email' => ['email', Rule::unique('users', 'email')->ignore($user->getKey())]
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Series;
 
 use App\Http\Requests\Request;
+use Illuminate\Validation\Rule;
 
 class StoreSeriesRequest extends Request
 {
@@ -21,8 +22,8 @@ class StoreSeriesRequest extends Request
     public function rules()
     {
         return [
-            'name'        => 'required',
-            'slug'        => ['required', 'unique:series,slug'],
+            'name' => 'required',
+            'slug' => ['required', Rule::unique('series', 'slug')],
             'description' => 'required'
         ];
     }
