@@ -167,14 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Collective\Html\HtmlServiceProvider::class,
-        Heartbeats\Heartbeats\ServiceProvider::class,
-        Laravel\Scout\ScoutServiceProvider::class,
-        Laravel\Tinker\TinkerServiceProvider::class,
-        Sentry\SentryLaravel\SentryLaravelServiceProvider::class,
-        Watson\Active\ActiveServiceProvider::class,
         Watson\Breadcrumbs\ServiceProvider::class,
-        Watson\Sitemap\SitemapServiceProvider::class,
         Watson\Taggly\TagglyServiceProvider::class,
 
         /*
@@ -235,11 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
-
         'Breadcrumbs' => Watson\Breadcrumbs\Facade::class,
-        'Sitemap' => Watson\Sitemap\Facades\Sitemap::class,
         'Taggly' => Watson\Taggly\TagFacade::class,
 
     ],
