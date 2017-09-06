@@ -21,7 +21,7 @@ class SessionsControllerTest extends TestCase
     {
         $user = factory(User::class)->create([
             'email'    => 'test@example.com',
-            'password' => 'password'
+            'password' => bcrypt('password')
         ]);
 
         $response = $this->post('/admin/login', [
