@@ -31,9 +31,9 @@ class StoreSeriesRequest extends Request
     public function rules()
     {
         return [
-            'name'        => 'required',
-            'slug'        => ['required', 'unique:series,slug'],
-            'description' => 'required'
+            'name'        => 'filled',
+            'slug'        => ['filled', 'unique:series,slug'],
+            'description' => 'filled'
         ];
     }
 }

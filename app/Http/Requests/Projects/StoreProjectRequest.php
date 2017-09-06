@@ -31,9 +31,9 @@ class StoreProjectRequest extends Request
     public function rules()
     {
         return [
-            'name'        => 'required',
-            'slug'        => ['required', 'unique:projects,slug'],
-            'description' => 'required',
+            'name'        => 'filled',
+            'slug'        => ['filled', 'unique:projects,slug'],
+            'description' => 'filled',
             'url'         => 'url'
         ];
     }
