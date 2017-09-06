@@ -11,9 +11,10 @@
   </div>
 
   <div class="col-md-8 col-md-offset-2">
-    {{ Form::open(['route' => 'admin.posts.store']) }}
+    <form method="post" action="{{ route('admin.posts.store') }}">
+      {{ csrf_field() }}
       @include('admin.posts._form')
-      {{ Form::submit('Create post', ['class' => 'btn btn-primary']) }}
-    {{ Form::close() }}
+      <input type="submit" class="btn btn-primary" value="Create post">
+    </form>
   </div>
 @stop

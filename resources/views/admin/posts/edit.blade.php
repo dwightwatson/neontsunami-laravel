@@ -11,9 +11,11 @@
   </div>
 
   <div class="col-md-8 col-md-offset-2">
-    {{ Form::model($post, ['route' => ['admin.posts.update', $post], 'method' => 'put']) }}
+    <form method="post" action="{{ route('admin.posts.update', $post) }}">
+      {{ csrf_field() }}
+      {{ method_field('put') }}
       @include('admin.posts._form')
-      {{ Form::submit('Save post', ['class' => 'btn btn-primary']) }}
-    {{ Form::close() }}
+      <input type="submit" class="btn btn-primary" value="Save post">
+    </form>
   </div>
 @stop
