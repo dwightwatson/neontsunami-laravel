@@ -167,8 +167,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Watson\Breadcrumbs\ServiceProvider::class,
-        Watson\Taggly\TagglyServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -227,9 +225,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
-        'Breadcrumbs' => Watson\Breadcrumbs\Facade::class,
-        'Taggly' => Watson\Taggly\TagFacade::class,
 
     ],
 

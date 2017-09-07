@@ -836,16 +836,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "7f75d602dd6d59311ff46777eff44fa14d39e5af"
+                "reference": "5e0ceaa27c9a78897f201a26f176b23bef20210f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/7f75d602dd6d59311ff46777eff44fa14d39e5af",
-                "reference": "7f75d602dd6d59311ff46777eff44fa14d39e5af",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/5e0ceaa27c9a78897f201a26f176b23bef20210f",
+                "reference": "5e0ceaa27c9a78897f201a26f176b23bef20210f",
                 "shasum": ""
             },
             "require": {
@@ -893,7 +893,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2017-08-28T10:03:58+00:00"
+            "time": "2017-09-06T13:19:28+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3197,16 +3197,16 @@
         },
         {
             "name": "watson/breadcrumbs",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dwightwatson/breadcrumbs.git",
-                "reference": "3eb0777b38b3049362a38c6df652965ce25851ab"
+                "reference": "81e8bfa8330d9ff74efef1f51d668dc6f712b7ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dwightwatson/breadcrumbs/zipball/3eb0777b38b3049362a38c6df652965ce25851ab",
-                "reference": "3eb0777b38b3049362a38c6df652965ce25851ab",
+                "url": "https://api.github.com/repos/dwightwatson/breadcrumbs/zipball/81e8bfa8330d9ff74efef1f51d668dc6f712b7ae",
+                "reference": "81e8bfa8330d9ff74efef1f51d668dc6f712b7ae",
                 "shasum": ""
             },
             "require": {
@@ -3220,6 +3220,16 @@
                 "phpunit/phpunit": "~5.0"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Watson\\Breadcrumbs\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "Breadcrumbs": "Watson\\Breadcrumbs\\Facade"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Watson\\": "src/"
@@ -3240,7 +3250,7 @@
                 "breadcrumbs",
                 "laravel"
             ],
-            "time": "2017-05-19T18:45:19+00:00"
+            "time": "2017-09-07T06:04:15+00:00"
         },
         {
             "name": "watson/sitemap",
@@ -3300,16 +3310,16 @@
         },
         {
             "name": "watson/taggly",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dwightwatson/taggly.git",
-                "reference": "b0b7e646575fa0c0897ab7701904560fb5a7aa67"
+                "reference": "40a40ed1ca3d5b48d6242b91ee3f277d1dc9ac76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dwightwatson/taggly/zipball/b0b7e646575fa0c0897ab7701904560fb5a7aa67",
-                "reference": "b0b7e646575fa0c0897ab7701904560fb5a7aa67",
+                "url": "https://api.github.com/repos/dwightwatson/taggly/zipball/40a40ed1ca3d5b48d6242b91ee3f277d1dc9ac76",
+                "reference": "40a40ed1ca3d5b48d6242b91ee3f277d1dc9ac76",
                 "shasum": ""
             },
             "require": {
@@ -3317,6 +3327,16 @@
                 "php": ">=5.4.0"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Watson\\Taggly\\TagglyServiceProvider"
+                    ],
+                    "aliases": {
+                        "Tag": "Watson\\Taggly\\TagFacade"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Watson\\Taggly\\": "src/"
@@ -3339,7 +3359,7 @@
                 "tag",
                 "taggly"
             ],
-            "time": "2015-06-10T04:58:44+00:00"
+            "time": "2017-09-07T06:05:50+00:00"
         }
     ],
     "packages-dev": [
