@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "algoliasearch": "^3.18.1",
-    "autocomplete.js": "^0.28.1",
+    "autocomplete.js": "^0.29.0",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.0.1",
     "jquery": "^3.1.1",
