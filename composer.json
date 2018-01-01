@@ -14,7 +14,7 @@
     "laravel/scout": "^3.0",
     "laravel/tinker": "^1.0",
     "laravelcollective/html": "~5.0",
-    "league/commonmark": "0.16.*",
+    "league/commonmark": "0.17.*",
     "predis/predis": "^1.1",
     "sentry/sentry-laravel": "^0.8.0",
     "watson/active": "~2.0",
