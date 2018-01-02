@@ -19,7 +19,6 @@ Route::get('tags/ruby%20on%20rails', 'RedirectsController@getTagsRubyOnRails');
 */
 Route::get('/', 'PagesController@index')->name('pages.index');
 Route::get('about', 'PagesController@about')->name('pages.about');
-Route::get('work', 'PagesController@work')->name('pages.work');
 ROute::get('rss', 'PagesController@rss')->name('pages.rss');
 
 Route::get('sitemap', 'SitemapsController@index')->name('sitemaps.index');
