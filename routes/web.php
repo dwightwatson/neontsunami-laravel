@@ -33,7 +33,7 @@ Route::resource('projects', 'ProjectsController', ['only' => ['index', 'show']])
 | Admin routes
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function () {
     Route::get('/', 'PagesController@index')->name('pages.index');
 
     Route::get('login', 'SessionsController@create')->name('sessions.create');
