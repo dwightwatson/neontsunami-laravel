@@ -5,7 +5,7 @@
   <p class="post-published">Published {{ $post->published_at->diffForHumans() }}</p>
   <div class="post-content">
   <p>
-    {{ str_limit(strip_tags(commonmark($post->content)), 500) }}
+    {{ str_limit(strip_tags(markdown($post->content)), 500) }}
     <a href="{{ route('posts.show', $post) }}">Read more...</a>
   </p>
   </div>

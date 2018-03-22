@@ -1,14 +1,18 @@
 <?php
 
-if (! function_exists('commonmark')) {
+use Illuminate\Support\HtmlString;
+
+if (! function_exists('markdown')) {
     /**
-     * Convert Commonmark into HTML.
+     * Convert Markdown into HTML.
      *
-     * @param  string  $commonmark
+     * @param  string  $markdown
      * @return string
      */
-    function commonmark($commonmark)
+    function markdown($markdown)
     {
-        return (new League\CommonMark\CommonMarkConverter)->convertToHtml($commonmark);
+        $compiled = (new Parsedown)->text($markdown);
+
+        return new HtmlString($compiled);
     }
 }

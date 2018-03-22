@@ -3,7 +3,7 @@
 @section('head')
   <meta property="og:type" content="article">
   <meta property="og:title" content="{{ $post->title }}">
-  <meta property="og:description" content="{{ trim(str_limit(strip_tags(commonmark($post->content)), 200)) }}">
+  <meta property="og:description" content="{{ trim(str_limit(strip_tags(markdown($post->content)), 200)) }}">
   <meta property="og:url" content="{{ route('posts.show', $post) }}">
 
   <meta property="article:published_time" content="{{ $post->published_at->toIso8601String() }}">
@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@dwightconrad">
   <meta name="twitter:title" content="{{ $post->title }}">
-  <meta name="twitter:description" content="{{ trim(str_limit(strip_tags(commonmark($post->content)), 200)) }}">
+  <meta name="twitter:description" content="{{ trim(str_limit(strip_tags(markdown($post->content)), 200)) }}">
 @stop
 
 @section('content')
@@ -30,7 +30,7 @@
   </div>
 
   <div class="post">
-    {!! commonmark($post->content) !!}
+    {{ markdown($post->content) }}
 
     @if ($post->tags->count())
       <div class="post-tags">

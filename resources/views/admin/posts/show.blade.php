@@ -19,7 +19,7 @@
   </p>
 
   <div class="post-content">
-    {!! commonmark($post->content) !!}
+    {{ markdown($post->content) }}
   </div>
 
   @if ($post->tags->count())
