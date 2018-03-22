@@ -25,9 +25,6 @@
         <li class="{{ active('pages.about') }}">
           <a href="{{ route('pages.about') }}">About</a>
         </li>
-        <li class="{{ active('pages.work') }}">
-          <a href="{{ route('pages.work') }}">Work</a>
-        </li>
         <li>
           <a href="https://github.com/dwightwatson/neontsunami">Fork</a>
         </li>

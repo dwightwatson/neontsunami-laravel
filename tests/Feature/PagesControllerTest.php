@@ -31,13 +31,6 @@ class PagesControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testWork()
-    {
-        $response = $this->get('/work');
-
-        $response->assertStatus(200);
-    }
-
     public function testRss()
     {
         $response = $this->get('/rss');
