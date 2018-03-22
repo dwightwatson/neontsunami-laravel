@@ -19,5 +19,8 @@
         "rails-ujs": "^5.1.1",
         "selectize": "^0.12.2",
         "vue": "^2.5.7"
+    },
+    "dependencies": {
+        "highlight.js": "^9.12.0"
     }
 }

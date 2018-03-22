@@ -14,9 +14,9 @@ $alert-info-bg: transparent;
 $alert-warning-bg: transparent;
 $alert-danger-bg: transparent;
 
-
-@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'bootstrap';
 @import '../../../node_modules/selectize/dist/css/selectize.bootstrap3';
+@import 'peacock.css';
 @import 'algolia';
 @import 'admin';
 @import 'pages';
